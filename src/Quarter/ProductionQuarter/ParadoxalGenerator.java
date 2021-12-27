@@ -57,7 +57,15 @@ public class ParadoxalGenerator extends ProductionQuarter {
         }
         //1=DimensionlessSpace
         else if (quarterAdjacentType==1) {
-            productionBonusRate+=10*levelAdjacent*crewAdjacent/2;
+            if (levelAdjacent==1) {
+                productionBonusRate+=10*levelAdjacent*crewAdjacent/2;
+            }
+            else if (levelAdjacent==2) {
+                productionBonusRate+=10*levelAdjacent*crewAdjacent/3;
+            }
+            else if (levelAdjacent==3) {
+                productionBonusRate+=10*levelAdjacent*crewAdjacent/4;
+            }
         }
     }
 
