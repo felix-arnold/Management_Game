@@ -11,26 +11,37 @@ public abstract class ProductionQuarter extends Quarter {
         level=1;
         crew=0;
         productionBonusConstant=0;
-        productionBonusRate=100;
+        productionBonusRate=1;
     }
 
-    protected int production;
-    protected int productionPerCrew;
-    protected int productionBonusRate;
-    protected int productionBonusConstant;
+    protected double[] productionPerCrew;
+    protected double productionBonusRate;
+    protected double productionBonusConstant;
 
+    public void upgrade(){
+        if (level < maxLevel) {
+            super.upgrade();
 
-    public int getProduction() {
-        return production;
+        }
     }
 
 
     //Test functions
-    public int getProductionBonusRate() {
+    public double getProductionBonusRate() {
         return productionBonusRate;
     }
 
-    public int getProductionBonusConstant() {
+    public double getProductionBonusConstant() {
         return productionBonusConstant;
     }
+
+    public double getProductionPerCrew() {
+        return productionPerCrew[level-1];
+    }
+
+    public long getProduction() {
+        production = Math.round(productionPerCrew[level-1]*crew*productionBonusRate+productionBonusConstant);
+        return production;
+    }
+
 }

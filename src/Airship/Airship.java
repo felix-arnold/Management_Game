@@ -1,6 +1,12 @@
-import Quarter.Quarter;
+package Airship;
 
+import General.AnimatedThing;
+import Quarter.Quarter;
+import javafx.scene.layout.GridPane;
+
+import java.awt.*;
 import java.util.ArrayList;
+
 
 public abstract class Airship {
 
@@ -15,7 +21,10 @@ public abstract class Airship {
     protected int electricity;*/
     static int numberOfShip;
 
-    protected ArrayList <Quarter> quarterList = new ArrayList<Quarter>(10);
+
+    protected int[][] positionQuarter;
+    protected Quarter[][] quarterList;
+    protected int numberQuarter;
 
     public Airship(String name) {
         this.name = name;
@@ -26,7 +35,12 @@ public abstract class Airship {
         return name;
     }
 
-    public ArrayList<Quarter> getQuarterList() {
+    public Quarter[][] getQuarterList() {
         return quarterList;
     }
+
+    public int getNumberQuarter() {
+        return numberQuarter;
+    }
+
 }

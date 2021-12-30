@@ -1,6 +1,6 @@
 package Quarter.ProductionQuarter;
 
-public class Programmer extends ProductionQuarter {
+public class ProgrammersOffice extends ProductionQuarter {
     @Override
     public int getMaxCrew() {
         return 0;

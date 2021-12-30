@@ -1,19 +1,23 @@
-import Quarter.ProductionQuarter.ParadoxalGenerator;
+import General.Gamescene;
+import Quarter.Quarter;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.stage.Stage;
 
 public class Main extends Application{
 
     public void start(Stage primaryStage){
 
-        /*primaryStage.setTitle("Demo");
+        primaryStage.setTitle("Demo");
         Group root = new Group();
-        Demo scene = new Demo(root);
+        Gamescene scene = new Gamescene(root);
         primaryStage.setScene(scene);
-        primaryStage.show();*/
+        primaryStage.show();
+        scene.getStylesheets().add("Style.css");
     }
+
     public static void main(String[] args) {
-        //launch(args);
+        launch(args);
 
         /*Sloop sloop = new Sloop("sloop1");
 
@@ -32,37 +36,31 @@ public class Main extends Application{
 
 
 
+        /*CryptoMine gen = new CryptoMine();
 
-        ParadoxalGenerator gen = new ParadoxalGenerator();
-        gen.upgrade();
-        gen.upgrade();
-        gen.upgrade();
-        gen.crewUp();
-        gen.crewUp();
-        gen.crewUp();
-        gen.crewUp();
-        gen.crewUp();
-        gen.crewUp();
-        gen.crewUp();
-        gen.crewUp();
-        gen.isAdjacent(1,4,3,0);
+        int j = 1;
+        int i = 0;
+        while (j<4) {
+            gen.upgrade();
+            j++;
+        }
+        while (i<8) {
+            gen.crewUp();
+            i++;
+        }
+
+        //gen.isAdjacent(0,6,2,0);
+
         System.out.println(gen.getLevel());
-        System.out.println(gen.getCrew());
-        System.out.println(gen.getProductionBonusConstant());
-        System.out.println(gen.getProductionBonusRate());
-        System.out.println(gen.getProduction());
+        //System.out.println(gen.getCrew());
+        //System.out.println(gen.getProductionBonusConstant());
+        //System.out.println(gen.getProductionBonusRate());
+        System.out.println(gen.getBitCost());
+        System.out.println(gen.getCodeDataCost());
+        System.out.println(gen.getCryptomoneyCost());
+        System.out.println(gen.getElectricityConsumption());
+        System.out.println(gen.getMaxCrew());
+        System.out.println(gen.getProductionPerCrew());
+        System.out.println(gen.getProduction());*/
     }
-
-    private static int bitTotal;
-    private static int foodTotal;
-    private static int codeDataTotal;
-    private static int electricityTotal;
-    private static int cryptomoneyTotal;
-    private static int crewTotal;
-
-    private static int bitBalance;
-    private static int foodBalance;
-    private static int codeDataBalance;
-    private static int electricityBalance;
-    private static int cryptomoneyBalance;
 }

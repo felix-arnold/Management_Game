@@ -7,45 +7,20 @@ public class CryptoMine extends ProductionQuarter {
     public CryptoMine() {
         super();
 
-        maxCrew=4;
-        maxLevel=4;
-        productionPerCrew=100;
+        //A SUPP
+        crew=4;
 
-        //Construction costs and consumption
-        codeDataCost=0;
-        bitCost=400;
-        cryptomoneyCost=200;
-        electricityConsumption=0;
-
-        //Upgrade to level 2 costs and consumption
-        codeDataCost1Upgrade=0;
-        bitCost1Upgrade=600;
-        cryptomoneyCost1Upgrade=1200;
-        electricityConsumption1Upgrade=0;
-
-        // Upgrade to level 3 costs and consumption
-        codeDataCost2Upgrade=300;
-        bitCost2Upgrade=800;
-        cryptomoneyCost2Upgrade=2500;
-        electricityConsumption2Upgrade=0;
-
-        //Upgrade to level 4 costs and consumption
-        codeDataCost3Upgrade=600;
-        bitCost3Upgrade=1000;
-        cryptomoneyCost3Upgrade=4000;
-        electricityConsumption3Upgrade=0;
-    }
-
-    @Override
-    public void upgrade() {
-        if (level < maxLevel) {
-            super.upgrade();
-            maxCrew++;
-            if (level==4) {
-                maxCrew++;
-            }
-            productionPerCrew += 50;
-        }
+        //Construction cost, consumption, upgrade cost, variable
+        maxLevel = 4;
+        maxCrew = new int[]{4, 5, 6, 8};
+        productionPerCrew = new double[]{250, 300, 350, 400};
+        bitCost = new int[]{300, 500, 0, 0};
+        codeDataCost = new int[]{0, 0, 1200, 2000};
+        cryptomoneyCost = new int[]{200, 1200, 2500, 5000};
+        electricityConsumption = new int[]{150, 300, 450, 600};
+        style = "cryptomine";
+        selectedStyle = "selectedCryptomine";
+        productionType="cryptomoney";
     }
 
     @Override
@@ -56,27 +31,9 @@ public class CryptoMine extends ProductionQuarter {
         }
         //1=Cryptoinvestor
         else if (quarterAdjacentType==1) {
-            if (levelAdjacent==1) {
-                if (Math.random()>0.1*crewAdjacent/2) {
-                    productionBonusRate += 40+parameterAdjacent;
-                }
-            }
-            else if (levelAdjacent==2) {
-                if (Math.random()>0.3*crewAdjacent/3) {
-                    productionBonusRate += 40+parameterAdjacent;
-                }
-            }
-            else if (levelAdjacent==3) {
-                if (Math.random()>0.5*crewAdjacent/4) {
-                    productionBonusRate += 40+parameterAdjacent;
-                }
+            if (Math.random()>0.1*(levelAdjacent*2-1)*crewAdjacent/(levelAdjacent+1)) {
+                productionBonusRate += 40+parameterAdjacent;
             }
         }
-    }
-
-    @Override
-    public int getProduction() {
-        production = productionPerCrew*crew*productionBonusRate/100+productionBonusConstant;
-        return super.getProduction();
     }
 }

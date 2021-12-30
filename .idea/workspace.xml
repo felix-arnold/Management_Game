@@ -5,8 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a35307b7-cb98-41ee-b3a7-107069c9742c" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/General/AnimatedThing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/General/Gamescene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/General/StaticThing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Airship.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Demo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/ProductionQuarter/CryptoMine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/ProductionQuarter/IASynthetisTank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/ProductionQuarter/ParadoxalGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/ProductionQuarter/ProductionQuarter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/ProductionQuarter/Programmer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/ProductionQuarter/TemporalCamboose.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/Quarter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Quarter/SpecialQuarter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Runner/Sloop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/Airship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/CryptoMine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/CryptoMine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Programmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCamboose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCamboose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sloop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/ManOWar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +48,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -41,19 +73,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../UML" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Félix\Documents\Cours\ENSEA_2A\Projet\Java\src" />
       <recent name="C:\Users\Félix\Documents\Cours\ENSEA_2A\Runner\images" />
     </key>
   </component>
@@ -62,19 +95,6 @@
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Management" />
       <option name="VM_PARAMETERS" value="--module-path C:\JavaFX\javafx-sdk-17.0.0.1\lib --add-modules javafx.controls" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Management" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Management" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,7 +177,14 @@
       <workItem from="1640364583551" duration="3678000" />
       <workItem from="1640445374822" duration="299000" />
       <workItem from="1640602703285" duration="1197000" />
-      <workItem from="1640620815555" duration="17842000" />
+      <workItem from="1640620815555" duration="19801000" />
+      <workItem from="1640701641439" duration="18618000" />
+      <workItem from="1640729914978" duration="1535000" />
+      <workItem from="1640733635484" duration="1003000" />
+      <workItem from="1640779638937" duration="14288000" />
+      <workItem from="1640807815620" duration="13949000" />
+      <workItem from="1640855715425" duration="18414000" />
+      <workItem from="1640876102358" duration="694000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -194,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637682372656</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Initial commit">
+      <created>1640643720392</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1640643720392</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +239,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
