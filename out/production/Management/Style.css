@@ -1,0 +1,106 @@
+.emptyQuarter {
+    -fx-background-color: rgba(178, 132, 98, 0.5);
+    -fx-border-color: rgba(222, 206, 198, 0.9);
+    -fx-border-width: 1.5;
+}
+
+.selectedQuarter {
+    -fx-background-color: rgba(210, 194, 186, 0.9);
+    -fx-border-color: rgba(222, 206, 198, 1);
+    -fx-border-width: 1.5;
+}
+
+.impossibleConstruction {
+    -fx-background-color: rgba(161, 32, 43, 0.9);
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-border-width: 1.5;
+}
+
+.cryptomine {
+    -fx-background-color: rgba(161, 121, 32, 0.8);
+    -fx-border-color: rgba(222, 206, 198, 1);
+    -fx-border-width: 1.5;
+}
+
+.selectedCryptomine {
+    -fx-background-color: rgba(210, 175, 99, 0.9);
+    -fx-border-color: rgb(245, 234, 229);
+    -fx-border-width: 1.5;
+}
+
+.paradoxalGenerator {
+    -fx-background-color: rgba(30, 91, 136, 0.8);
+    -fx-border-color: rgba(222, 206, 198, 1);
+    -fx-border-width: 1.5;
+}
+
+.selectedParadoxalGenerator {
+    -fx-background-color: rgba(25, 118, 187, 0.9);
+    -fx-border-color: rgb(245, 234, 229);
+    -fx-border-width: 1.5;
+}
+
+
+.settingsButton {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(SettingsButtonLayer.png);
+    -fx-background-size: 45px 45px;
+    -fx-background-position: center;
+}
+
+.viewFleetButton {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(ViewFleetButtonLayer.png);
+    -fx-background-size: 45px 45px;
+    -fx-background-position: center;
+}
+
+.switchUnitShipViewButton {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(ViewUnitButtonLayer.png);
+    -fx-background-size: 45px 45px;
+    -fx-background-position: center;
+}
+
+.technologyTreeButton {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(TechnlogyTreeButtonLayer.png);
+    -fx-background-size: 45px 45px;
+    -fx-background-position: center;
+}
+
+.constructionButton {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(ConsstructionButtonLayer.png);
+    -fx-background-size: 50px 50px;
+    -fx-background-position: center;
+}
+
+.menuConstructionPane {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-padding: 20;
+    -fx-hgap: 20;
+}
+
+.commonRessourceQuarterPane {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-padding: 30;
+    -fx-hgap: 30;
+}
+
+.endTurnButton {
+    -fx-background-image: url(EndTurnButtonLayout.png);
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-radius: 100em;
+    -fx-min-width: 75px;
+    -fx-min-height: 75px;
+    -fx-max-width: 75px;
+    -fx-max-height: 75px;
+    -fx-background-size: 75px 75px;
+    -fx-background-position: center;
+}
+
+.infoPane {
+    -fx-background-image: url(infoLayer.png);
+    -fx-background-size: 300px 500px;
+}
