@@ -12,6 +12,10 @@ public class AnimatedThing extends StaticThing {
     private long frameFactor = 100000000;
     private int width;
     private int height;
+    private int fitWidth;
+    private int fitHeight;
+    private double x;
+    private double y;
 
     public AnimatedThing(String fileName, double x, double y, int width, int height, int nombreFrame, int fitWidth, int fitHeight) {
         super(fileName, x, y, width, height);
@@ -19,10 +23,13 @@ public class AnimatedThing extends StaticThing {
         this.nombreFrame=nombreFrame;
         this.width=width;
         this.height=height;
+        this.fitHeight=fitHeight;
+        this.fitWidth=fitWidth;
+        this.x=x;
+        this.y=y;
 
         getSprite().setFitWidth(fitWidth);
         getSprite().setFitHeight(fitHeight);
-        getSprite().setPreserveRatio(true);
     }
 
     public void updateAnimated(long time) {

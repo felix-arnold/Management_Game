@@ -3,6 +3,7 @@ package General;
 import Airship.ManOWar;
 import General.StaticThing;
 import Quarter.ProductionQuarter.CryptoMine;
+import Quarter.ProductionQuarter.ParadoxalGenerator;
 import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
 import javafx.beans.binding.Bindings;
@@ -10,6 +11,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -22,6 +24,8 @@ import javafx.scene.control.skin.SplitPaneSkin;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -96,8 +100,10 @@ public class Gamescene extends Scene {
     private Boolean constructionMenuIsDisplayed=FALSE;
     private Boolean commonRessourcesQuarterMenuIsDisplayed = FALSE;
     private Boolean constructionIsSelected = FALSE;
+    private Boolean quarterIsSelected = FALSE;
     private Quarter constructionSelected;
 
+    private long turn;
 
 
     public Gamescene(Group g) {
@@ -190,7 +196,7 @@ public class Gamescene extends Scene {
         menuConstructionPane.setLayoutX(900);
         menuConstructionPane.setLayoutY(700);
 
-        Button commonRessourcesQuarterButton = new Button("C");
+        Button commonRessourcesQuarterButton = new Button("Commmon Ressources");
         Button shipRessourcesQuarterButton = new Button();
         Button scienceQuarterButton = new Button();
         Button unitQuarterButton = new Button();
@@ -219,9 +225,9 @@ public class Gamescene extends Scene {
         commonRessourceQuarterPane.setLayoutX(835);
         commonRessourceQuarterPane.setLayoutY(560);
 
-        RadioButton cryptomineButton = new RadioButton("C");
+        RadioButton cryptomineButton = new RadioButton("Cryptomine");
         RadioButton iASyhnthesisTankButton = new RadioButton();
-        RadioButton paradoxlGeneratorButton = new RadioButton();
+        RadioButton paradoxlGeneratorButton = new RadioButton("Paradoxal Generator");
         RadioButton temporalCambooseButton = new RadioButton();
 
         cryptomineButton.getStyleClass().remove("radio-button");
@@ -233,12 +239,12 @@ public class Gamescene extends Scene {
         temporalCambooseButton.getStyleClass().remove("radio-button");
         temporalCambooseButton.getStyleClass().add("button");
 
-        ToggleGroup commonRessourcesToggleGroup = new ToggleGroup();
+        ToggleGroup toggleCommonRessources = new ToggleGroup();
 
-        cryptomineButton.setToggleGroup(commonRessourcesToggleGroup);
-        iASyhnthesisTankButton.setToggleGroup(commonRessourcesToggleGroup);
-        paradoxlGeneratorButton.setToggleGroup(commonRessourcesToggleGroup);
-        temporalCambooseButton.setToggleGroup(commonRessourcesToggleGroup);
+        cryptomineButton.setToggleGroup(toggleCommonRessources);
+        iASyhnthesisTankButton.setToggleGroup(toggleCommonRessources);
+        paradoxlGeneratorButton.setToggleGroup(toggleCommonRessources);
+        temporalCambooseButton.setToggleGroup(toggleCommonRessources);
 
         cryptomineButton.setPrefSize(100, 100);
         iASyhnthesisTankButton.setPrefSize(100, 100);
@@ -246,8 +252,8 @@ public class Gamescene extends Scene {
         temporalCambooseButton.setPrefSize(100, 100);
 
         commonRessourceQuarterPane.add(cryptomineButton, 0, 0);
-        commonRessourceQuarterPane.add(iASyhnthesisTankButton, 1, 0);
-        commonRessourceQuarterPane.add(paradoxlGeneratorButton, 2, 0);
+        commonRessourceQuarterPane.add(paradoxlGeneratorButton, 1, 0);
+        commonRessourceQuarterPane.add(iASyhnthesisTankButton, 2, 0);
         commonRessourceQuarterPane.add(temporalCambooseButton, 3, 0);
 
 
@@ -288,6 +294,19 @@ public class Gamescene extends Scene {
         });
 
 
+        paradoxlGeneratorButton.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean wasPreviouslySelected, Boolean isNowSelected) {
+                if (isNowSelected) {
+                    constructionSelected = new ParadoxalGenerator();
+                    constructionIsSelected = TRUE;
+                } else {
+                    constructionSelected = null;
+                    constructionIsSelected = FALSE;
+                }
+            }
+        });
+
+
         for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             RadioButton radioButton = new RadioButton();
             radioButton.setPrefSize(55, 28);
@@ -295,27 +314,34 @@ public class Gamescene extends Scene {
             radioButton.getStyleClass().remove("radio-button");
             radioButton.getStyleClass().add("emptyQuarter");
             quarterDisplayPane.add(radioButton, ManOWar1.getPositionQuarter()[i][0], ManOWar1.getPositionQuarter()[i][1]);
+            Pane infoPane = new Pane();
+            infoPane.getStyleClass().add("infoPane");
+            infoPane.setPrefSize(300,500);
+            infoPane.setLayoutX(1240);
+            infoPane.setLayoutY(100);
             int j = i;
             radioButton.selectedProperty().addListener(new ChangeListener<Boolean>() {
                 public void changed(ObservableValue<? extends Boolean> observable, Boolean wasPreviouslySelected, Boolean isNowSelected) {
                     if (isNowSelected) {
                         addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-                            @Override
                             public void handle(MouseEvent mouseEvent) {
                                 toggleQuarter.selectToggle(null);
                             }
                         });
+                        quarterIsSelected=TRUE;
+                        g.getChildren().add(infoPane);
                         if (constructionIsSelected == TRUE && ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]] == null) {
                             radioButton.getStyleClass().clear();
-                            radioButton.getStyleClass().add(constructionSelected.getStyle());
+                            radioButton.getStyleClass().add(constructionSelected.getSelectedStyle());
                             ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]] = constructionSelected;
                             construct(constructionSelected);
+                            toggleCommonRessources.selectToggle(null);
                         } else if (constructionIsSelected == TRUE && ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]] != null) {
                             radioButton.getStyleClass().clear();
                             radioButton.getStyleClass().add("impossibleConstruction");
                             PauseTransition transition = new PauseTransition(Duration.seconds(0.5));
                             transition.setOnFinished(event -> radioButton.getStyleClass().clear());
-                            transition.setOnFinished(event -> radioButton.getStyleClass().add(constructionSelected.getStyle()));
+                            transition.setOnFinished(event -> radioButton.getStyleClass().add(ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]].getStyle()));
                             transition.playFromStart();
                         } else if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]] != null) {
                             radioButton.getStyleClass().clear();
@@ -327,14 +353,29 @@ public class Gamescene extends Scene {
                     } else if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]] != null) {
                         radioButton.getStyleClass().clear();
                         radioButton.getStyleClass().add(ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[j][1]][ManOWar1.getPositionQuarter()[j][0]].getStyle());
+                        quarterIsSelected=FALSE;
+                        g.getChildren().remove(infoPane);
                     } else {
                         radioButton.getStyleClass().clear();
                         radioButton.getStyleClass().add("emptyQuarter");
+                        quarterIsSelected=FALSE;
+                        g.getChildren().remove(infoPane);
                     }
                 }
             });
         }
         g.getChildren().add(quarterDisplayPane);
+
+
+        addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                if(mouseEvent.getButton().equals(MouseButton.SECONDARY)){
+                    toggleCommonRessources.selectToggle(null);
+                }
+            }
+        });
+
+
 
 
         for (int i = 0; i < 7; i++) {
@@ -369,7 +410,9 @@ public class Gamescene extends Scene {
 
 
         endTurnButton.setOnAction((event) -> {
+            turn++;
             endturn();
+            System.out.println("Turn : " + turn);
         });
 
     }
@@ -381,8 +424,14 @@ public class Gamescene extends Scene {
                 if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == "cryptomoney") {
                     cryptomoneyValue += ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProduction();
                 }
+                if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == "electricity") {
+                    electricityValue += ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProduction();
+                }
             }
         }
+
+
+
 
         for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]]!=null) {
@@ -431,6 +480,5 @@ public class Gamescene extends Scene {
         codeDataValue-=constructionSelected.getCodeDataCost();
         cryptomoneyValue-=constructionSelected.getCryptomoneyCost();
     }
-
 }
 

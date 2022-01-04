@@ -9,10 +9,16 @@ public class StaticThing {
 
     protected ImageView sprite;
     private double x;
+    private double y;
+    private double width;
+    private double height;
 
     public StaticThing (String fileName, double x, double y, int width, int heigth) {
 
         this.x=x;
+        this.y=y;
+        this.width=width;
+        this.height=heigth;
         Image preSprite = new Image(fileName);
         sprite = new ImageView(preSprite);
         sprite.setViewport(new Rectangle2D(0,0,width,heigth));

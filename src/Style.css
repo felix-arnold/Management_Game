@@ -28,6 +28,18 @@
     -fx-border-width: 1.5;
 }
 
+.paradoxalGenerator {
+    -fx-background-color: rgba(30, 91, 136, 0.8);
+    -fx-border-color: rgba(222, 206, 198, 1);
+    -fx-border-width: 1.5;
+}
+
+.selectedParadoxalGenerator {
+    -fx-background-color: rgba(25, 118, 187, 0.9);
+    -fx-border-color: rgb(245, 234, 229);
+    -fx-border-width: 1.5;
+}
+
 
 .settingsButton {
     -fx-background-color: rgba(0,0,0,0);
@@ -86,4 +98,9 @@
     -fx-max-height: 75px;
     -fx-background-size: 75px 75px;
     -fx-background-position: center;
+}
+
+.infoPane {
+    -fx-background-image: url(infoLayer.png);
+    -fx-background-size: 300px 500px;
 }

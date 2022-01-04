@@ -8,6 +8,10 @@ public class ParadoxalGenerator extends ProductionQuarter {
     public ParadoxalGenerator() {
         super();
 
+
+        //A SUPP
+        crew=4;
+
         //Construction cost, consumption, upgrade cost, variable
         maxLevel=4;
         maxCrew= new int[]{4, 5, 6, 8};
@@ -16,6 +20,9 @@ public class ParadoxalGenerator extends ProductionQuarter {
         codeDataCost=new int[]{0,0,1000,1500};
         cryptomoneyCost=new int[]{500,1000,2000,4000};
         electricityConsumption=new int[]{0,0,0,0};
+        style = "paradoxalGenerator";
+        selectedStyle = "selectedParadoxalGenerator";
+        productionType="electricity";
     }
 
     @Override
