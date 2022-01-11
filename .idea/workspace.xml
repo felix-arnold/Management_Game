@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a35307b7-cb98-41ee-b3a7-107069c9742c" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/AnimatedThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/AnimatedThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Gamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Gamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/StaticThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/StaticThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/CryptoMine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/CryptoMine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +165,8 @@
       <workItem from="1641150024357" duration="3560000" />
       <workItem from="1641162431610" duration="1312000" />
       <workItem from="1641226447474" duration="8292000" />
+      <workItem from="1641295625074" duration="1048000" />
+      <workItem from="1641904973033" duration="347000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -219,7 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1640876976371</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Initial commit">
+      <created>1641295795067</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1641295795067</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Initial commit">
+      <created>1641295909712</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641295909712</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

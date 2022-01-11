@@ -7,9 +7,6 @@ public class CryptoMine extends ProductionQuarter {
     public CryptoMine() {
         super();
 
-        //A SUPP
-        crew=4;
-
         //Construction cost, consumption, upgrade cost, variable
         maxLevel = 4;
         maxCrew = new int[]{4, 5, 6, 8};
