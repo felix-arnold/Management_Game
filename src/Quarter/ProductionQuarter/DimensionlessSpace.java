@@ -3,9 +3,9 @@ package Quarter.ProductionQuarter;
 import static java.lang.Math.min;
 
 
-public class ParadoxalGenerator extends ProductionQuarter {
+public class DimensionlessSpace extends ProductionQuarter {
 
-    public ParadoxalGenerator() {
+    public DimensionlessSpace() {
         super();
 
         //Construction cost, consumption, upgrade cost, variable
