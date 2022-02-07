@@ -29,7 +29,7 @@ public abstract class Airship {
     public Airship(String name) {
         this.name = name;
         numberOfShip++;
-        }
+    }
 
     public String getName() {
         return name;

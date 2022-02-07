@@ -11,7 +11,7 @@ public class IASynthetisTank extends ProductionQuarter {
         maxLevel=4;
         maxCrew= new int[]{4, 5, 6, 8};
         productionPerCrew=new double[]{0.5,0.6,2.0/3.0,0.75};
-        bitCost= new int[]{100,100,100,100};
+        bitCost= new int[]{100,100,150,200};
         codeDataCost=new int[]{0,0,300,600};
         cryptomoneyCost=new int[]{700,2000,3500,6000};
         electricityConsumption=new int[]{200,400,600,1000};

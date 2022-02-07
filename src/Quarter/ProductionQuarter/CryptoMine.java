@@ -13,7 +13,7 @@ public class CryptoMine extends ProductionQuarter {
         productionPerCrew = new double[]{250, 300, 350, 400};
         bitCost = new int[]{300, 500, 0, 0};
         codeDataCost = new int[]{0, 0, 1200, 2000};
-        cryptomoneyCost = new int[]{200, 1200, 2500, 5000};
+        cryptomoneyCost = new int[]{300, 1200, 2500, 5000};
         electricityConsumption = new int[]{150, 300, 450, 600};
         style = "cryptomine";
         selectedStyle = "selectedCryptomine";

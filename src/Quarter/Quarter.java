@@ -23,6 +23,8 @@ public abstract class Quarter {
     protected String style;
     protected String selectedStyle;
 
+    protected String name;
+
 
     public Quarter() {
         infoPane.setPrefSize(200,500);
