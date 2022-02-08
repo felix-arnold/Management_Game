@@ -41,9 +41,9 @@ public class Main extends Application{
 
         //System.out.println(a.getProduction());
 
-        if (maw.getQuarterList()[3][3] instanceof ParadoxalGenerator) {
+        /*if (maw.getQuarterList()[3][3] instanceof ParadoxalGenerator) {
             System.out.println((((ParadoxalGenerator) maw.getQuarterList()[3][3]).getCodeDataCost2()));
-        }
+        }*/
 
 
 

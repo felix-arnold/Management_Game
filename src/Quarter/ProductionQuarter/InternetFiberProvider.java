@@ -2,21 +2,21 @@ package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
 
-public class TemporalCamboose extends ProductionQuarter{
+public class InternetFiberProvider extends ProductionQuarter{
 
-    public TemporalCamboose() {
+    public InternetFiberProvider() {
 
         super();
-        name = "TemporalCamboose";
-        productionType=9; //9=food
+        name = "ParadoxalGenerator";
+        productionType=1; //1=electricity
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "Cryptominer" -> productionPerCrewBonusRate -= 0.01 * adjQuarter.getCrew();
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
-            case "Cryptoinvestor" -> {
+            case "ParadoxalGenerator" -> productionBonusConstant += 25 * level * crew;
+            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();      //15% de prod
+            case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {
                     productionBonusConstant += adjQuarter.getProduction()[1];
@@ -24,7 +24,6 @@ public class TemporalCamboose extends ProductionQuarter{
                     productionBonusConstant -= adjQuarter.getProduction()[1];
                 }
             }
-            case "ParadoxalGenerator" -> productionBonusRate += 0.05*adjQuarter.getLevel();
             case "DimensionlessSpace" -> productionBonusRate += adjQuarter.getProduction()[1];
         }
     }

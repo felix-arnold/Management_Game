@@ -10,15 +10,20 @@ import java.util.List;
 
 public abstract class ProductionQuarter extends Quarter {
 
+    protected double productionPerCrewBonusRate;
+    protected double productionBonusRate;
+    protected double productionBonusConstant;
+    protected double productionPerCrew;
+    protected long productionType;
+
     static final List<String[]> ProductionBuildingsData = new ArrayList<>();
 
     public ProductionQuarter() {
         super();
 
-        level = 1;
-        crew = 0;
         productionBonusConstant = 0;
         productionBonusRate = 1;
+        productionPerCrewBonusRate = 1;
 
 
         //Reading a csv file and putting it into a List of String[]
@@ -31,9 +36,6 @@ public abstract class ProductionQuarter extends Quarter {
         }
     }
 
-    protected double[] productionPerCrew;
-    protected double productionBonusRate;
-    protected double productionBonusConstant;
 
     public void upgrade() {
         if (level < maxLevel) {
@@ -55,7 +57,7 @@ public abstract class ProductionQuarter extends Quarter {
                     return element[index];
                 }
         }
-        return "Error2";
+        return "Error";
     }
 
     //Test functions
@@ -68,11 +70,12 @@ public abstract class ProductionQuarter extends Quarter {
     }
 
     public double getProductionPerCrew() {
-        return productionPerCrew[level-1];
+        return productionPerCrew;
     }
 
-    public long getProduction() {
-        production = Math.round(productionPerCrew[level-1]*crew*productionBonusRate+productionBonusConstant);
+    public long[] getProduction() {
+        production[0]= productionType;
+        production[1]=Math.round((long) productionPerCrew*crew*productionBonusRate+productionBonusConstant);
         return production;
     }
 

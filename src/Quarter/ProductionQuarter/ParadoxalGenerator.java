@@ -1,7 +1,6 @@
 package Quarter.ProductionQuarter;
 
-import static java.lang.Math.min;
-
+import Quarter.Quarter;
 
 public class ParadoxalGenerator extends ProductionQuarter {
 
@@ -9,26 +8,23 @@ public class ParadoxalGenerator extends ProductionQuarter {
 
         super();
         name = "ParadoxalGenerator";
-        style = "paradoxalGenerator";
-        selectedStyle = "selectedParadoxalGenerator";
-        productionType="electricity";
+        productionType=1; //1=electricity
     }
-
-    String codeDataCost2=loadValue("ParadoxalGenerator",3,"codeDataCost");
 
     @Override
-    public void isAdjacent(int quarterAdjacentType, int crewAdjacent, int levelAdjacent, int parameterAdjacent) {
-        //0=ParadoxalGenerator
-        if (quarterAdjacentType==0) {
-            productionBonusConstant+= (float) 15*min(levelAdjacent,level)*min(crewAdjacent,crew);
+    public void adjacentBonuses(Quarter adjQuarter) {
+        switch (adjQuarter.getName()) {
+            case "ParadoxalGenerator" -> productionBonusConstant += 25 * level * crew;
+            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();      //15% de prod
+            case "MadScientist" -> {
+                double rnd = Math.random();
+                if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {
+                    productionBonusConstant += adjQuarter.getProduction()[1];
+                } else if (rnd >= 100-(adjQuarter.getProduction()[5])) {
+                    productionBonusConstant -= adjQuarter.getProduction()[1];
+                }
+            }
+            case "DimensionlessSpace" -> productionBonusRate += adjQuarter.getProduction()[1];
         }
-        //1=DimensionlessSpace
-        else if (quarterAdjacentType==1) {
-            productionBonusRate+= (float) 10*levelAdjacent*crewAdjacent/(levelAdjacent+1);
-        }
-    }
-
-    public String getCodeDataCost2() {
-        return codeDataCost2;
     }
 }
