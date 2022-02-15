@@ -43,4 +43,30 @@ public abstract class Airship {
         return numberQuarter;
     }
 
+
+    //Get every adjacents quarter to this quarter
+    public Quarter[] getAdjacent(Quarter quarter) {
+        Quarter[] adjacentQuarter = new Quarter[4];
+        int i = 0;
+        int xPos = quarter.getxPos();
+        int yPos = quarter.getyPos();
+        if(quarterList[xPos+1][yPos] != null) {
+            adjacentQuarter[i] = quarterList[xPos+1][yPos];
+            i++;
+        }
+        if(quarterList[xPos][yPos+1] != null) {
+            adjacentQuarter[i] = quarterList[xPos][yPos+1];
+            i++;
+        }
+        if(quarterList[xPos-1][yPos] != null) {
+            adjacentQuarter[i] = quarterList[xPos-1][yPos];
+            i++;
+        }
+        if(quarterList[xPos][yPos-1] != null) {
+            adjacentQuarter[i] = quarterList[xPos][yPos-1];
+        }
+
+        return adjacentQuarter;
+    }
+
 }
