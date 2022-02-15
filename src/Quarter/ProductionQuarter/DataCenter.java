@@ -19,13 +19,13 @@ public class DataCenter extends ProductionQuarter {
             case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {
-                    productionBonusConstant += adjQuarter.getProduction()[1];
+                    productionBonusConstant += adjQuarter.getProduction()[5];
                 } else if (rnd >= 100 - (adjQuarter.getProduction()[5])) {
-                    productionBonusConstant -= adjQuarter.getProduction()[1];
+                    productionBonusConstant -= adjQuarter.getProduction()[5];
                 }
             }
             case "InternetFiberProvider" -> productionPerCrewBonusRate += 0.01 * adjQuarter.getCrew();
-            case "VirtualQuantumComputer" -> productionBonusRate += adjQuarter.getProduction()[1];
+            case "VirtualQuantumComputer" -> productionBonusRate += adjQuarter.getProduction()[3];
         }
     }
 }

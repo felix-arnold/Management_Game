@@ -15,7 +15,7 @@ public class ParadoxalGenerator extends ProductionQuarter {
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
             case "ParadoxalGenerator" -> productionBonusConstant += 25 * level * crew;
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();      //15% de prod
+            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {

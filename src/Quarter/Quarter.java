@@ -23,16 +23,13 @@ public abstract class Quarter {
     protected String selectedStyle;
 
     protected String name;
-    private int xPos;
-    private int yPos;
 
 
-    public Quarter(int xPos, int yPos) {
+    public Quarter() {
         infoPane.setPrefSize(200,500);
         infoPane.setLayoutX(1340);
         infoPane.setLayoutY(50);
-        this.xPos = xPos;
-        this.yPos = yPos;
+
     }
 
 
@@ -108,13 +105,5 @@ public abstract class Quarter {
 
     public String getName() {
         return name;
-    }
-
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
     }
 }

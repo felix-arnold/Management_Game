@@ -1,4 +1,33 @@
 package Quarter.ProductionQuarter;
 
-public class Cryptoinvestor {
+import Quarter.Quarter;
+
+public class Cryptoinvestor extends ProductionQuarter{
+
+    //production[0Cryptomine,1Cryptomine,2Probawin,3Probawin,4Probaloss,5Probaloss]
+
+    public Cryptoinvestor() {
+
+        super();
+        name = "Cryptoinvestor";
+    }
+
+    @Override
+    public void adjacentBonuses(Quarter adjQuarter) {
+        switch (adjQuarter.getName()) {
+            case "Cryptoinvestor" -> {
+                double rnd = Math.random();
+                if (rnd < 0.3) {
+                    productionPerCrewBonusRate += (0.6 - 0.2 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();
+                } else if (rnd >= 0.6) {
+                    productionPerCrewBonusRate -= (0.6 - 0.2 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();
+                }
+            }
+            case "Restroom" -> productionPerCrewBonusRate -= 0.4;
+            case "InternetFiberProvider" -> productionPerCrewBonusRate += 0.1 * adjQuarter.getCrew();
+            case "VirtualQuantumComputer" -> productionPerCrewBonusRate += 0.1 * adjQuarter.getLevel();
+            case "HellishBoss" -> productionPerCrewBonusRate -= 0.3*adjQuarter.getCrew();
+            case "MadScientist" -> productionPerCrewBonusRate -= 0.5*adjQuarter.getCrew();
+        }
+    }
 }

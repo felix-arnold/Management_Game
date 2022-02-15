@@ -1,0 +1,283 @@
+@startuml
+
+title __MANAGEMENT's Class Diagram__\n
+
+  namespace  {
+    namespace Airship {
+      abstract class Airship.Airship {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace Airship {
+      class Airship.ManOWar {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace General {
+      class General.AnimatedThing {
+      }
+    }
+  }
+  
+
+  namespace General {
+    namespace General {
+      class General.Gamescene {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace eneral {
+      class General.GlobalRessourcesManager {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace eneral {
+      class General.LocalRessourcesManager {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace eneral {
+      class General.Ressources {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace eneral {
+      class General.StaticThing {
+      }
+    }
+  }
+  
+
+  namespace  {
+    class Main {
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.Berth {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.Birderman {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.CryptoMine {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.Cryptoinvestor {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.DataCenter {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.DataScientist {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.DimensionlessSpace {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.Galley {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.HellishBoss {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.IASynthetisTank {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.ParadoxalGenerator {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        abstract class Quarter.ProductionQuarter.ProductionQuarter {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.ProgrammersOffice {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.TemporalCamboose {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      namespace ProductionQuarter {
+        class Quarter.ProductionQuarter.VirtualQuantumComputer {
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      abstract class Quarter.Quarter {
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace uarter {
+      abstract class Quarter.SpecialQuarter {
+      }
+    }
+  }
+  
+
+  Airship.ManOWar -up-|> Airship.Airship
+  Airship.ManOWar o-- General.AnimatedThing : image
+  General.AnimatedThing -up-|> General.StaticThing
+  General.Gamescene -up-|> javafx.scene.Scene
+  General.Gamescene o-- Airship.ManOWar : ManOWar1
+  General.Gamescene o-- General.StaticThing : backgroundLeft
+  General.Gamescene o-- General.StaticThing : backgroundRight
+  General.Gamescene o-- General.StaticThing : cloudBottom1Left
+  General.Gamescene o-- General.StaticThing : cloudBottom1Right
+  General.Gamescene o-- General.StaticThing : cloudBottom2Left
+  General.Gamescene o-- General.StaticThing : cloudBottom2Right
+  General.Gamescene o-- General.StaticThing : cloudTop1Left
+  General.Gamescene o-- General.StaticThing : cloudTop1Right
+  General.Gamescene o-- General.StaticThing : cloudTop2Left
+  General.Gamescene o-- General.StaticThing : cloudTop2Right
+  General.Gamescene o-- Quarter.Quarter : constructionSelected
+  General.Gamescene o-- General.StaticThing : starsFix
+  General.GlobalRessourcesManager o-- General.Ressources : bits
+  General.GlobalRessourcesManager o-- General.Ressources : codeData
+  General.GlobalRessourcesManager o-- General.Ressources : cryptoMoney
+  General.GlobalRessourcesManager o-- General.Ressources : science
+  General.LocalRessourcesManager o-- General.Ressources : crew
+  General.LocalRessourcesManager o-- General.Ressources : elecricity
+  General.LocalRessourcesManager o-- General.Ressources : food
+  Main -up-|> javafx.application.Application
+  Quarter.ProductionQuarter.CryptoMine -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.ProductionQuarter.DimensionlessSpace -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.ProductionQuarter.IASynthetisTank -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.ProductionQuarter.ParadoxalGenerator -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.ProductionQuarter.ProductionQuarter -up-|> Quarter.Quarter
+  Quarter.ProductionQuarter.ProgrammersOffice -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.ProductionQuarter.TemporalCamboose -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.SpecialQuarter -up-|> Quarter.Quarter
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
