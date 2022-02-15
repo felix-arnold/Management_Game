@@ -419,16 +419,18 @@ public class Gamescene extends Scene {
 
     public void endturn() {
 
-        for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
+        //A REVOIR
+
+        /*for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]]!=null) {
-                if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == "cryptomoney") {
+                if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == 2) {
                     cryptomoneyValue += ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProduction();
                 }
-                if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == "electricity") {
+                if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == 1) {
                     electricityValue += ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProduction();
                 }
             }
-        }
+        }*/
 
 
 

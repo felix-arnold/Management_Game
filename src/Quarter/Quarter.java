@@ -15,8 +15,7 @@ public abstract class Quarter {
     protected int[] cryptomoneyCost;
     protected int[] electricityConsumption;
 
-    protected long production;
-    protected String productionType;
+    protected long[] production;
 
     protected Pane infoPane = new Pane();
 
@@ -51,9 +50,6 @@ public abstract class Quarter {
     public void crewDown() {
         crew--;
     }
-
-    //ISADJACENT DOIT SE RECALCULER CHAQUE FOIS QUE L'ON UP/CONSTRUIT/DETRUIT UN QUARTER ET PAS A CHAQUE TOUR -> CREER FONCTION RESET ET FONCTION POUR TOUT CALCULER
-    public abstract void isAdjacent(int quarterAdjacentType, int crewAdjacent, int levelAdjacent, int parameterAdjacent);
 
     public void upgrade() {
         //RAJOUTER SI LOCK PAR TECH
@@ -101,11 +97,13 @@ public abstract class Quarter {
         return selectedStyle;
     }
 
-    public long getProduction() {
+    public long[] getProduction() {
         return production;
     }
 
-    public String getProductionType (){
-        return productionType;
+    public abstract void adjacentBonuses(Quarter adjQuarter);
+
+    public String getName() {
+        return name;
     }
 }

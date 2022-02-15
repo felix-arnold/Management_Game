@@ -1,14 +1,11 @@
 package General;
 
 public class Ressources {
-    private int amount;
-    private boolean beNegativ;
-    private String type;
+    private int amount=0;
+    private boolean canBeNegativ;
 
-    public Ressources(int amount, boolean beNegativ, String type) {
-        this.amount = amount;
-        this.beNegativ = beNegativ;
-        this.type = type;
+    public Ressources(boolean canBeNegativ) {
+        this.canBeNegativ = canBeNegativ;
     }
 
     public void addAmount(int production) {
@@ -19,7 +16,7 @@ public class Ressources {
         if(amount > consumption) {
             amount -= consumption;
         }
-        else if (beNegativ && (amount < consumption)) {
+        else if (canBeNegativ && (amount < consumption)) {
             amount -= consumption;
         }
         else {
