@@ -3,8 +3,8 @@ package Quarter;
 public class Tech {
     private String techType;
     private boolean unlocked;
-    private int requiredRessource1;
-    private int requiredRessource2;
+    private final int requiredRessource1;
+    private final int requiredRessource2;
 
     public Tech(String techType, int ressource1, int ressource2) {
         this.techType = techType;
