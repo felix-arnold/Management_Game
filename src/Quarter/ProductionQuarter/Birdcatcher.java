@@ -2,21 +2,18 @@ package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
 
-public class VirtualQuantumComputer extends ProductionQuarter{
+public class Birdcatcher extends ProductionQuarter {
 
-    //production[0MadScientist, 1MadScientist, 2HellishBoss, 3HellishBoss, 4dataCentre, 5dataCentre, 6VirtualQuantumComputer, 7VirtualQuantumComputer]
-
-
-    public VirtualQuantumComputer() {
+    public Birdcatcher() {
 
         super();
-        name = "VirtualQuantumComputer";
+        name = "Birdcatcher";
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "VirtualQuantumComputer" -> productionBonusRate += 0.1 + 0.1 * adjQuarter.getLevel() * adjQuarter.getCrew() / (adjQuarter.getLevel() + 1);
+            case "Birdcatcher" -> productionBonusConstant += adjQuarter.getLevel()-1 + adjQuarter.getCrew();
             case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[7] * adjQuarter.getLevel()) {
@@ -25,6 +22,8 @@ public class VirtualQuantumComputer extends ProductionQuarter{
                     productionBonusConstant -= adjQuarter.getProduction()[3];
                 }
             }
+            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
         }
     }
+
 }

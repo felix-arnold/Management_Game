@@ -29,7 +29,7 @@ public abstract class Quarter {
         infoPane.setPrefSize(200,500);
         infoPane.setLayoutX(1340);
         infoPane.setLayoutY(50);
-
+        production[0]=0;
     }
 
 

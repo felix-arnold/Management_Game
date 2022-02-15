@@ -1,4 +1,32 @@
 package Quarter.ProductionQuarter;
 
-public class HellishBoss {
+import Quarter.Quarter;
+
+public class HellishBoss extends ProductionQuarter {
+
+    //production[0ProgrammerOffice, 1ProgrammerOffice, 2Galley, 3Galley, 4 Birdcatcher, 5Birdcatcher, 6Probawin, 7Probawin, 8Probaloss, 9Probaloss]
+
+    public HellishBoss() {
+
+        super();
+        name = "HellishBoss";
+    }
+
+    @Override
+    public void adjacentBonuses(Quarter adjQuarter) {
+        switch (adjQuarter.getName()) {
+            case "Hellishboss" -> {
+                double rnd = Math.random();
+                if (rnd < 0.2) {
+                    productionPerCrewBonusRate += (0.6 - 0.2 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();
+                } else if (rnd >= 0.4) {
+                    productionPerCrewBonusRate -= (0.9 - 0.3 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();
+                }
+            }
+            case "Restroom" -> productionPerCrewBonusRate -= 0.1*adjQuarter.getLevel();
+            case "VirtualQuantumComputer" -> productionBonusRate += adjQuarter.getProduction()[3];
+            case "MadScientist" -> productionPerCrewBonusRate -= 0.3*adjQuarter.getCrew();
+            case "CryptoInvestor" -> productionPerCrewBonusRate -= 0.1*adjQuarter.getCrew();
+        }
+    }
 }
