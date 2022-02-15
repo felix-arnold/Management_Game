@@ -17,7 +17,7 @@ public class ManOWar extends Airship {
         quarterList = new Quarter[maxRow][maxColumn];
     }
 
-    AnimatedThing image = new AnimatedThing("C:\\Users\\Félix\\Documents\\Cours\\ENSEA_2A\\Projet\\Java\\Image\\ManOWar.png",200, 20, 2574, 2480, 4, 727, 700);
+    AnimatedThing image = new AnimatedThing("ManOWar.png",200, 20, 2574, 2480, 4, 727, 700);
 
     public AnimatedThing getImage() {
         return image;
