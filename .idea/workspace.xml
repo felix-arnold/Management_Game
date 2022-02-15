@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a35307b7-cb98-41ee-b3a7-107069c9742c" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Restroom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Birderman.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Cryptoinvestor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/HellishBoss.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/VirtualQuantumComputer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birderman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -304,6 +291,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -330,6 +327,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="unversioned files" />
   </component>
 </project>
