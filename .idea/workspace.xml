@@ -5,21 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a35307b7-cb98-41ee-b3a7-107069c9742c" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Restroom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Birderman.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Cryptoinvestor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/HellishBoss.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/VirtualQuantumComputer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birderman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/Java.plantuml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/Gamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Gamescene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/CryptoMine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataScientist.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCamboose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCamboose.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +62,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../UML" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -198,7 +201,10 @@
       <workItem from="1644326369169" duration="2738000" />
       <workItem from="1644329188084" duration="49000" />
       <workItem from="1644329258010" duration="8588000" />
-      <workItem from="1644929621874" duration="4484000" />
+      <workItem from="1644929621874" duration="12001000" />
+      <workItem from="1645351814003" duration="1831000" />
+      <workItem from="1645533373342" duration="594000" />
+      <workItem from="1645549679761" duration="4369000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -298,7 +304,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644333287512</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Initial commit">
+      <created>1644934171072</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1644934171072</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Initial commit">
+      <created>1644934192723</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1644934192723</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

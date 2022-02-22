@@ -4,11 +4,12 @@ import Quarter.Quarter;
 
 public class DataCenter extends ProductionQuarter {
 
+    //production[7science,science]
+
     public DataCenter() {
 
         super();
         name = "DataCenter";
-        productionType = 7; //7=science
     }
 
     @Override
@@ -18,14 +19,21 @@ public class DataCenter extends ProductionQuarter {
             case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {
-                    productionBonusConstant += adjQuarter.getProduction()[5];
-                } else if (rnd >= 100 - (adjQuarter.getProduction()[5])) {
-                    productionBonusConstant -= adjQuarter.getProduction()[5];
+                if (rnd < adjQuarter.getProduction()[13]) {
+                    productionBonusConstant += adjQuarter.getProduction()[9];
+                } else if (rnd >= adjQuarter.getProduction()[15]) {
+                    productionBonusConstant -= adjQuarter.getProduction()[9];
                 }
             }
-            case "InternetFiberProvider" -> productionPerCrewBonusRate += 0.01 * adjQuarter.getCrew();
-            case "VirtualQuantumComputer" -> productionBonusRate += adjQuarter.getProduction()[3];
+            case "InternetFiberProvider" -> {
+                double rnd = Math.random();
+                if (rnd > 80 + 5 * adjQuarter.getLevel()) {
+                    productionBonusRate -= 0.5;
+                } else {
+                    productionBonusRate += 0.05 * adjQuarter.getCrew();
+                }
+            }
+            case "VirtualQuantumComputer" -> productionBonusRate += adjQuarter.getProduction()[5];
         }
     }
 }

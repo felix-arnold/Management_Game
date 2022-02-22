@@ -8,20 +8,19 @@ public class ParadoxalGenerator extends ProductionQuarter {
 
         super();
         name = "ParadoxalGenerator";
-        productionType=1; //1=electricity
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "ParadoxalGenerator" -> productionBonusConstant += 25 * level * crew;
+            case "ParadoxalGenerator" -> productionBonusConstant += 8 * 3 * adjQuarter.getCrew() * adjQuarter.getLevel();
             case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {
-                    productionBonusConstant += adjQuarter.getProduction()[1];
-                } else if (rnd >= 100-(adjQuarter.getProduction()[5])) {
-                    productionBonusConstant -= adjQuarter.getProduction()[1];
+                if (rnd < adjQuarter.getProduction()[13]) {
+                    productionBonusConstant += adjQuarter.getProduction()[3];
+                } else if (rnd >= adjQuarter.getProduction()[15]) {
+                    productionBonusConstant -= adjQuarter.getProduction()[3];
                 }
             }
             case "DimensionlessSpace" -> productionBonusRate += adjQuarter.getProduction()[1];

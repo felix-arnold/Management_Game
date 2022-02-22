@@ -2,7 +2,7 @@ package General;
 
 import Airship.ManOWar;
 import General.StaticThing;
-import Quarter.ProductionQuarter.CryptoMine;
+import Quarter.ProductionQuarter.Cryptomine;
 import Quarter.ProductionQuarter.ParadoxalGenerator;
 import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
@@ -284,7 +284,7 @@ public class Gamescene extends Scene {
         cryptomineButton.selectedProperty().addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> observable, Boolean wasPreviouslySelected, Boolean isNowSelected) {
                 if (isNowSelected) {
-                    constructionSelected = new CryptoMine();
+                    constructionSelected = new Cryptomine();
                     constructionIsSelected = TRUE;
                 } else {
                     constructionSelected = null;
