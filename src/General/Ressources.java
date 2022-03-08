@@ -1,6 +1,7 @@
 package General;
 
 public class Ressources {
+
     private int amount=0;
     private boolean canBeNegativ;
 
@@ -24,4 +25,7 @@ public class Ressources {
         }
     }
 
+    public int getAmount() {
+        return amount;
+    }
 }

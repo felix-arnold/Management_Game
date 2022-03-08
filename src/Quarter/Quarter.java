@@ -24,6 +24,9 @@ public abstract class Quarter {
 
     protected String name;
 
+    protected int x;
+    protected int y;
+
 
     public Quarter() {
         infoPane.setPrefSize(200,500);
@@ -56,8 +59,20 @@ public abstract class Quarter {
         level++;
     }
 
-    public void construct() {
+    public void setX(int xPos) {
+        x=xPos;
+    }
 
+    public void setY(int yPos) {
+        y=yPos;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     //Test functions

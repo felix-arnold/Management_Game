@@ -1,5 +1,6 @@
 import Airship.ManOWar;
 import General.Gamescene;
+import General.GlobalRessourcesManager;
 import Quarter.ProductionQuarter.ParadoxalGenerator;
 import Quarter.ProductionQuarter.ProductionQuarter;
 import Quarter.Quarter;
@@ -27,9 +28,14 @@ public class Main extends Application{
         scene.getStylesheets().add("Style.css");*/
     }
 
+
+    //REGARDER LES PATRONS DE CONCEPTION CA PEUT ETRE UTILE
+
     public static void main(String[] args) {
 
         //launch(args);
+
+
 
         ManOWar maw = new ManOWar("maw");
 

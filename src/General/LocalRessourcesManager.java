@@ -2,12 +2,22 @@ package General;
 
 public class LocalRessourcesManager {
 
-    Ressources elecricity = new Ressources(true);
-    Ressources food = new Ressources(true);
-    Ressources crew = new Ressources(false);
+    Ressources elecricityRessource = new Ressources(true);
+    Ressources foodRessource = new Ressources(true);
+    Ressources crewRessource = new Ressources(false);
+
+    public Ressources getCrewRessource() {
+        return crewRessource;
+    }
+    public Ressources getElecricityRessource() {
+        return elecricityRessource;
+    }
+    public Ressources getFoodRessource() {
+        return foodRessource;
+    }
+
 
     public void localRessourcesUpdate() {
 
     }
-
 }
