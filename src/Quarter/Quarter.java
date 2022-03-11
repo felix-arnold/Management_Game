@@ -23,17 +23,16 @@ public abstract class Quarter {
     protected String selectedStyle;
 
     protected String name;
-    private int xPos;
-    private int yPos;
+
+    protected int x;
+    protected int y;
+
 
     public Quarter() {
         infoPane.setPrefSize(200,500);
         infoPane.setLayoutX(1340);
         infoPane.setLayoutY(50);
         production[0]=0;
-        this.xPos = xPos;
-        this.yPos = yPos;
-
     }
 
 
@@ -60,8 +59,25 @@ public abstract class Quarter {
         level++;
     }
 
-    public void construct() {
+    public long getCryptomoneyConsumption() {
+        return 1;
+    }
 
+
+    public void setX(int xPos) {
+        x=xPos;
+    }
+
+    public void setY(int yPos) {
+        y=yPos;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     //Test functions
@@ -109,13 +125,5 @@ public abstract class Quarter {
 
     public String getName() {
         return name;
-    }
-
-    public int getxPos() {
-        return xPos;
-    }
-
-    public int getyPos() {
-        return yPos;
     }
 }

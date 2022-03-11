@@ -1,7 +1,6 @@
 package Airship;
 
 import General.AnimatedThing;
-import General.StaticThing;
 import Quarter.Quarter;
 
 public class ManOWar extends Airship {

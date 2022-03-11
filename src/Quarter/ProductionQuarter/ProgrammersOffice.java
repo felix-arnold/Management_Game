@@ -4,11 +4,12 @@ import Quarter.Quarter;
 
 public class ProgrammersOffice extends ProductionQuarter {
 
+    //production[5dataCode,dataCode]
+
     public ProgrammersOffice() {
 
         super();
         name = "ProgrammerOffice";
-        productionType=5; //5=dataCode
     }
 
     @Override
@@ -18,9 +19,9 @@ public class ProgrammersOffice extends ProductionQuarter {
             case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "HellishBoss" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[3] * adjQuarter.getLevel()) {
+                if (rnd < adjQuarter.getProduction()[7]) {
                     productionBonusConstant += adjQuarter.getProduction()[1];
-                } else if (rnd >= 100-(adjQuarter.getProduction()[5])) {
+                } else if (rnd >= adjQuarter.getProduction()[9]) {
                     productionBonusConstant -= adjQuarter.getProduction()[1];
                 }
             }

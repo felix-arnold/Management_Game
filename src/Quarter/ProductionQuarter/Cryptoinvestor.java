@@ -6,6 +6,8 @@ public class Cryptoinvestor extends ProductionQuarter{
 
     //production[0Cryptomine,1Cryptomine,2Probawin,3Probawin,4Probaloss,5Probaloss]
 
+    protected double probaBonus;
+
     public Cryptoinvestor() {
 
         super();
@@ -16,11 +18,12 @@ public class Cryptoinvestor extends ProductionQuarter{
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
             case "Cryptoinvestor" -> {
+                probaBonus += 10*getLevel();
                 double rnd = Math.random();
                 if (rnd < 0.3) {
-                    productionPerCrewBonusRate += (0.6 - 0.2 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();
-                } else if (rnd >= 0.6) {
-                    productionPerCrewBonusRate -= (0.6 - 0.2 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();
+                    productionPerCrewBonusRate += 0.1 * adjQuarter.getCrew();
+                } else if (rnd >= 0.7) {
+                    productionPerCrewBonusRate -= 0.1 * adjQuarter.getCrew();
                 }
             }
             case "Restroom" -> productionPerCrewBonusRate -= 0.4;

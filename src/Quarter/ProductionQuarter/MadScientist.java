@@ -5,8 +5,7 @@ import Quarter.Quarter;
 public class MadScientist extends ProductionQuarter{
 
     //production[0VirtualQuantumComputer, 1VirtualQuantumComputer, 2ParadoxalGenerator, 3ParadoxalGenerator, 4TemporalCamboose, 5TemporalCamboose,
-    //6IaSynthesisTank, 7IaSynthesisTank, 8DataCentre, 9DataCentre, 10DimensionlessSpace, 12dimensionlessSpace, 13Probawin, 14Probawin, 15Probalose, 16Probalose]
-
+    //6IaSynthesisTank, 7IaSynthesisTank, 8DataCentre, 9DataCentre, 10DimensionlessSpace, 11dimensionlessSpace, 12Probawin, 13Probawin, 14Probalose, 15Probalose]
 
     public MadScientist() {
 

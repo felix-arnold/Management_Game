@@ -122,15 +122,7 @@ title __MANAGEMENT's Class Diagram__\n
   }
   
 
-  namespace  {
-    namespace uarter {
-      namespace ProductionQuarter {
-        class Quarter.ProductionQuarter.DataScientist {
-        }
-      }
-    }
-  }
-  
+
 
   namespace  {
     namespace uarter {

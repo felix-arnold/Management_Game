@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a35307b7-cb98-41ee-b3a7-107069c9742c" name="Changes" comment="Initial commit">
+    <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/src/Quarter/QuarterFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProductionBuildingsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ProductionBuildingsData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Airship/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/Airship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Airship/Airship.plantuml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/GlobalRessourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/GlobalManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/LocalRessourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/Ressources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Resources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +89,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a35307b7-cb98-41ee-b3a7-107069c9742c" name="Changes" comment="" />
+      <changelist id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit" />
       <created>1634298126476</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -185,7 +197,26 @@
       <workItem from="1644326369169" duration="2738000" />
       <workItem from="1644329188084" duration="49000" />
       <workItem from="1644329258010" duration="8588000" />
-      <workItem from="1644929621874" duration="4484000" />
+      <workItem from="1644929621874" duration="12001000" />
+      <workItem from="1645351814003" duration="1831000" />
+      <workItem from="1645533373342" duration="594000" />
+      <workItem from="1645549679761" duration="4582000" />
+      <workItem from="1645699271316" duration="595000" />
+      <workItem from="1645710014108" duration="3853000" />
+      <workItem from="1645804477383" duration="1186000" />
+      <workItem from="1645869493632" duration="596000" />
+      <workItem from="1645880376952" duration="592000" />
+      <workItem from="1645973699441" duration="701000" />
+      <workItem from="1645975311238" duration="840000" />
+      <workItem from="1646330847657" duration="1439000" />
+      <workItem from="1646405638921" duration="2699000" />
+      <workItem from="1646481017588" duration="1000" />
+      <workItem from="1646482424372" duration="590000" />
+      <workItem from="1646489419300" duration="6804000" />
+      <workItem from="1646573190020" duration="3153000" />
+      <workItem from="1646637323988" duration="4000" />
+      <workItem from="1646753753167" duration="3464000" />
+      <workItem from="1646994723838" duration="10258000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -285,21 +316,46 @@
       <option name="project" value="LOCAL" />
       <updated>1644333287512</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Initial commit">
+      <created>1644934171072</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1644934171072</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Initial commit">
+      <created>1644934192723</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1644934192723</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Initial commit">
+      <created>1645562899728</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1645562899728</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Initial commit">
+      <created>1646745638837</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1646745638837</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Initial commit">
+      <created>1646745878161</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1646745878161</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -312,7 +368,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="master2" />
                       </list>
                     </value>
                   </entry>
@@ -327,7 +383,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <MESSAGE value="unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
 </project>

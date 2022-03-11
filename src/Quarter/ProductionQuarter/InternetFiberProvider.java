@@ -4,6 +4,8 @@ import Quarter.Quarter;
 
 public class InternetFiberProvider extends ProductionQuarter{
 
+    //PAS UN BATIMENT DE PROD
+
     public InternetFiberProvider() {
 
         super();
