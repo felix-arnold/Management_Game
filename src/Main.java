@@ -29,15 +29,16 @@ public class Main extends Application{
 
     public static void main(String[] args) {
 
+
         //launch(args);
 
-        ManOWar maw = new ManOWar("maw");
+       // ManOWar maw = new ManOWar("maw");
 
         //System.out.println(maw.getName());
 
-        ParadoxalGenerator a=new ParadoxalGenerator();
+       // ParadoxalGenerator a=new ParadoxalGenerator();
 
-        maw.getQuarterList()[3][3]=a;
+        //maw.getQuarterList()[3][3]=a;
 
         //System.out.println(a.getProduction());
 

@@ -8,7 +8,7 @@ public class IASynthetisTank extends ProductionQuarter {
 
     public IASynthetisTank() {
         super();
-        name = "IASynthesisTank";
+        name = "IA Synthesis Tank";
     }
 
     @Override

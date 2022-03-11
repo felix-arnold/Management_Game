@@ -1,4 +1,16 @@
 package Quarter.ProductionQuarter;
 
-public class Berth {
+import Quarter.Quarter;
+
+public class Berth extends ProductionQuarter {
+
+    public Berth() {
+        super();
+        name = "Berth";
+    }
+
+    @Override
+    public void adjacentBonuses(Quarter adjQuarter) {
+
+    }
 }

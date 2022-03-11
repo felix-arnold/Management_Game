@@ -7,7 +7,6 @@ public class Birdcatcher extends ProductionQuarter {
     //production[food,food, birdcatcher, birdcatcher]
 
     public Birdcatcher() {
-
         super();
         name = "Birdcatcher";
     }

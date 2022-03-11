@@ -74,8 +74,6 @@ public abstract class ProductionQuarter extends Quarter {
     }
 
     public long[] getProduction() {
-        production[0]= productionType;
-        production[1]=Math.round((long) productionPerCrew*crew*productionBonusRate+productionBonusConstant);
         return production;
     }
 

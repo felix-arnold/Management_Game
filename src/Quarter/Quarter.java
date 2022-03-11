@@ -59,6 +59,11 @@ public abstract class Quarter {
         level++;
     }
 
+    public long getCryptomoneyConsumption() {
+        return 1;
+    }
+
+
     public void setX(int xPos) {
         x=xPos;
     }
