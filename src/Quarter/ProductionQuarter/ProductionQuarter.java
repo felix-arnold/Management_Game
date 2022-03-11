@@ -1,11 +1,14 @@
 package Quarter.ProductionQuarter;
 
+import General.CsvFileUser;
 import Quarter.Quarter;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import static General.CsvFileUser.*;
 
 
 public abstract class ProductionQuarter extends Quarter {
@@ -16,7 +19,7 @@ public abstract class ProductionQuarter extends Quarter {
     protected double productionPerCrew;
     protected long productionType;
 
-    static final List<String[]> ProductionBuildingsData = new ArrayList<>();
+    static final List<String[]> productionBuildingsData = new ArrayList<>();
 
     public ProductionQuarter() {
         super();
@@ -25,15 +28,7 @@ public abstract class ProductionQuarter extends Quarter {
         productionBonusRate = 1;
         productionPerCrewBonusRate = 1;
 
-
-        //Reading a csv file and putting it into a List of String[]
-        try (BufferedReader br = new BufferedReader(new FileReader("ProductionBuildingsData.csv"))) {
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                ProductionBuildingsData.add(line.split(";"));
-            }
-        } catch (Exception e) {
-        }
+        readCSV("productionBuildingsData.csv", productionBuildingsData);
     }
 
 
@@ -42,22 +37,6 @@ public abstract class ProductionQuarter extends Quarter {
             super.upgrade();
 
         }
-    }
-
-
-    protected String loadValue(String name, int level, String valueResearched){
-        int index=0;
-        for (int j = 0; j < ProductionBuildingsData.get(0).length; j++) {
-            if (ProductionBuildingsData.get(0)[j].equals(valueResearched)) {
-                index = j;
-            }
-        }
-        for (String[] element : ProductionBuildingsData) {
-            if (element[0].equals(name + level)) {
-                    return element[index];
-                }
-        }
-        return "Error";
     }
 
     //Test functions

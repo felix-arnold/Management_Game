@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Quarter/QuarterFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/General/CsvFileUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/General/Tech.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/General/TechTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductionBuildingsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ProductionBuildingsData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Airship/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/Airship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Airship/Airship.plantuml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/GlobalRessourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/GlobalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/LocalRessourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Ressources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Resources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Airship/ManOWar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/ManOWar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/Tech.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +211,7 @@
       <workItem from="1646573190020" duration="3153000" />
       <workItem from="1646637323988" duration="4000" />
       <workItem from="1646753753167" duration="3464000" />
-      <workItem from="1646994723838" duration="10258000" />
+      <workItem from="1646994723838" duration="17330000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -351,7 +346,14 @@
       <option name="project" value="LOCAL" />
       <updated>1646745878161</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Initial commit">
+      <created>1647005869138</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1647005869138</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

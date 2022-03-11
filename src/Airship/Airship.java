@@ -1,14 +1,14 @@
 package Airship;
 
+import General.CsvFileUser;
 import General.GlobalManager;
 import General.LocalResourcesManager;
 import Quarter.Quarter;
 import Quarter.QuarterFactory;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import static General.CsvFileUser.*;
 
 public class Airship {
 
@@ -31,62 +31,38 @@ public class Airship {
     private final String[] prebuildQuarter1;
     private final String[] prebuildQuarter2;
 
-
     protected LocalResourcesManager localResources;
 
-    static final List<String[]> AirshipsData = new ArrayList<>();
+    static final List<String[]> airshipData = new ArrayList<>();
 
     //Constructor
     public Airship(String name) {
         this.name = name;
-        bitCost = Integer.parseInt(loadValue(name, "bitCost"));
-        codeDataCost = Integer.parseInt(loadValue(name, "codeDataCost"));
-        cryptomoneyCost = Integer.parseInt(loadValue(name, "cryptomoneyCost"));
-        electricityCost = Integer.parseInt(loadValue(name,"electricityCost"));
-        foodCost = Integer.parseInt(loadValue(name,"foodCost"));
-        crewCost = Integer.parseInt(loadValue(name,"crewCost"));
-        constructionTime = Integer.parseInt(loadValue(name, "bitCost"));
-        maxHealth = Integer.parseInt(loadValue(name, "maxHealth"));
-        maxHull = Integer.parseInt(loadValue(name, "maxHull"));
+        bitCost = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
+        codeDataCost = Integer.parseInt(loadValue(name, airshipData, "codeDataCost"));
+        cryptomoneyCost = Integer.parseInt(loadValue(name, airshipData, "cryptomoneyCost"));
+        electricityCost = Integer.parseInt(loadValue(name, airshipData, "electricityCost"));
+        foodCost = Integer.parseInt(loadValue(name, airshipData, "foodCost"));
+        crewCost = Integer.parseInt(loadValue(name, airshipData, "crewCost"));
+        constructionTime = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
+        maxHealth = Integer.parseInt(loadValue(name, airshipData, "maxHealth"));
+        maxHull = Integer.parseInt(loadValue(name, airshipData, "maxHull"));
 
         health=maxHealth;
         hull=maxHull;
 
-        prebuildQuarter1 = loadValue(name, "prebuildQuarter1").split(",");
-        prebuildQuarter2 = loadValue(name, "prebuildQuarter2").split(",");
+        prebuildQuarter1 = loadValue(name, airshipData, "prebuildQuarter1").split(",");
+        prebuildQuarter2 = loadValue(name, airshipData, "prebuildQuarter2").split(",");
 
         //load positionQuarter as an array of values
-        String[] positionQuarterBis = loadValue(name, "positionQuarter").split("/");
-        for (int i=0; i<positionQuarterBis.length; i++) {
-            String[] positionQuarterBisBis=positionQuarterBis[i].split(",");
-            positionQuarter[i][0]=Integer.parseInt(positionQuarterBisBis[0]);
-            positionQuarter[i][1]=Integer.parseInt(positionQuarterBisBis[1]);
+        for (int i=0; i<loadValue(name, airshipData, "positionQuarter").split("/").length; i++) {
+            String[] positionQuarterBis=loadValue(name, airshipData, "positionQuarter").split("/")[i].split(",");
+            assert false;
+            positionQuarter[i][0]=Integer.parseInt(positionQuarterBis[0]);
+            positionQuarter[i][1]=Integer.parseInt(positionQuarterBis[1]);
         }
 
-        //Read .csv file
-        try (BufferedReader br = new BufferedReader(new FileReader("AirshipsData.csv"))) {
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                AirshipsData.add(line.split(";"));
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    //Load the value in AirshipsData
-    protected String loadValue(String name, String valueResearched){
-        int index=0;
-        for (int j = 0; j < AirshipsData.get(0).length; j++) {
-            if (AirshipsData.get(0)[j].equals(valueResearched)) {
-                index = j;
-            }
-        }
-        for (String[] element : AirshipsData) {
-            if (element[0].equals(name)) {
-                return element[index];
-            }
-        }
-        return "Error reading Airship file";
+        CsvFileUser.readCSV("airshipData", airshipData);
     }
 
 
@@ -132,6 +108,9 @@ public class Airship {
     public int[][] getPositionQuarter() {
         return positionQuarter;
     }
+    public LocalResourcesManager getLocalResources() {
+        return localResources;
+    }
 
     public int getBitCost() {
         return bitCost;
@@ -160,7 +139,17 @@ public class Airship {
     public String[] getPrebuildQuarter2() {
         return prebuildQuarter2;
     }
-    public LocalResourcesManager getLocalResources() {
-        return localResources;
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+    public int getHealth() {
+        return health;
+    }
+    public int getHull() {
+        return hull;
+    }
+    public int getMaxHull() {
+        return maxHull;
     }
 }

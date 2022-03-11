@@ -11,9 +11,6 @@ public class ManOWar extends Airship {
 
     public ManOWar(String name) {
         super(name);
-        this.name = name;
-        numberQuarter=positionQuarter.length;
-        quarterList = new Quarter[maxRow][maxColumn];
     }
 
     AnimatedThing image = new AnimatedThing("ManOWar.png",200, 20, 2574, 2480, 4, 727, 700);
