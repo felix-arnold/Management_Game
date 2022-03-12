@@ -14,6 +14,7 @@ public abstract class Quarter {
     protected int[] codeDataCost;
     protected int[] cryptomoneyCost;
     protected int[] electricityConsumption;
+    protected int foodConsumption;
 
     protected long[] production;
 
@@ -125,5 +126,9 @@ public abstract class Quarter {
 
     public String getName() {
         return name;
+    }
+
+    public int getFoodConsumption() {
+        return foodConsumption;
     }
 }

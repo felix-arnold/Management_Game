@@ -3,6 +3,7 @@ package General;
 import Airship.Airship;
 import Quarter.ProductionQuarter.ProductionQuarter;
 import Quarter.Quarter;
+import General.TechManager;
 
 public class GlobalManager {
 
@@ -121,9 +122,14 @@ public class GlobalManager {
                     }
                     //subtract cryptomoney consumption
                     cryptoMoneyResource.subtractAmount(jQuarter.getCryptomoneyConsumption());
+                    //subtract electricity consumption
+                    iShip.getLocalResources().getElecricityRessource().subtractAmount(jQuarter.getElectricityConsumption());
+                    //subtract food consumption
+                    iShip.getLocalResources().getFoodRessource().subtractAmount(jQuarter.getFoodConsumption());
                 }
             }
         }
         turn ++;
+        TechManager.getInstance().updateTech(getScienceResource().getAmount());
     }
 }

@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/General/CsvFileUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/General/Tech.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/General/TechTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Airship/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/Airship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Airship/ManOWar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airship/ManOWar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Tech.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Airship/Airship.plantuml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/General/GlobalRessourcesManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/General/LocalRessourcesManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/General/Ressources.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Berth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Berth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ProductionQuarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ProductionQuarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/Quarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/Quarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/GlobalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/GlobalManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/Tech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Tech.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/General/TechTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/TechManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/TechTree.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +216,9 @@
       <workItem from="1646573190020" duration="3153000" />
       <workItem from="1646637323988" duration="4000" />
       <workItem from="1646753753167" duration="3464000" />
-      <workItem from="1646994723838" duration="17330000" />
+      <workItem from="1646994723838" duration="23012000" />
+      <workItem from="1647041882211" duration="593000" />
+      <workItem from="1647095114475" duration="916000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -353,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647005869138</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Initial commit">
+      <created>1647017717428</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1647017717428</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
