@@ -1,22 +1,32 @@
 package General;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
+import Quarter.QuarterFactory;
+
 public class Tech {
 
     private final String name;
-    private final String[] previousTech;
+    private final ArrayList<Integer> previousTechIndex;
+    private final ArrayList<Integer> nextTechIndex;
     private long scienceCost;
-    private final int techType;
+    private final boolean unlockTechType;
+    private final String effect;
+
     private boolean unlocked;
     private boolean researched;
     private boolean discovered;
 
 
     //Constructor
-    public Tech(String name, String[] previousTech, int scienceCost, int techType) {
+    public Tech(String name, ArrayList<Integer> previousTechIndex, ArrayList<Integer> nextTechIndex, int scienceCost, boolean techType, String effect) {
         this.name = name;
-        this.previousTech = previousTech;
+        this.previousTechIndex = previousTechIndex;
+        this.nextTechIndex = nextTechIndex;
         this.scienceCost = scienceCost;
-        this.techType = techType;
+        this.unlockTechType = techType;
+        this.effect = effect;
 
         if (name.equals("I.1") || name.equals("ParadoxalGenerator") || name.equals("IASynthetisTank") || name.equals("TemporalCamboose")) {
             unlocked = discovered = true;
@@ -27,6 +37,18 @@ public class Tech {
         researched = false;
     }
 
+
+    //To apply the tech effect
+    public void applyTech() {
+        if (unlockTechType) {
+            Objects.requireNonNull(QuarterFactory.getQuarter(effect)).unlock();
+        }
+        else {
+            //ECRIRE UN IF PAR TECH DE CE TYPE !!!!!!
+        }
+    }
+
+
     //Getter and Setter
     //if it is possible to research it
     public boolean isUnlocked() {
@@ -35,6 +57,7 @@ public class Tech {
     public void setUnlocked() {
         unlocked = true;
     }
+
     //if it is already researched
     public boolean isDiscovered() {
         return discovered;
@@ -42,6 +65,7 @@ public class Tech {
     public void setDiscovered() {
         discovered = true;
     }
+
     //if it is being researched
     public boolean isResearched() {
         return researched;
@@ -50,8 +74,11 @@ public class Tech {
         researched = status;
     }
 
-    public String[] getPreviousTech() {
-        return previousTech;
+    public ArrayList<Integer> getPreviousTechIndex() {
+        return previousTechIndex;
+    }
+    public ArrayList<Integer> getNextTechIndex() {
+        return nextTechIndex;
     }
     public long getScienceCost() {
         return scienceCost;
@@ -62,4 +89,5 @@ public class Tech {
     public String getName() {
         return name;
     }
+
 }

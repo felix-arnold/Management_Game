@@ -67,17 +67,17 @@ public class Airship {
 
 
     //Construct the building at the selected place
-    public void constructQuarter(String quarterName, int xPos, int yPos, boolean exception) {
+    public void constructQuarter(String quarterName, int xPos, int yPos, boolean resourcesException) {
         Quarter quarter = QuarterFactory.getQuarter(quarterName);
         assert quarter != null;
-        if ((GlobalManager.getInstance().getBitResource().getAmount() >= quarter.getBitCost()) && (GlobalManager.getInstance().getCodeDataResource().getAmount() >= quarter.getCodeDataCost()) && (GlobalManager.getInstance().getCryptoMoneyResource().getAmount() >= quarter.getCryptomoneyCost()) && !exception) {
+        if ((GlobalManager.getInstance().getBitResource().getAmount() >= quarter.getBitCost()) && (GlobalManager.getInstance().getCodeDataResource().getAmount() >= quarter.getCodeDataCost()) && (GlobalManager.getInstance().getCryptoMoneyResource().getAmount() >= quarter.getCryptomoneyCost()) && !resourcesException) {
             GlobalManager.getInstance().getBitResource().subtractAmount(quarter.getBitCost());
             GlobalManager.getInstance().getCodeDataResource().subtractAmount(quarter.getCodeDataCost());
             GlobalManager.getInstance().getCryptoMoneyResource().subtractAmount(quarter.getCryptomoneyCost());
             quarterList[xPos][yPos] = quarter;
             numberQuarter++;
         }
-        else if (exception) {
+        else if (resourcesException) {
             quarterList[xPos][yPos] = quarter;
             numberQuarter++;
         }

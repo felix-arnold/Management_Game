@@ -2,18 +2,18 @@ package General;
 
 public class LocalResourcesManager {
 
-    Resources elecricityRessource = new Resources(true);
-    Resources foodRessource = new Resources(true);
-    Resources crewRessource = new Resources(false);
+    Resources elecricityResource = new Resources(true);
+    Resources foodResource = new Resources(true);
+    Resources crewResource = new Resources(false);
 
-    public Resources getElecricityRessource() {
-        return elecricityRessource;
+    public Resources getElectricityResource() {
+        return elecricityResource;
     }
-    public Resources getFoodRessource() {
-        return foodRessource;
+    public Resources getFoodResource() {
+        return foodResource;
     }
-    public Resources getCrewRessource() {
-        return crewRessource;
+    public Resources getCrewResource() {
+        return crewResource;
     }
 
 

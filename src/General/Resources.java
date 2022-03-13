@@ -23,6 +23,10 @@ public class Resources {
         }
     }
 
+    public void setAmount(long newAmount) {
+        amount = newAmount;
+    }
+
     public long getAmount() {
         return amount;
     }

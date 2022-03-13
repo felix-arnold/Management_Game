@@ -28,6 +28,8 @@ public abstract class Quarter {
     protected int x;
     protected int y;
 
+    protected boolean isUnlocked;
+
 
     public Quarter() {
         infoPane.setPrefSize(200,500);
@@ -130,5 +132,9 @@ public abstract class Quarter {
 
     public int getFoodConsumption() {
         return foodConsumption;
+    }
+
+    public int unlock() {
+        isUnlocked = true;
     }
 }
