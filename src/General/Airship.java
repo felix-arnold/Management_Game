@@ -13,7 +13,7 @@ public class Airship {
     private final String name;
     private final int numberOfRaws;
     private final int numberOfColumns;
-    private int[][] positionQuarter;
+    private ArrayList<int[]> positionQuarter = new ArrayList<>();
     private Quarter[][] quarterList;
     private int numberQuarter;
 
@@ -48,6 +48,9 @@ public class Airship {
 
     //Constructor
     public Airship(String name) {
+
+        CsvFileUser.readCSV("AirshipTest.csv", airshipData);
+
         this.name = name;
         bitCost = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
         codeDataCost = Integer.parseInt(loadValue(name, airshipData, "codeDataCost"));
@@ -72,11 +75,8 @@ public class Airship {
         for (int i=0; i<loadValue(name, airshipData, "positionQuarter").split("/").length; i++) {
             String[] positionQuarterBis=loadValue(name, airshipData, "positionQuarter").split("/")[i].split(",");
             assert false;
-            positionQuarter[i][0]=Integer.parseInt(positionQuarterBis[0]);
-            positionQuarter[i][1]=Integer.parseInt(positionQuarterBis[1]);
+            positionQuarter.add(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])});
         }
-
-        CsvFileUser.readCSV("airshipData", airshipData);
     }
 
 
@@ -236,9 +236,11 @@ public class Airship {
     public int getNumberQuarter() {
         return numberQuarter;
     }
-    public int[][] getPositionQuarter() {
+
+    public ArrayList<int[]> getPositionQuarter() {
         return positionQuarter;
     }
+
     public LocalResourcesManager getLocalResources() {
         return localResources;
     }
