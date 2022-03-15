@@ -48,9 +48,7 @@ public class Airship {
 
     //Constructor
     public Airship(String name) {
-
         CsvFileUser.readCSV("AirshipTest.csv", airshipData);
-
         this.name = name;
         bitCost = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
         codeDataCost = Integer.parseInt(loadValue(name, airshipData, "codeDataCost"));
