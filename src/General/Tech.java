@@ -28,7 +28,7 @@ public class Tech {
         this.unlockTechType = techType;
         this.effect = effect;
 
-        if (name.equals("I.1") || name.equals("ParadoxalGenerator") || name.equals("IASynthetisTank") || name.equals("TemporalCamboose")) {
+        if (name.equals("I.1") || name.equals("ParadoxalGenerator") || name.equals("IASynthetisTank") || name.equals("TemporalCaboose")) {
             unlocked = discovered = true;
         }
         else {

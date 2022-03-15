@@ -4,6 +4,9 @@ import Quarter.Quarter;
 
 public class Galley extends ProductionQuarter {
 
+    //prod dépend du nombre total déquipage
+
+
     public Galley() {
         super();
         name = "Galley";
@@ -22,7 +25,7 @@ public class Galley extends ProductionQuarter {
             }
             case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "Galley" -> productionPerCrewBonusRate += 0.025 * adjQuarter.getCrew();
-            //case "TemporalCamboose", "Birdcatcher" -> productionBonusRate += 0.01 * adjQuarter.getLevel() * adjQuarter.getCrew();
+            //case "TemporalCaboose", "Birdcatcher" -> productionBonusRate += 0.01 * adjQuarter.getLevel() * adjQuarter.getCrew();
             //case Berth
         }
     }

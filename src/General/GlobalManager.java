@@ -1,15 +1,14 @@
 package General;
 
-import Airship.Airship;
-import Quarter.ProductionQuarter.ProductionQuarter;
-import Quarter.Quarter;
+import Quarter.ProductionQuarter.*;
+import Quarter.*;
 
 public class GlobalManager {
 
-    /* Manage turn, which means :       calculate resources         Done
-                                        heal ships and units
+    /* Manage turn, which means :       calculate resources
                                         research tech               Done
                                         build ship                  Done
+                                        heal ships and units
                                         produce units
 
        Manage the list of all ships :   define list                 Done
@@ -107,7 +106,7 @@ public class GlobalManager {
         for (Airship iShip : airshipList) {
             for (Quarter[] iQuarter : iShip.getQuarterList()) {
                 for (Quarter jQuarter : iQuarter) {
-                    if (jQuarter instanceof ProductionQuarter) {
+                    if ((jQuarter instanceof ProductionQuarter) || (jQuarter instanceof AdmiralCabin) ||(jQuarter instanceof CaptainCabin)) {
                         for (int i = 0; i < jQuarter.getProduction().length/2; i++) {
 
                             /* Production type:
@@ -143,6 +142,7 @@ public class GlobalManager {
                             //add crew production
                             if (jQuarter.getProduction()[2*i] == 7) {
                                 iShip.getLocalResources().getCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                iShip.getLocalResources().getAvailableCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
                             }
                         }
                     }
@@ -154,8 +154,10 @@ public class GlobalManager {
                     iShip.getLocalResources().getFoodResource().subtractAmount(jQuarter.getFoodConsumption());
                 }
             }
+            iShip.calculateFoodBonus();
+            iShip.manageElectricityOverconsumption();
         }
-        turn ++;
         TechManager.getInstance().updateTech();
+        turn ++;
     }
 }

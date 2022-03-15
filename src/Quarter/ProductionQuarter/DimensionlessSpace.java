@@ -23,7 +23,7 @@ public class DimensionlessSpace extends ProductionQuarter {
                     productionBonusConstant -= adjQuarter.getProduction()[11];
                 }
             }
-            case "TemporalCamboose" -> productionBonusRate -= 0.1*adjQuarter.getLevel();
+            case "TemporalCaboose" -> productionBonusRate -= 0.1*adjQuarter.getLevel();
         }
     }
 }

@@ -23,7 +23,7 @@ public class IASynthetisTank extends ProductionQuarter {
                 }
             }
             case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
-            case "TemporalCamboose" -> productionBonusRate += 0.05 * adjQuarter.getLevel() * adjQuarter.getCrew() /(adjQuarter.getLevel()+1);
+            case "TemporalCaboose" -> productionBonusRate += 0.05 * adjQuarter.getLevel() * adjQuarter.getCrew() /(adjQuarter.getLevel()+1);
         }
     }
 }

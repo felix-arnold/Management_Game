@@ -30,6 +30,8 @@ public abstract class Quarter {
 
     protected boolean isUnlocked;
 
+    protected boolean enabled = true;
+
 
     public Quarter() {
         infoPane.setPrefSize(200,500);
@@ -47,15 +49,14 @@ public abstract class Quarter {
         return level;
     }
 
-    public void crewUp() {
-        if (crew<maxCrew[level-1]) {
-            crew++;
-        }
+    public void addCrew() {
+        crew++;
     }
 
-    public void crewDown() {
+    public void removeCrew() {
         crew--;
     }
+
 
     public void upgrade() {
         //RAJOUTER SI LOCK PAR TECH
@@ -134,7 +135,19 @@ public abstract class Quarter {
         return foodConsumption;
     }
 
-    public int unlock() {
+    public void unlock() {
         isUnlocked = true;
+    }
+
+    public void disable() {
+        enabled = false;
+    }
+
+    public void enable() {
+        enabled = true;
+    }
+
+    public boolean isEnable() {
+        return enabled;
     }
 }

@@ -307,7 +307,7 @@ public class Gamescene extends Scene {
         });
 
 
-        for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
+        /*for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             RadioButton radioButton = new RadioButton();
             radioButton.setPrefSize(55, 28);
             radioButton.setToggleGroup(toggleQuarter);
@@ -363,7 +363,7 @@ public class Gamescene extends Scene {
                     }
                 }
             });
-        }
+        }*/
         g.getChildren().add(quarterDisplayPane);
 
 
@@ -435,11 +435,11 @@ public class Gamescene extends Scene {
 
 
 
-        for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
+        /*for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]]!=null) {
                 electricityValue -= ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getElectricityConsumption();
             }
-        }
+        }*/
 
     }
 

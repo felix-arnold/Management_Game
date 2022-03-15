@@ -4,7 +4,7 @@ title __MANAGEMENT's Class Diagram__\n
 
   namespace  {
     namespace Airship {
-      abstract class Airship.Airship {
+      abstract class General.Airship {
       }
     }
   }
@@ -197,7 +197,7 @@ title __MANAGEMENT's Class Diagram__\n
   namespace  {
     namespace uarter {
       namespace ProductionQuarter {
-        class Quarter.ProductionQuarter.TemporalCamboose {
+        class Quarter.ProductionQuarter.TemporalCaboose {
         }
       }
     }
@@ -230,7 +230,7 @@ title __MANAGEMENT's Class Diagram__\n
   }
   
 
-  Airship.ManOWar -up-|> Airship.Airship
+  Airship.ManOWar -up-|> General.Airship
   Airship.ManOWar o-- General.AnimatedThing : image
   General.AnimatedThing -up-|> General.StaticThing
   General.Gamescene -up-|> javafx.scene.Scene
@@ -261,7 +261,7 @@ title __MANAGEMENT's Class Diagram__\n
   Quarter.ProductionQuarter.ParadoxalGenerator -up-|> Quarter.ProductionQuarter.ProductionQuarter
   Quarter.ProductionQuarter.ProductionQuarter -up-|> Quarter.Quarter
   Quarter.ProductionQuarter.ProgrammersOffice -up-|> Quarter.ProductionQuarter.ProductionQuarter
-  Quarter.ProductionQuarter.TemporalCamboose -up-|> Quarter.ProductionQuarter.ProductionQuarter
+  Quarter.ProductionQuarter.TemporalCaboose -up-|> Quarter.ProductionQuarter.ProductionQuarter
   Quarter.SpecialQuarter -up-|> Quarter.Quarter
 
 

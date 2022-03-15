@@ -19,7 +19,7 @@ public class QuarterFactory {
             else if("ParadoxalGenerator".equalsIgnoreCase(type)) return new ParadoxalGenerator();
             else if("ProgrammersOffice".equalsIgnoreCase(type)) return new ProgrammersOffice();
             else if("Restroom".equalsIgnoreCase(type)) return new Restroom();
-            else if("TemporalCamboose".equalsIgnoreCase(type)) return new TemporalCamboose();
+            else if("TemporalCaboose".equalsIgnoreCase(type)) return new TemporalCaboose();
             else if("VirtualQuantumComputer".equalsIgnoreCase(type)) return new VirtualQuantumComputer();
         return null;
     }

@@ -2,7 +2,7 @@ package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
 
-public class TemporalCamboose extends ProductionQuarter{
+public class TemporalCaboose extends ProductionQuarter{
 
     //production[food,food, bonusfood, bonusfood]
 
@@ -10,16 +10,16 @@ public class TemporalCamboose extends ProductionQuarter{
 
     int bonusStack=0;
 
-    public TemporalCamboose() {
+    public TemporalCaboose() {
 
         super();
-        name = "TemporalCamboose";
+        name = "TemporalCaboose";
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "TemporalCamboose" -> productionBonusConstant += adjQuarter.getProduction()[3];
+            case "TemporalCaboose" -> productionBonusConstant += adjQuarter.getProduction()[3];
             case "Birdcatcher" -> {
                 if (bonusStack<=10*level & food>0) {
                     bonusStack++;
