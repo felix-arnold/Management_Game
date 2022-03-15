@@ -4,7 +4,7 @@ public class Resources {
 
     //Classe pour simplifier le code
 
-    private long amount=0;
+    private long amount=10;
     private final boolean canBeNegativ;
 
     //Constructor
