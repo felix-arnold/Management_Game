@@ -1,8 +1,8 @@
-
-TemporalCamboose1;250;0;400;100;20;4
-TemporalCamboose2;500;0;1100;250;20;5
-TemporalCamboose3;800;600;1800;300;20;6
-TemporalCamboose4;1000;1500;3000;400;20;8
+Name;bitCost;codeDataCost;cryptomoneyCost;baseElectricityConsumption;baseCyptomoneyConsumptionPerCrew;baseMaxCrew
+TemporalCaboose1;250;0;400;100;20;4
+TemporalCaboose2;500;0;1100;250;20;5
+TemporalCaboose3;800;600;1800;300;20;6
+TemporalCaboose4;1000;1500;3000;400;20;8
 IASynthesisTank1;100;0;500;200;50;4
 IASynthesisTank2;100;0;1800;400;50;5
 IASynthesisTank3;100;300;3500;600;50;6

@@ -73,8 +73,10 @@ public class GlobalManager {
             numberOfShip++;
 
             //construction of prebuild quarters
-            airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter1()[0],Integer.parseInt(provisionalShip.getPrebuildQuarter1()[1]),Integer.parseInt(provisionalShip.getPrebuildQuarter1()[2]),true);
-            airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter2()[0],Integer.parseInt(provisionalShip.getPrebuildQuarter2()[1]),Integer.parseInt(provisionalShip.getPrebuildQuarter2()[2]),true);
+            if (provisionalShip.getPrebuildQuarter1() != null && provisionalShip.getPrebuildQuarter2() != null) {
+                airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter1()[0], Integer.parseInt(provisionalShip.getPrebuildQuarter1()[1]), Integer.parseInt(provisionalShip.getPrebuildQuarter1()[2]), true);
+                airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter2()[0], Integer.parseInt(provisionalShip.getPrebuildQuarter2()[1]), Integer.parseInt(provisionalShip.getPrebuildQuarter2()[2]), true);
+            }
         }
     }
 
@@ -103,7 +105,9 @@ public class GlobalManager {
     }
 
     public void nextTurn() {
+        scienceResource.setAmount(0);
         for (Airship iShip : airshipList) {
+            iShip.updateProduction();
             for (Quarter[] iQuarter : iShip.getQuarterList()) {
                 for (Quarter jQuarter : iQuarter) {
                     if ((jQuarter instanceof ProductionQuarter) || (jQuarter instanceof AdmiralCabin) ||(jQuarter instanceof CaptainCabin)) {
@@ -119,6 +123,10 @@ public class GlobalManager {
                                 crew = 7
                                 other = 0 */
 
+                            //add science production
+                            if (jQuarter.getProduction()[2*i] == 1) {
+                                bitResource.addAmount(jQuarter.getProduction()[2*i + 1]);
+                            }
                             //add bit production
                             if (jQuarter.getProduction()[2*i] == 2) {
                                 bitResource.addAmount(jQuarter.getProduction()[2*i+1]);

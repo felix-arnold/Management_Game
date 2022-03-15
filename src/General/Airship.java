@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static General.CsvFileUser.*;
+import static Quarter.QuarterFactory.getQuarter;
 import static java.lang.Math.abs;
 
 public class Airship {
@@ -45,6 +46,8 @@ public class Airship {
 
     static final List<String[]> airshipData = new ArrayList<>();
 
+    static final String[] prorityList = {"Berth","VirtualQuantum", "MadScientist", "HellishBoss", "Cryptoinvestor", "DataCentre", "ProgrammerOffice", "Birdcatcher", "TemporalCaboose", "IASynthesisTank", "Galley", "DimensionlessSpace", "ParadoxalGenerator", "Cryptomne"};
+
 
     //Constructor
     public Airship(String name) {
@@ -66,8 +69,8 @@ public class Airship {
         health=maxHealth;
         hull=maxHull;
 
-        prebuildQuarter1 = loadValue(name, airshipData, "prebuildQuarter1").split(",");
-        prebuildQuarter2 = loadValue(name, airshipData, "prebuildQuarter2").split(",");
+        prebuildQuarter1 = loadValue(name, airshipData, "prebuildQuarter1").split("/");
+        prebuildQuarter2 = loadValue(name, airshipData, "prebuildQuarter2").split("/");
 
         //load positionQuarter as an array of values
         for (int i=0; i<loadValue(name, airshipData, "positionQuarter").split("/").length; i++) {
@@ -77,10 +80,10 @@ public class Airship {
         }
     }
 
-
+/////////////// ADD FOR UPGRADING
     //Construct the building at the selected place
     public void constructQuarter(String quarterName, int xPos, int yPos, boolean resourcesException) {
-        Quarter quarter = QuarterFactory.getQuarter(quarterName);
+        Quarter quarter = getQuarter(quarterName);
         assert quarter != null;
         if ((GlobalManager.getInstance().getBitResource().getAmount() >= quarter.getBitCost()) && (GlobalManager.getInstance().getCodeDataResource().getAmount() >= quarter.getCodeDataCost()) && (GlobalManager.getInstance().getCryptoMoneyResource().getAmount() >= quarter.getCryptomoneyCost()) && !resourcesException) {
             GlobalManager.getInstance().getBitResource().subtractAmount(quarter.getBitCost());
@@ -221,6 +224,24 @@ public class Airship {
         if (quarter.getCrew()>0) {
             quarter.removeCrew();
             localResources.availableCrewResource.addAmount(100);
+        }
+    }
+
+
+    //Calculate production for each quarter depending on the priority list
+    public void updateProduction() {
+        for (String prorityQuarterName : prorityList) {
+            Quarter priorityQuarter = getQuarter(prorityQuarterName);
+            for (Quarter[] iQuarter : quarterList) {
+                for (Quarter jQuarter : iQuarter) {
+                    assert priorityQuarter != null;
+                    if (jQuarter.getClass().equals(priorityQuarter.getClass())) {
+                        for (Quarter adjacentQuarter : getAdjacent(jQuarter)) {
+                            jQuarter.adjacentBonuses(adjacentQuarter);
+                        }
+                    }
+                }
+            }
         }
     }
 
