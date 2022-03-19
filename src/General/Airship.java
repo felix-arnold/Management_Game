@@ -2,6 +2,8 @@ package General;
 
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
+import Combat.Unit.Unit;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class Airship {
     private final String name;
     private final int numberOfRaws;
     private final int numberOfColumns;
-    private ArrayList<int[]> positionQuarter = new ArrayList<>();
+    private final ArrayList<int[]> positionQuarter = new ArrayList<>();
     private Quarter[][] quarterList;
     private int numberQuarter;
 
@@ -25,10 +27,6 @@ public class Airship {
     private final int foodCost;
     private final int crewCost;
     private final int constructionTime;
-    private final int maxHealth;
-    private final int maxHull;
-    private int health;
-    private int hull;
     private final String[] prebuildQuarter1;
     private final String[] prebuildQuarter2;
 
@@ -42,11 +40,21 @@ public class Airship {
     int foodQualityProductionBonus = 0;
     int foodQualityDamageBonus = 0;
 
-    ArrayList<int[]> disabledQuarterList = new ArrayList<int[]>();
+    ArrayList<int[]> disabledQuarterList = new ArrayList<>();
 
     static final List<String[]> airshipData = new ArrayList<>();
 
     static final String[] prorityList = {"Berth","VirtualQuantum", "MadScientist", "HellishBoss", "Cryptoinvestor", "DataCentre", "ProgrammerOffice", "Birdcatcher", "TemporalCaboose", "IASynthesisTank", "Galley", "DimensionlessSpace", "ParadoxalGenerator", "Cryptomne"};
+
+
+    //Combat variables
+    private final int maxHullIntegrity;
+    private final int maxShield;
+    private final int armorRating;
+    private final int speed;
+    private int hullIntegrity;
+
+    private ArrayList<Unit> unitList = new ArrayList<>();
 
 
     //Constructor
@@ -60,14 +68,17 @@ public class Airship {
         foodCost = Integer.parseInt(loadValue(name, airshipData, "foodCost"));
         crewCost = Integer.parseInt(loadValue(name, airshipData, "crewCost"));
         constructionTime = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
-        maxHealth = Integer.parseInt(loadValue(name, airshipData, "maxHealth"));
-        maxHull = Integer.parseInt(loadValue(name, airshipData, "maxHull"));
         numberOfColumns = Integer.parseInt(loadValue(name, airshipData, "numberOfLines"));
         numberOfRaws = Integer.parseInt(loadValue(name, airshipData, "numberOfRaws"));
+
+        maxHullIntegrity = Integer.parseInt(loadValue(name, airshipData, "maxHullIntegrity"));
+        maxShield = Integer.parseInt(loadValue(name, airshipData, "maxShield"));
+        armorRating = Integer.parseInt(loadValue(name,airshipData, "armorRating"));
+        speed = Integer.parseInt(loadValue(name, airshipData, "speed"));
+
         quarterList = new Quarter[numberOfRaws][numberOfColumns];
 
-        health=maxHealth;
-        hull=maxHull;
+        hullIntegrity=maxHullIntegrity;
 
         prebuildQuarter1 = loadValue(name, airshipData, "prebuildQuarter1").split("/");
         prebuildQuarter2 = loadValue(name, airshipData, "prebuildQuarter2").split("/");
@@ -292,16 +303,24 @@ public class Airship {
         return prebuildQuarter2;
     }
 
-    public int getMaxHealth() {
-        return maxHealth;
+
+    //Fight getter
+    public int getMaxHullIntegrity() {
+        return maxHullIntegrity;
     }
-    public int getHealth() {
-        return health;
+    public int getMaxShield() {
+        return maxShield;
     }
-    public int getHull() {
-        return hull;
+    public int getHullIntegrity() {
+        return hullIntegrity;
     }
-    public int getMaxHull() {
-        return maxHull;
+    public int getArmorRating() {
+        return armorRating;
+    }
+    public int getSpeed(){
+        return speed;
+    }
+    public ArrayList<Unit> getUnitList(){
+        return unitList;
     }
 }

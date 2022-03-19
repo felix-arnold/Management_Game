@@ -108,6 +108,7 @@ public class GlobalManager {
         scienceResource.setAmount(0);
         for (Airship iShip : airshipList) {
             iShip.updateProduction();
+            scienceResource.setAmount(0);
             for (Quarter[] iQuarter : iShip.getQuarterList()) {
                 for (Quarter jQuarter : iQuarter) {
                     if ((jQuarter instanceof ProductionQuarter) || (jQuarter instanceof AdmiralCabin) ||(jQuarter instanceof CaptainCabin)) {
@@ -125,7 +126,7 @@ public class GlobalManager {
 
                             //add science production
                             if (jQuarter.getProduction()[2*i] == 1) {
-                                bitResource.addAmount(jQuarter.getProduction()[2*i + 1]);
+                                scienceResource.addAmount(jQuarter.getProduction()[2*i + 1]);
                             }
                             //add bit production
                             if (jQuarter.getProduction()[2*i] == 2) {
