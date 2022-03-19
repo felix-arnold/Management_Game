@@ -30,7 +30,7 @@ public class Airship {
     private final String[] prebuildQuarter1;
     private final String[] prebuildQuarter2;
 
-    protected LocalResourcesManager localResources;
+    protected LocalResourcesManager localResources = new LocalResourcesManager();
 
     int foodDiversityProductionBonus = 0;
     int foodQuantityProductionBonus = 0;
@@ -121,6 +121,7 @@ public class Airship {
         adjacentQuarter[3] = quarterList[xPos][yPos+1];
         return adjacentQuarter;
     }
+
 
 
     //Calculate the food bonuses

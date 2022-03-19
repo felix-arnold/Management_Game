@@ -3,6 +3,8 @@ package General;
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
 
+import java.util.Arrays;
+
 public class GlobalManager {
 
     /* Manage turn, which means :       calculate resources
@@ -52,6 +54,7 @@ public class GlobalManager {
     private final Airship[] airshipList = new Airship[12];
     private int numberOfShip=1;
 
+    //ok
     public Airship[] getAirshipList() {
         return airshipList;
     }
@@ -59,6 +62,7 @@ public class GlobalManager {
         return numberOfShip;
     }
 
+    //ok
     //build an Airship (the button is not supposed to be available if there is not enough resources or too much ship)
     public void constructAirship(String name, Airship airship) {
         Airship provisionalShip = new Airship(name);
@@ -70,16 +74,18 @@ public class GlobalManager {
             airship.getLocalResources().getFoodResource().subtractAmount(provisionalShip.getFoodCost());
             airship.getLocalResources().getElectricityResource().subtractAmount(provisionalShip.getElectricityCost());
             airshipList[numberOfShip] = provisionalShip;
-            numberOfShip++;
 
+            //Ajout de la condition
             //construction of prebuild quarters
-            if (provisionalShip.getPrebuildQuarter1() != null && provisionalShip.getPrebuildQuarter2() != null) {
-                airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter1()[0], Integer.parseInt(provisionalShip.getPrebuildQuarter1()[1]), Integer.parseInt(provisionalShip.getPrebuildQuarter1()[2]), true);
-                airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter2()[0], Integer.parseInt(provisionalShip.getPrebuildQuarter2()[1]), Integer.parseInt(provisionalShip.getPrebuildQuarter2()[2]), true);
+            if((provisionalShip.getPrebuildQuarter1() != null) && (provisionalShip.getPrebuildQuarter2() != null)) {
+                airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter2()[0],Integer.parseInt(provisionalShip.getPrebuildQuarter2()[1]),Integer.parseInt(provisionalShip.getPrebuildQuarter2()[2]),true);
+                airshipList[numberOfShip].constructQuarter(provisionalShip.getPrebuildQuarter1()[0],Integer.parseInt(provisionalShip.getPrebuildQuarter1()[1]),Integer.parseInt(provisionalShip.getPrebuildQuarter1()[2]),true);
             }
+            numberOfShip++;
         }
     }
 
+    //ok
     public void upgradeAirship(String name, Airship airship, int indexAirship) {
         Airship provisionalShip = new Airship(name);
         if ((bitResource.getAmount() >= provisionalShip.getBitCost()) && (codeDataResource.getAmount() >= provisionalShip.getCodeDataCost()) && (cryptoMoneyResource.getAmount() >= provisionalShip.getCryptomoneyCost()) && (airship.getLocalResources().getCrewResource().getAmount() > provisionalShip.getCrewCost()) && (airship.getLocalResources().getFoodResource().getAmount() >= provisionalShip.getFoodCost()) && (airship.getLocalResources().getElectricityResource().getAmount() >= provisionalShip.getElectricityCost())) {
@@ -97,22 +103,23 @@ public class GlobalManager {
         }
     }
 
-
+    //ok
     //Turn manager
     private int turn;
     public int getTurn() {
         return turn;
     }
 
+    //ok
     public void nextTurn() {
-        scienceResource.setAmount(0);
         for (Airship iShip : airshipList) {
-            iShip.updateProduction();
-            scienceResource.setAmount(0);
-            for (Quarter[] iQuarter : iShip.getQuarterList()) {
-                for (Quarter jQuarter : iQuarter) {
-                    if ((jQuarter instanceof ProductionQuarter) || (jQuarter instanceof AdmiralCabin) ||(jQuarter instanceof CaptainCabin)) {
-                        for (int i = 0; i < jQuarter.getProduction().length/2; i++) {
+            if(iShip != null) {
+                for (Quarter[] iQuarter : iShip.getQuarterList()) {
+                    if(iQuarter != null) {
+                        for (Quarter jQuarter : iQuarter) {
+                            if(jQuarter != null) {
+                                if ((jQuarter instanceof ProductionQuarter) || (jQuarter instanceof AdmiralCabin) ||(jQuarter instanceof CaptainCabin)) {
+                                    for (int i = 0; i < jQuarter.getProduction().length/2; i++) {
 
                             /* Production type:
                                 science = 1
@@ -124,47 +131,47 @@ public class GlobalManager {
                                 crew = 7
                                 other = 0 */
 
-                            //add science production
-                            if (jQuarter.getProduction()[2*i] == 1) {
-                                scienceResource.addAmount(jQuarter.getProduction()[2*i + 1]);
-                            }
-                            //add bit production
-                            if (jQuarter.getProduction()[2*i] == 2) {
-                                bitResource.addAmount(jQuarter.getProduction()[2*i+1]);
-                            }
-                            //add dataCode production
-                            if (jQuarter.getProduction()[2*i] == 3) {
-                                codeDataResource.addAmount(jQuarter.getProduction()[2*i+1]);
-                            }
-                            //add cryptomoney production
-                            if (jQuarter.getProduction()[2*i] == 4) {
-                                cryptoMoneyResource.addAmount(jQuarter.getProduction()[2*i+1]);
-                            }
-                            //add electricity production
-                            if (jQuarter.getProduction()[2*i] == 5) {
-                                iShip.getLocalResources().getElectricityResource().addAmount(jQuarter.getProduction()[2*i+1]);
-                            }
-                            //add food production
-                            if (jQuarter.getProduction()[2*i] == 6) {
-                                iShip.getLocalResources().getFoodResource().addAmount(jQuarter.getProduction()[2*i+1]);
-                            }
-                            //add crew production
-                            if (jQuarter.getProduction()[2*i] == 7) {
-                                iShip.getLocalResources().getCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
-                                iShip.getLocalResources().getAvailableCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                        //add bit production
+                                        if (jQuarter.getProduction()[2*i] == 2) {
+                                            bitResource.addAmount(jQuarter.getProduction()[2*i+1]);
+                                        }
+                                        //add dataCode production
+                                        if (jQuarter.getProduction()[2*i] == 3) {
+                                            codeDataResource.addAmount(jQuarter.getProduction()[2*i+1]);
+                                        }
+                                        //add cryptomoney production
+                                        if (jQuarter.getProduction()[2*i] == 4) {
+                                            cryptoMoneyResource.addAmount(jQuarter.getProduction()[2*i+1]);
+                                        }
+                                        //add electricity production
+                                        if (jQuarter.getProduction()[2*i] == 5) {
+                                            iShip.getLocalResources().getElectricityResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                        }
+                                        //add food production
+                                        if (jQuarter.getProduction()[2*i] == 6) {
+                                            iShip.getLocalResources().getFoodResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                        }
+                                        //add crew production
+                                        if (jQuarter.getProduction()[2*i] == 7) {
+                                            iShip.getLocalResources().getCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                            iShip.getLocalResources().getAvailableCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                        }
+                                    }
+                                }
+
+                                //subtract cryptomoney consumption
+                                cryptoMoneyResource.subtractAmount(jQuarter.getCryptomoneyConsumption());
+                                //subtract electricity consumption
+                                iShip.getLocalResources().getElectricityResource().subtractAmount(jQuarter.getElectricityConsumption());
+                                //subtract food consumption
+                                iShip.getLocalResources().getFoodResource().subtractAmount(jQuarter.getFoodConsumption());
                             }
                         }
                     }
-                    //subtract cryptomoney consumption
-                    cryptoMoneyResource.subtractAmount(jQuarter.getCryptomoneyConsumption());
-                    //subtract electricity consumption
-                    iShip.getLocalResources().getElectricityResource().subtractAmount(jQuarter.getElectricityConsumption());
-                    //subtract food consumption
-                    iShip.getLocalResources().getFoodResource().subtractAmount(jQuarter.getFoodConsumption());
                 }
+                iShip.calculateFoodBonus();
+                iShip.manageElectricityOverconsumption();
             }
-            iShip.calculateFoodBonus();
-            iShip.manageElectricityOverconsumption();
         }
         TechManager.getInstance().updateTech();
         turn ++;

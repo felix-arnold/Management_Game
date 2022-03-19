@@ -5,18 +5,20 @@ import javafx.scene.layout.Pane;
 public abstract class Quarter {
 
     //Construction cost, consumption, upgrade cost, variable
-    protected int level;
+    protected int level = 1;
     protected int maxLevel;
     protected int crew;
 
-    protected int[] maxCrew;
-    protected int[] bitCost;
-    protected int[] codeDataCost;
-    protected int[] cryptomoneyCost;
-    protected int[] electricityConsumption;
+    //Taille des tableaux à changer
+    protected int[] maxCrew = new int[2];
+    protected int[] bitCost = new int[2];
+    protected int[] codeDataCost = new int[2];
+    protected int[] cryptomoneyCost = new int[2];
+    protected int[] electricityConsumption = new int[2];
     protected int foodConsumption;
 
-    protected long[] production;
+    //METTRE UN PUTIN D'ARREY LISTE
+    protected long[] production = new long[2];
 
     protected Pane infoPane = new Pane();
 
