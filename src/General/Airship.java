@@ -2,9 +2,10 @@ package General;
 
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
-import Combat.Unit.Unit;
+import Combat.Unit.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static General.CsvFileUser.*;
@@ -109,6 +110,8 @@ public class Airship {
             String[] positionQuarterBis=loadValue(name, airshipData, "positionQuarter").split("/")[i].split(",");
             assert false;
             positionQuarter.add(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])});
+            System.out.println(Arrays.toString(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])}));
+            //System.out.println(positionQuarter.get(i));
         }
     }
 
@@ -119,6 +122,8 @@ public class Airship {
 
 
 /////////////// ADD FOR UPGRADING
+
+    //ok
     //Construct the building at the selected place
     public void constructQuarter(String quarterName, int xPos, int yPos, boolean resourcesException) {
         Quarter quarter = getQuarter(quarterName);
@@ -128,24 +133,37 @@ public class Airship {
             GlobalManager.getInstance().getCodeDataResource().subtractAmount(quarter.getCodeDataCost());
             GlobalManager.getInstance().getCryptoMoneyResource().subtractAmount(quarter.getCryptomoneyCost());
             quarterList[xPos][yPos] = quarter;
+            quarter.setX(xPos);
+            quarter.setY(yPos);
             numberQuarter++;
         }
         else if (resourcesException) {
             quarterList[xPos][yPos] = quarter;
+            quarter.setX(xPos);
+            quarter.setY(yPos);
             numberQuarter++;
         }
     }
 
-
+    //ok
     //Get a list of the four adjacent quarters of this quarter
     public Quarter[] getAdjacent(Quarter quarter) {
         Quarter[] adjacentQuarter = new Quarter[4];
         int xPos = quarter.getX();
         int yPos = quarter.getY();
-        adjacentQuarter[0] = quarterList[xPos+1][yPos];
-        adjacentQuarter[1] = quarterList[xPos][yPos-1];
-        adjacentQuarter[2] = quarterList[xPos-1][yPos];
-        adjacentQuarter[3] = quarterList[xPos][yPos+1];
+
+        if(quarterList[xPos+1][yPos] != null) {
+            adjacentQuarter[0] = quarterList[xPos+1][yPos];
+        }
+        if(quarterList[xPos][yPos-1] != null) {
+            adjacentQuarter[1] = quarterList[xPos][yPos-1];
+        }
+        if(quarterList[xPos-1][yPos] != null) {
+            adjacentQuarter[2] = quarterList[xPos-1][yPos];
+        }
+        if (quarterList[xPos][yPos+1] != null) {
+            adjacentQuarter[3] = quarterList[xPos][yPos+1];
+        }
         return adjacentQuarter;
     }
 
