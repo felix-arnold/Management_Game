@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<LandUnitList>
+
+    <landUnit name = "ScriptKiddie">
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff damage close, debuff armor" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range attack" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range attack" />
+            <specialAction type="poison" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="human shield" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "Pirate">
+
+        <actionCard nameActionCard="???" target="enemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="enemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+            <specialAction type="zone damage" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="enemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range combat" />
+        </actionCard>
+
+        <actionCard nameActionCard="Revenge" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range and close combat" />
+            <specialAction type="if a membre of the unit, redraw and next attack increase"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="shield up" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "Antimalware">
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+            <specialAction type="damage bonus against large unit" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type ="vulnerability" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range attack" />
+            <specialAction type="bleed" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range attack" />
+            <specialAction type="armour piercing" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="can intercept flying unit" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "WhileWielder">
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+            <specialAction type="damage bonus against small unit" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="enter rage state if in peace state, or peace state if in rage state" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="if ennemy killed, regain hp" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="range attack" />
+            <specialAction type="area damage" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="attack rear unit" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "Black hat">
+
+        <actionCard nameActionCard="???" target="ennemyEnit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="zone damage" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="ennemyEnit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignore armour" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="stun" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignite" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="dégat en continue sur plusieurs tours dans une zone" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="create 'bugs' (virus) that confuse" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="debuff ennemy" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "White hat">
+
+        <actionCard nameActionCard="Scanneur de vulnérabilité" target="ennemyEnit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="create vulnerabilities" />
+        </actionCard>
+
+        <actionCard nameActionCard="Attaque par dénie de service" target="ennemyEnit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="heal" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="repair ship" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="slow ennemy ship" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="heal" />
+            <specialAction type="zone damage" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="increase armor" />
+            <specialAction type="increase dodge" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "Hacker bard">
+
+        <actionCard nameActionCard="" target="ennemyEnit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="create shield of hp" />
+        </actionCard>
+
+        <actionCard nameActionCard="" target="ennemyEnit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="plague" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="debuff ennemy avec un status aléatoire" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignore shield" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="restore shield of ship" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type= "buff damage et/ou crit"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="allyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="attack des ennemis aléatoires" />
+        </actionCard>
+    </landUnit>
+
+
+
+    <landUnit name = "Worm">
+
+        <actionCard nameActionCard="???" target="enemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+            <specialAction type="armour piercing" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="enemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="close combat" />
+            <specialAction type="zone damage" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="enemyUnit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="can fear" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="wormhole ? -> attaque et change de ligne" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff armor" />
+        </actionCard>
+    </landUnit>
+</LandUnitList>

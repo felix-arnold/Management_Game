@@ -47,21 +47,8 @@ public class Gamescene extends Scene {
 
     private AnimationTimer timer;
 
-    private StaticThing backgroundLeft;
-    private StaticThing backgroundRight;
-    private StaticThing starsFix;
-    private StaticThing cloudBottom1Left;
-    private StaticThing cloudBottom1Right;
-    private StaticThing cloudBottom2Left;
-    private StaticThing cloudBottom2Right;
-    private StaticThing cloudTop1Left;
-    private StaticThing cloudTop1Right;
-    private StaticThing cloudTop2Left;
-    private StaticThing cloudTop2Right;
 
-
-    private ManOWar ManOWar1;
-
+    /*
 
     private long scienceValue=0;
     private IntegerProperty scienceNumber = new SimpleIntegerProperty();
@@ -103,44 +90,46 @@ public class Gamescene extends Scene {
     private Boolean quarterIsSelected = FALSE;
     private Quarter constructionSelected;
 
-    private long turn;
+    private long turn;*/
 
 
     public Gamescene(Group g) {
         super(g, 1540, 800);
 
-        backgroundLeft = new StaticThing("BackgroundLayer.png", 0, 0, 1831, 800);
-        backgroundRight = new StaticThing("BackgroundLayer.png", 1831, 0, 1831, 800);
+        /*StaticThing backgroundLeft = new StaticThing("BackgroundLayer.png", 0, 0, 1831, 800);
+        StaticThing backgroundRight = new StaticThing("BackgroundLayer.png", 1831, 0, 1831, 800);
         g.getChildren().add(backgroundLeft.getSprite());
         g.getChildren().add(backgroundRight.getSprite());
 
-        starsFix = new StaticThing("StarsLayer.png", 0, 5, 1540, 193);
+        StaticThing starsFix = new StaticThing("StarsLayer.png", 0, 5, 1540, 193);
         g.getChildren().add(starsFix.getSprite());
 
-        cloudBottom1Left = new StaticThing("CloudBottom1Layer.png", 0, 612, 1826, 188);
-        cloudBottom1Right = new StaticThing("CloudBottom1Layer.png", 1826, 612, 1826, 188);
+        StaticThing cloudBottom1Left = new StaticThing("CloudBottom1Layer.png", 0, 612, 1826, 188);
+        StaticThing cloudBottom1Right = new StaticThing("CloudBottom1Layer.png", 1826, 612, 1826, 188);
         g.getChildren().add(cloudBottom1Left.getSprite());
         g.getChildren().add(cloudBottom1Right.getSprite());
 
-        cloudTop1Left = new StaticThing("CloudTop1Layer.png", 0, 120, 4538, 556);
-        cloudTop1Right = new StaticThing("CloudTop1Layer.png", 4538, 120, 4538, 556);
+        StaticThing cloudTop1Left = new StaticThing("CloudTop1Layer.png", 0, 120, 4538, 556);
+        StaticThing cloudTop1Right = new StaticThing("CloudTop1Layer.png", 4538, 120, 4538, 556);
         g.getChildren().add(cloudTop1Left.getSprite());
         g.getChildren().add(cloudTop1Right.getSprite());
 
-        ManOWar1 = new ManOWar("ManOWar1");
-        g.getChildren().add(ManOWar1.getImage().getSprite());
+        ManOWar manOWar1 = new ManOWar("ManOWar1");
+        g.getChildren().add(manOWar1.getImage().getSprite());
 
-        cloudBottom2Left = new StaticThing("CloudBottom2Layer.png", 0, 238, 4790, 562);
-        cloudBottom2Right = new StaticThing("CloudBottom2Layer.png", 4790, 238, 4790, 562);
+        StaticThing cloudBottom2Left = new StaticThing("CloudBottom2Layer.png", 0, 238, 4790, 562);
+        StaticThing cloudBottom2Right = new StaticThing("CloudBottom2Layer.png", 4790, 238, 4790, 562);
         g.getChildren().add(cloudBottom2Left.getSprite());
         g.getChildren().add(cloudBottom2Right.getSprite());
 
-        cloudTop2Left = new StaticThing("CloudTop2Layer.png", 0, 120, 5780, 433);
-        cloudTop2Right = new StaticThing("CloudTop2Layer.png", 5780, 120, 5780, 433);
+        StaticThing cloudTop2Left = new StaticThing("CloudTop2Layer.png", 0, 120, 5780, 433);
+        StaticThing cloudTop2Right = new StaticThing("CloudTop2Layer.png", 5780, 120, 5780, 433);
         g.getChildren().add(cloudTop2Left.getSprite());
-        g.getChildren().add(cloudTop2Right.getSprite());
 
+        /*
+    }
 
+/*
         //A METTRE DANS MANOWAR
         GridPane quarterDisplayPane = new GridPane();
         quarterDisplayPane.setLayoutX(363);
@@ -307,7 +296,7 @@ public class Gamescene extends Scene {
         });
 
 
-        /*for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
+        for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             RadioButton radioButton = new RadioButton();
             radioButton.setPrefSize(55, 28);
             radioButton.setToggleGroup(toggleQuarter);
@@ -363,7 +352,7 @@ public class Gamescene extends Scene {
                     }
                 }
             });
-        }*/
+        }
         g.getChildren().add(quarterDisplayPane);
 
 
@@ -421,7 +410,7 @@ public class Gamescene extends Scene {
 
         //A REVOIR
 
-        /*for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
+        for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]]!=null) {
                 if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProductionType() == 2) {
                     cryptomoneyValue += ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProduction();
@@ -430,16 +419,15 @@ public class Gamescene extends Scene {
                     electricityValue += ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getProduction();
                 }
             }
-        }*/
+        }
 
 
 
-
-        /*for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
+        for (int i = 0; i < ManOWar1.getNumberQuarter(); i++) {
             if (ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]]!=null) {
                 electricityValue -= ManOWar1.getQuarterList()[ManOWar1.getPositionQuarter()[i][1]][ManOWar1.getPositionQuarter()[i][0]].getElectricityConsumption();
             }
-        }*/
+        }
 
     }
 
@@ -482,5 +470,6 @@ public class Gamescene extends Scene {
         codeDataValue-=constructionSelected.getCodeDataCost();
         cryptomoneyValue-=constructionSelected.getCryptomoneyCost();
     }
-}
+    */
 
+}}
