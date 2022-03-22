@@ -2,9 +2,12 @@ package Combat;
 
 import Combat.Unit.FlyingUnit;
 import Combat.Unit.Unit;
+import Combat.Unit.Weapon;
 import General.Airship;
 import General.GlobalManager;
 
+import javax.swing.*;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 import static java.lang.Math.*;
@@ -13,10 +16,12 @@ public class BombingCombatManager {
 
     private BombingCombatManager() {
         for (Airship iShip : GlobalManager.getInstance().getAirshipList()) {
-            availableShip.add(new FightAirship(iShip));
+            availableShipList.add(new FightAirship(iShip));
         }
     }
+
     private static final BombingCombatManager INSTANCE = new BombingCombatManager();
+
     public static BombingCombatManager getInstance() {
         return INSTANCE;
     }
@@ -24,14 +29,18 @@ public class BombingCombatManager {
 
     FightAirship[][] airshipBattlefield = new FightAirship[6][5];
     FlyingUnit[][] flyingUnitBattlefield = new FlyingUnit[6][10];
-    ArrayList<FightAirship> availableShip = new ArrayList<>();
+    ArrayList<FightAirship> availableShipList = new ArrayList<>();
+
+    public FightAirship[][] getAirshipBattlefield() {
+        return airshipBattlefield;
+    }
 
 
     //Move the selected ship from the available list to the selected place in the airshipBattlefield, with
-    public void moveAvailableShipToField(int indexShip, int position) {
-        if (availableShip.get(indexShip).canMove() && airshipBattlefield[0][position] == null) {
-            airshipBattlefield[0][position] = availableShip.get(indexShip);
-            availableShip.remove(indexShip);
+    public void moveAvailableShipListToField(int indexShip, int position) {
+        if (availableShipList.get(indexShip).canMove() && airshipBattlefield[0][position] == null) {
+            airshipBattlefield[0][position] = availableShipList.get(indexShip);
+            availableShipList.remove(indexShip);
             airshipBattlefield[0][position].setField(0);
             airshipBattlefield[0][position].setPosition(position);
             airshipBattlefield[0][position].hasMove();
@@ -40,8 +49,8 @@ public class BombingCombatManager {
 
     //Retreat a ship if it is in the last raw
     public void retreatShip(FightAirship airship) {
-        if (airship.canMove() && airship.getField()==0) {
-            availableShip.add(airship);
+        if (airship.canMove() && airship.getField() == 0) {
+            availableShipList.add(airship);
             airshipBattlefield[0][airship.getPosition()] = null;
             airship.setField(-1);
             airship.hasMove();
@@ -50,7 +59,7 @@ public class BombingCombatManager {
 
     //Move a ship from airshipBattlefield to another empty place in the airshipBattlefield
     public void moveShip(FightAirship airship, int field, int position) {
-        if (abs(airship.getField()-field) <= 1 && airshipBattlefield[field][position] == null && airship.canMove()) {
+        if (abs(airship.getField() - field) <= 1 && airshipBattlefield[field][position] == null && airship.canMove()) {
             airshipBattlefield[field][position] = airship;
             airshipBattlefield[airship.getField()][airship.getPosition()] = null;
             airship.setField(field);
@@ -60,8 +69,8 @@ public class BombingCombatManager {
     }
 
     //Invert two ships on the airshipBattlefield
-    public void invertShip(FightAirship airship1, FightAirship airship2){
-        if (abs(airship1.getField()-airship2.getField()) <= 1 && airship1.canMove() && airship2.canMove()) {
+    public void invertShip(FightAirship airship1, FightAirship airship2) {
+        if (abs(airship1.getField() - airship2.getField()) <= 1 && airship1.canMove() && airship2.canMove()) {
             int field2 = airship2.getField();
             int position2 = airship2.getPosition();
             airshipBattlefield[airship1.getField()][airship1.getPosition()] = airship2;
@@ -75,13 +84,45 @@ public class BombingCombatManager {
         }
     }
 
-    //Draw a card among the one available for the selected unit
-    public ArrayList<ActionCard> drawCards(Unit unit, int numberOfCard) {
-        ArrayList<ActionCard> actionCardList = new ArrayList<>();
-            for (int i=0; i<numberOfCard; i++) {
-                int r = toIntExact(round(floor(random()*unit.getActionCardsList().size())));
-                actionCardList.add(unit.getActionCardsList().get(r));
-            }
-        return actionCardList;
+
+    //Turn manager
+    int turn = 0;
+
+    public int getTurn() {
+        return turn;
     }
+
+    public void nextTurn() {
+        for (FightAirship availableShip : availableShipList) {
+            availableShip.udpateCanMove(turn);
+        }
+        for (FightAirship[] field : airshipBattlefield) {
+            for (FightAirship inBattleAirship : field) {
+                inBattleAirship.udpateCanMove(turn);
+                for (Weapon weapon : inBattleAirship.getWeaponsList()) {
+                    weapon.udpateCanAction(turn);
+                    if (weapon.canAction()) {
+                        weapon.drawCards(2);
+                    }
+                }
+            }
+        }
+        turn++;
+    }
+
+
+    //Late attack //// A REVOIR
+    /*private ArrayList<Object[]> lateAttackList = new ArrayList<>();
+
+    public void lateAttack(int[] indexList, Weapon weapon) {
+        if (indexList[0]==0) {
+            if (airshipBattlefield[indexList[1]][indexList[2]] != null) {
+                weapon.weaponAttack(airshipBattlefield[indexList[1]][indexList[2]], weapon.getActionCardsList().get(indexList[3]), true);
+            }
+        }
+        else {
+            lateAttackList.get(indexList[4])[4]=indexList[4]-1;
+        }
+    }*/
+
 }

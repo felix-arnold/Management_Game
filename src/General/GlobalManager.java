@@ -112,6 +112,7 @@ public class GlobalManager {
 
     //ok
     public void nextTurn() {
+        scienceResource.setAmount(0);
         for (Airship iShip : airshipList) {
             if(iShip != null) {
                 for (Quarter[] iQuarter : iShip.getQuarterList()) {

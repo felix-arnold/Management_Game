@@ -1,25 +1,22 @@
-import Combat.Unit.Weapon;
+import General.Gamescene;
+import General.ManagementGamescene;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.stage.Stage;
 
 public class Main extends Application{
 
     public void start(Stage primaryStage){
 
-        /*primaryStage.setTitle("Demo");
+        primaryStage.setTitle("A simple runner");
         Group root = new Group();
-        Gamescene scene = new Gamescene(root);
+        ManagementGamescene scene = new ManagementGamescene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
-        scene.getStylesheets().add("Style.css");*/
+        scene.getStylesheets().add("Style.css");
     }
 
     public static void main(String[] args) {
-
-        Weapon a = new Weapon("Canon broadside", 2);
-        System.out.println(a.getBlockadedForcePerWeapon());
-        System.out.println(a.getNumberOfWeapon());
-        System.out.println(a.getPreparationTime());
-
+        launch(args);
     }
 }

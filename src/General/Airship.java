@@ -40,6 +40,8 @@ public class Airship {
     int foodQualityProductionBonus = 0;
     int foodQualityDamageBonus = 0;
 
+    public boolean isDisplay=false;
+
     ArrayList<int[]> disabledQuarterList = new ArrayList<>();
 
     static final List<String[]> airshipData = new ArrayList<>();
@@ -50,16 +52,25 @@ public class Airship {
     //Combat variables
     private final int maxHullIntegrity;
     private final int maxShield;
-    private final int armorRating;
+    private final int shieldArmorRating;
+    private final int hullArmorRating;
     private final int speed;
     private int hullIntegrity;
 
     private ArrayList<Unit> unitList = new ArrayList<>();
 
+    private final int x;
+    private final int y;
+    private final int width;
+    private final int height;
+    private final int fitWidth;
+    private final int fitHeight;
+    private final int numberOfFrame;
+
 
     //Constructor
     public Airship(String name) {
-        CsvFileUser.readCSV("AirshipTest.csv", airshipData);
+        CsvFileUser.readCSV("AirshipData.csv", airshipData);
         this.name = name;
         bitCost = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
         codeDataCost = Integer.parseInt(loadValue(name, airshipData, "codeDataCost"));
@@ -68,13 +79,23 @@ public class Airship {
         foodCost = Integer.parseInt(loadValue(name, airshipData, "foodCost"));
         crewCost = Integer.parseInt(loadValue(name, airshipData, "crewCost"));
         constructionTime = Integer.parseInt(loadValue(name, airshipData, "bitCost"));
-        numberOfColumns = Integer.parseInt(loadValue(name, airshipData, "numberOfLines"));
         numberOfRaws = Integer.parseInt(loadValue(name, airshipData, "numberOfRaws"));
+        numberOfColumns = Integer.parseInt(loadValue(name, airshipData, "numberOfColumns"));
 
         maxHullIntegrity = Integer.parseInt(loadValue(name, airshipData, "maxHullIntegrity"));
         maxShield = Integer.parseInt(loadValue(name, airshipData, "maxShield"));
-        armorRating = Integer.parseInt(loadValue(name,airshipData, "armorRating"));
+        shieldArmorRating = Integer.parseInt(loadValue(name,airshipData, "shieldArmorRating"));
+        hullArmorRating = Integer.parseInt(loadValue(name,airshipData, "hullArmorRating"));
         speed = Integer.parseInt(loadValue(name, airshipData, "speed"));
+
+        x = Integer.parseInt(loadValue(name, airshipData, "x"));
+        y = Integer.parseInt(loadValue(name, airshipData, "y"));
+        width = Integer.parseInt(loadValue(name, airshipData, "width"));
+        height = Integer.parseInt(loadValue(name, airshipData, "height"));
+        fitWidth = Integer.parseInt(loadValue(name, airshipData, "fitWidth"));
+        fitHeight = Integer.parseInt(loadValue(name, airshipData, "fitHeight"));
+        numberOfFrame = Integer.parseInt(loadValue(name, airshipData, "numberOfFrame"));
+        image = new AnimatedThing(name+".png",x, y,width, height,numberOfFrame, fitWidth, fitHeight);
 
         quarterList = new Quarter[numberOfRaws][numberOfColumns];
 
@@ -90,6 +111,12 @@ public class Airship {
             positionQuarter.add(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])});
         }
     }
+
+    private AnimatedThing image;
+    public AnimatedThing getImage() {
+        return image;
+    }
+
 
 /////////////// ADD FOR UPGRADING
     //Construct the building at the selected place
@@ -304,6 +331,12 @@ public class Airship {
         return prebuildQuarter2;
     }
 
+    public boolean isDisplay() {
+        return isDisplay;
+    }
+    public void setDisplay(boolean isDisplay) {
+        this.isDisplay=isDisplay;
+    }
 
     //Fight getter
     public int getMaxHullIntegrity() {
@@ -315,8 +348,11 @@ public class Airship {
     public int getHullIntegrity() {
         return hullIntegrity;
     }
-    public int getArmorRating() {
-        return armorRating;
+    public int getHullArmorRating() {
+        return hullArmorRating;
+    }
+    public int getShieldArmorRating() {
+        return shieldArmorRating;
     }
     public int getSpeed(){
         return speed;
@@ -324,4 +360,5 @@ public class Airship {
     public ArrayList<Unit> getUnitList(){
         return unitList;
     }
+
 }
