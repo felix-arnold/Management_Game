@@ -168,7 +168,6 @@ public class Airship {
     }
 
 
-
     //Calculate the food bonuses
     public void calculateFoodBonus() {
         //Galley + diversity
