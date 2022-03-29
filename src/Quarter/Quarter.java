@@ -1,5 +1,9 @@
 package Quarter;
 
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public abstract class Quarter {
@@ -17,7 +21,6 @@ public abstract class Quarter {
     protected int[] electricityConsumption = new int[2];
     protected int foodConsumption;
 
-    //METTRE UN PUTIN D'ARREY LISTE
     protected long[] production = new long[2];
 
     protected Pane infoPane = new Pane();
@@ -30,16 +33,30 @@ public abstract class Quarter {
     protected int x;
     protected int y;
 
-    protected boolean isUnlocked;
+    protected boolean isUnlocked = true;
 
     protected boolean enabled = true;
 
-
+    //Constructor
     public Quarter() {
-        infoPane.setPrefSize(200,500);
-        infoPane.setLayoutX(1340);
-        infoPane.setLayoutY(50);
     }
+
+
+    //For display
+    protected ImageView quarterIcon;
+    protected ImageView selectedQuarterIcon;
+    public ImageView getQuarterIcon() {
+        return quarterIcon;
+    }
+    public ImageView getSelectedQuarterIcon() {
+        return selectedQuarterIcon;
+    }
+
+    protected int[] indexConstructionPane;
+    public int[] getIndexConstructionPane() {
+        return indexConstructionPane;
+    }
+
 
 
     public int getCrew() {
@@ -150,5 +167,9 @@ public abstract class Quarter {
 
     public boolean isEnable() {
         return enabled;
+    }
+
+    public boolean isUnlock(){
+        return isUnlocked;
     }
 }

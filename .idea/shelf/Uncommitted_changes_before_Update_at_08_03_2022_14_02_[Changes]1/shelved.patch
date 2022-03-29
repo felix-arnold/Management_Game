@@ -1,0 +1,67 @@
+Index: src/General/GlobalRessourcesManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package General;\r\n\r\npublic class GlobalRessourcesManager {\r\n\r\n    private Ressources scienceRessource = new Ressources(false);\r\n    private Ressources bitsRessource = new Ressources(false);\r\n    private Ressources codeDataRessource = new Ressources(false);\r\n    private Ressources cryptoMoneyRessource = new Ressources(true);\r\n\r\n    public Ressources getBitsRessource() {\r\n        return bitsRessource;\r\n    }\r\n    public Ressources getCodeDataRessource() {\r\n        return codeDataRessource;\r\n    }\r\n    public Ressources getCryptoMoneyRessource() {\r\n        return cryptoMoneyRessource;\r\n    }\r\n    public Ressources getScienceRessource() {\r\n        return scienceRessource;\r\n    }\r\n\r\n\r\n    //We use a singleton\r\n    private GlobalRessourcesManager () {}\r\n\r\n    private static GlobalRessourcesManager INSTANCE = new GlobalRessourcesManager();\r\n\r\n    public static GlobalRessourcesManager getInstance() {\r\n        return INSTANCE;\r\n    }\r\n\r\n\r\n    public void globalRessourcesUpdate() {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/General/GlobalRessourcesManager.java b/src/General/GlobalRessourcesManager.java
+--- a/src/General/GlobalRessourcesManager.java	
++++ b/src/General/GlobalRessourcesManager.java	
+@@ -1,5 +1,7 @@
+ package General;
+ 
++import Airship.Airship;
++
+ public class GlobalRessourcesManager {
+ 
+     private Ressources scienceRessource = new Ressources(false);
+@@ -20,6 +22,9 @@
+         return scienceRessource;
+     }
+ 
++    private Airship[]
++
++
+ 
+     //We use a singleton
+     private GlobalRessourcesManager () {}
+Index: src/Airship/Airship.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Airship;\r\n\r\nimport General.GlobalRessourcesManager;\r\nimport General.LocalRessourcesManager;\r\nimport Quarter.Quarter;\r\n\r\npublic abstract class Airship {\r\n\r\n    protected String name;\r\n    static int numberOfShip;\r\n\r\n    protected int[][] positionQuarter;\r\n    protected Quarter[][] quarterList;\r\n    protected int numberQuarter;\r\n\r\n    protected LocalRessourcesManager localRessources;\r\n\r\n    //Constructor\r\n    public Airship(String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public Quarter[][] getQuarterList() {\r\n        return quarterList;\r\n    }\r\n\r\n    public int getNumberQuarter() {\r\n        return numberQuarter;\r\n    }\r\n\r\n    //Construct the building at the selected place\r\n    public void constructQuarter(Quarter quarter, int xPos, int yPos) {\r\n        if ((GlobalRessourcesManager.getInstance().getBitsRessource().getAmount() >= quarter.getBitCost()) && (GlobalRessourcesManager.getInstance().getCodeDataRessource().getAmount() >= quarter.getCodeDataCost()) && (GlobalRessourcesManager.getInstance().getCryptoMoneyRessource().getAmount() >= quarter.getCryptomoneyCost())) {\r\n            GlobalRessourcesManager.getInstance().getBitsRessource().substractAmount(quarter.getBitCost());\r\n            GlobalRessourcesManager.getInstance().getCodeDataRessource().substractAmount(quarter.getCodeDataCost());\r\n            GlobalRessourcesManager.getInstance().getCryptoMoneyRessource().substractAmount(quarter.getCryptomoneyCost());\r\n            quarterList[xPos][yPos] = quarter;\r\n        }\r\n    }\r\n\r\n    //Get a list of the four adjacent quarters of this quarter\r\n    public Quarter[] getAdjacent(Quarter quarter) {\r\n        Quarter[] adjacentQuarter = new Quarter[4];\r\n        int i = 0;\r\n        int xPos = quarter.getX();\r\n        int yPos = quarter.getY();\r\n        if(quarterList[xPos+1][yPos] != null) {\r\n            adjacentQuarter[i] = quarterList[xPos+1][yPos];\r\n            i++;\r\n        }\r\n        if(quarterList[xPos][yPos+1] != null) {\r\n            adjacentQuarter[i] = quarterList[xPos][yPos+1];\r\n            i++;\r\n        }\r\n        if(quarterList[xPos-1][yPos] != null) {\r\n            adjacentQuarter[i] = quarterList[xPos-1][yPos];\r\n            i++;\r\n        }\r\n        if(quarterList[xPos][yPos-1] != null) {\r\n            adjacentQuarter[i] = quarterList[xPos][yPos-1];\r\n        }\r\n        return adjacentQuarter;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Airship/Airship.java b/src/Airship/Airship.java
+--- a/src/Airship/Airship.java	
++++ b/src/Airship/Airship.java	
+@@ -45,24 +45,12 @@
+     //Get a list of the four adjacent quarters of this quarter
+     public Quarter[] getAdjacent(Quarter quarter) {
+         Quarter[] adjacentQuarter = new Quarter[4];
+-        int i = 0;
+         int xPos = quarter.getX();
+         int yPos = quarter.getY();
+-        if(quarterList[xPos+1][yPos] != null) {
+-            adjacentQuarter[i] = quarterList[xPos+1][yPos];
+-            i++;
+-        }
+-        if(quarterList[xPos][yPos+1] != null) {
+-            adjacentQuarter[i] = quarterList[xPos][yPos+1];
+-            i++;
+-        }
+-        if(quarterList[xPos-1][yPos] != null) {
+-            adjacentQuarter[i] = quarterList[xPos-1][yPos];
+-            i++;
+-        }
+-        if(quarterList[xPos][yPos-1] != null) {
+-            adjacentQuarter[i] = quarterList[xPos][yPos-1];
+-        }
++        adjacentQuarter[1] = quarterList[xPos][yPos+1];
++        adjacentQuarter[2] = quarterList[xPos+1][yPos];
++        adjacentQuarter[3] = quarterList[xPos][yPos-1];
++        adjacentQuarter[4] = quarterList[xPos-1][yPos];
+         return adjacentQuarter;
+     }
+ }

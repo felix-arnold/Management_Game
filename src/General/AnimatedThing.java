@@ -18,7 +18,7 @@ public class AnimatedThing extends StaticThing {
     private double y;
 
     public AnimatedThing(String fileName, double x, double y, int width, int height, int nombreFrame, int fitWidth, int fitHeight) {
-        super(fileName, x, y, width, height);
+        super(fileName, x, y, width, height, fitWidth, fitHeight);
 
         this.nombreFrame=nombreFrame;
         this.width=width;
@@ -27,9 +27,6 @@ public class AnimatedThing extends StaticThing {
         this.fitWidth=fitWidth;
         this.x=x;
         this.y=y;
-
-        getSprite().setFitWidth(fitWidth);
-        getSprite().setFitHeight(fitHeight);
     }
 
     public void updateAnimated(long time) {

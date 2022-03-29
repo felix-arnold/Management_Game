@@ -13,7 +13,7 @@ public class StaticThing {
     private double width;
     private double height;
 
-    public StaticThing (String fileName, double x, double y, int width, int heigth) {
+    public StaticThing (String fileName, double x, double y, int width, int heigth, int fitWidth, int fitHeight) {
 
         this.x=x;
         this.y=y;
@@ -24,6 +24,9 @@ public class StaticThing {
         sprite.setViewport(new Rectangle2D(0,0,width,heigth));
         sprite.setX(x);
         sprite.setY(y);
+
+        sprite.setFitWidth(fitWidth);
+        sprite.setFitHeight(fitHeight);
     }
 
     public ImageView getSprite(){

@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<FlyingUnitList>
+    <flyingUnit name = "Virus">
+        <preparationTime>5</preparationTime>
+        <useSituation>bombing</useSituation>
+        <descriptionUnit>???</descriptionUnit>
+        <speed>4</speed>
+        <evasion>30</evasion>
+        <blockade>40</blockade>
+        <statPerLevel level="1" numberOfUnit="1" armor="3" healthPerUnit="80"/>
+        <statPerLevel level="2" numberOfUnit="1" armor="4" healthPerUnit="100"/>
+        <statPerLevel level="3" numberOfUnit="1" armor="5" healthPerUnit="120"/>
+
+        <actionCard nameActionCard="Warp Jaws" target="unit" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="bonusDamageShield"/>
+            <specialAction type="ignite"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Concealment" target="self" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="stealth" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignoreShield" />
+            <specialAction type="attackCrew" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="unit" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="whirlwind" />
+           </actionCard>
+    </flyingUnit>
+
+
+
+    <flyingUnit name="Trojan Horses">
+
+        <actionCard nameActionCard="bullying" target="unit" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignoreShield" />
+            <specialAction type="attackCrew" />
+        </actionCard>
+
+        <actionCard nameActionCard="Concealment" target="airship" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignoreShield" />
+            <specialAction type="disableWeapon" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="unit" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="charge" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="debuff" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="bleeding" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buffAlly" />
+        </actionCard>
+    </flyingUnit>
+
+
+
+    <flyingUnit name="ForkBombs Throwers">
+
+        <actionCard nameActionCard="???" target="airship" situation="boarding and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="area attack" />
+            <specialAction type="ranged attack" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="stun" />
+            <specialAction type="ranged attack" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="unit" situation="boarding and bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="charge" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="unit" situation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="area attack" />
+            <specialAction type="ranged attack" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship or land unit" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="smoke" />
+            <specialAction type="ranged attack" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignite" />
+        </actionCard>
+    </flyingUnit>
+
+
+
+    <flyingUnit name="Honeypot">
+        <actionCard nameActionCard="???" target="airship" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="kamikaze" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="flying unit" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="kamikaze" />
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship and flying unit" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="kamikaze" />
+            <specialAction type="stealth" />
+            <specialAction type="wait" />
+        </actionCard>
+    </flyingUnit>
+</FlyingUnitList>

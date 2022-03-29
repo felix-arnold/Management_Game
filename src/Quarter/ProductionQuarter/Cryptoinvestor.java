@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Cryptoinvestor extends ProductionQuarter{
 
@@ -12,6 +14,9 @@ public class Cryptoinvestor extends ProductionQuarter{
 
         super();
         name = "Cryptoinvestor";
+        quarterIcon = new ImageView(new Image("cryptoinvestorsIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedcryptoinvestorsIcon.png"));
+        indexConstructionPane = new int[]{1, 1, 0};
     }
 
     @Override
@@ -26,7 +31,7 @@ public class Cryptoinvestor extends ProductionQuarter{
                     productionPerCrewBonusRate -= 0.1 * adjQuarter.getCrew();
                 }
             }
-            case "Restroom" -> productionPerCrewBonusRate -= 0.4;
+            case "Berth" -> productionPerCrewBonusRate -= 0.4;
             case "InternetFiberProvider" -> productionPerCrewBonusRate += 0.1 * adjQuarter.getCrew();
             case "VirtualQuantumComputer" -> productionPerCrewBonusRate += 0.1 * adjQuarter.getLevel();
             case "HellishBoss" -> productionPerCrewBonusRate -= 0.3*adjQuarter.getCrew();

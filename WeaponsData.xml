@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<WeaponList>
+    <weapon name = "Canon broadside">
+        <preparationTime>2</preparationTime>
+        <useSituation>bombing</useSituation>
+        <description>???</description>
+        <blockadedForcePerWeapon>1</blockadedForcePerWeapon>
+        <statLevel1 numberOfWeapon="10"/>
+        <statLevel2 numberOfWeapon="12"/>
+        <statLevel3 numberOfWeapon="15"/>
+
+        <actionCard nameActionCard="Round shot" target="airship" type="attack" situation="bombing" unlockLevel="1">
+            <descriptionActionCard>?????</descriptionActionCard>
+            <specialAction type="none"/>
+            <statLevel1 damagePerAmmo="8" reloadTime="5" range="3" accuracy="85" critic="10"/>
+            <statLevel2 damagePerAmmo="9" reloadTime="5" range="3" accuracy="85" critic="10"/>
+            <statLevel3 damagePerAmmo="10" reloadTime="5" range="3" accuracy="85" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Barrage" target="airship" type="attack" situation="bombing" unlockLevel="1">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="preshot" turnDuration="4" />
+            <statLevel1 damagePerAmmo="8" reloadTime="5" range="3" accuracy="55" critic="10"/>
+            <statLevel2 damagePerAmmo="9" reloadTime="5" range="3" accuracy="55" critic="10"/>
+            <statLevel3 damagePerAmmo="10" reloadTime="5" range="3" accuracy="55" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="More powder" target="self" type="buff" situation="bombing" unlockLevel="1">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff" buffType="range" attackDuration="1"/>
+            <statLevel1 reloadTime="4" buffRange="1"/>
+            <statLevel2 reloadTime="3" buffRange="1"/>
+            <statLevel3 reloadTime="2" buffRange="1"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Chain shot" target="airship" type="attack" situation="bombing" unlockLevel="2">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="slow" turnDuration="0.5"/>
+            <statLevel2 damagePerAmmo="7" reloadTime="6" range="3" accuracy="85" critic="10"/>
+            <statLevel3 damagePerAmmo="8" reloadTime="6" range="3" accuracy="85" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Fire at will" target="airship" type="attack" situation="bombing" unlockLevel="3">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="randomTarget"/>
+            <statLevel3 damagePerAmmo="10" reloadTime="5" range="3" accuracy="95" critic="15"/>
+        </actionCard>
+    </weapon>
+
+
+
+    <weapon name = "Carronade broadside">
+        <preparationTime>2</preparationTime>
+        <useSituation>bombing</useSituation>
+        <description>???</description>
+        <blockadedForcePerWeapon>1</blockadedForcePerWeapon>
+        <actionCard nameActionCard="Carronade shot" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="damageBonus" target="shield" amount="50"/>
+            <statLevel1 numberOfWeapon="7" damagePerAmmo="10" reloadTime="4" range="2" accuracy="85" critic="10"/>
+            <statLevel2 numberOfWeapon="8" damagePerAmmo="11" reloadTime="4" range="2" accuracy="85" critic="10"/>
+            <statLevel3 numberOfWeapon="9" damagePerAmmo="12" reloadTime="4" range="2" accuracy="85" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Grapeshot" target="flyingUnit" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="multipleShot"/>
+            <statLevel1 numberOfWeapon="7" numberofAmmoPerShot="5" damagePerAmmo="5" reloadTime="4" range="2" accuracy="50" critic="10"/>
+            <statLevel2 numberOfWeapon="8" numberofAmmoPerShot="7" damagePerAmmo="5" reloadTime="5" range="2" accuracy="50" critic="10"/>
+            <statLevel3 numberOfWeapon="9" numberofAmmoPerShot="10" damagePerAmmo="5" reloadTime="5" range="2" accuracy="50" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Dangerous shot" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="selfDamage" probability="30"/>
+            <statLevel1 numberOfWeapon="7" damagePerAmmo="14" reloadTime="5" range="2" accuracy="85" critic="10"/>
+            <statLevel2 numberOfWeapon="8" damagePerAmmo="16" reloadTime="5" range="2" accuracy="85" critic="10"/>
+            <statLevel3 numberOfWeapon="9" damagePerAmmo="18" reloadTime="5" range="2" accuracy="85" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Carcass shot" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="ignite"/>
+            <statLevel2 numberOfWeapon="8" damagePerAmmo="8" igniteProbability="50" reloadTime="6" range="3" accuracy="85" critic="10"/>
+            <statLevel3 numberOfWeapon="9" damagePerAmmo="9" igniteProbability="70" reloadTime="6" range="3" accuracy="85" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Put in everything" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff" buffType="damage" attackDuration="1"/>
+            <specialAction type="buff" buffType="critic" attackDuration="1"/>
+            <statLevel3 reloadTime="3" buffDamage="50" buffCritic="10"/>
+        </actionCard>
+    </weapon>
+
+
+
+    <weapon name = "Swivel guns">
+        <preparationTime>1</preparationTime>
+        <useSituation>bombing and boarding</useSituation>
+        <description>???</description>
+        <blockadedForcePerWeapon>1</blockadedForcePerWeapon>
+
+        <actionCard nameActionCard="Pigeon shooting" target="unit" type="attack" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="damageBonus" target="largeUnit" amount="50"/>
+            <statLevel1 numberOfWeapon="2" damagePerAmmo="10" reloadTime="3" range="3" accuracy="90" critic="30"/>
+            <statLevel2 numberOfWeapon="2" damagePerAmmo="12" reloadTime="3" range="3" accuracy="90" critic="30"/>
+            <statLevel3 numberOfWeapon="2" damagePerAmmo="15" reloadTime="3" range="3" accuracy="90" critic="30"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff" buffType="accuracy" attackDuration="3"/>
+            <specialAction type="buff" buffType="critic" attackDuration="3"/>
+            <specialAction type="buff" buffType="criticDamage" attackDuration="3"/>
+            <statLevel1 reloadTime="3" buffAccuracy="5" buffCritic="20" buffDamageCritic="20"/>
+            <statLevel2 reloadTime="3" buffAccuracy="5" buffCritic="30" buffDamageCritic="30"/>
+            <statLevel3 reloadTime="3" buffAccuracy="5" buffCritic="40" buffDamageCritic="40"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Harpon shot" target="largeUnit" type="attack" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="harpon"/>
+            <statLevel2 numberOfWeapon="2" damagePerAmmo="8" reloadTime="4" range="1" accuracy="80" critic="10"/>
+            <statLevel3 numberOfWeapon="2" damagePerAmmo="10" reloadTime="4" range="1" accuracy="80" critic="10"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing and boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff" buffType="reload" attackDuration="3"/>
+            <statLevel3 reloadTime="3"/>/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="unit" stype="attack" ituation="boarding">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="damageBonus" target="smallUnit" amount="50"/>
+            <specialAction type="multipleShot"/>
+            <statLevel1 numberOfWeapon="2" numberofAmmoPerShot="6" damagePerAmmo="3" reloadTime="3" accuracy="80" critic="20"/>
+            <statLevel2 numberOfWeapon="2" numberofAmmoPerShot="6" damagePerAmmo="4" reloadTime="3" accuracy="80" critic="20"/>
+            <statLevel3 numberOfWeapon="2" numberofAmmoPerShot="6" damagePerAmmo="5" reloadTime="3" accuracy="80" critic="20"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="vulnerability" probability="30"/>
+            <statLevel1 numberOfWeapon="2" damagePerAmmo="15" reloadTime="3" range="3" accuracy="90" critic="40"/>
+            <statLevel2 numberOfWeapon="2" damagePerAmmo="20" reloadTime="3" range="3" accuracy="90" critic="40"/>
+            <statLevel3 numberOfWeapon="2" damagePerAmmo="25" reloadTime="3" range="3" accuracy="90" critic="40"/>
+        </actionCard>
+    </weapon>
+
+
+
+    <weapon name = "Mortar">
+        <preparationTime>3</preparationTime>
+        <useSituation>bombing</useSituation>
+        <description>???</description>
+
+        <actionCard nameActionCard="Queen Bess" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="mortar" target="self" minimumRange="2" delay="3"/>
+            <statLevel1 numberOfWeapon="1" damagePerAmmo="30" reloadTime="5" range="5" accuracy="70" critic="20"/>
+            <statLevel2 numberOfWeapon="1" damagePerAmmo="50" reloadTime="5" range="5" accuracy="70" critic="20"/>
+            <statLevel3 numberOfWeapon="1" damagePerAmmo="70" reloadTime="5" range="5" accuracy="70" critic="20"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="multipleShot"/>
+            <specialAction type="mortar" target="self" minimumRange="2" delay="3"/>
+            <statLevel1 numberOfWeapon="1" numberofAmmoPerShot="4" damagePerAmmo="10" reloadTime="5" range="5" accuracy="70" critic="20"/>
+            <statLevel2 numberOfWeapon="1" numberofAmmoPerShot="6" damagePerAmmo="10" reloadTime="5" range="5" accuracy="70" critic="20"/>
+            <statLevel3 numberOfWeapon="1" numberofAmmoPerShot="8" damagePerAmmo="10" reloadTime="5" range="5" accuracy="70" critic="20"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Bombshell loading" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="buff" buffType="damage" attackDuration="1"/>
+            <specialAction type="damageBonus" target="crew" amount="100"/>
+            <statLevel1 reloadTime="4" buffDamage="10%"/>
+            <statLevel2 reloadTime="3" buffDamage="15%"/>
+            <statLevel3 reloadTime="2" buffDamage="20%"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="smokeScreen" missProbability="30"/>
+            <statLevel2 reloadTime="4" duration="10"/>
+            <statLevel3 reloadTime="3" duration="15"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="poison" poisonProbability="90"/>
+            <statLevel3 reloadTime="2"/>
+        </actionCard>
+    </weapon>
+
+
+
+    <weapon name = "Gun turret">
+        <preparationTime>4</preparationTime>
+        <useSituation>bombing</useSituation>
+        <description>???</description>
+
+        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="armourPiercing"/>
+            <statLevel1 numberOfWeapon="1" damagePerAmmo="30" reloadTime="7" range="4" accuracy="90" critic="30"/>
+            <statLevel2 numberOfWeapon="2" damagePerAmmo="30" reloadTime="7" range="4" accuracy="90" critic="30"/>
+            <statLevel3 numberOfWeapon="3" damagePerAmmo="30" reloadTime="7" range="4" accuracy="90" critic="30"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="armourPiercing"/>
+            <specialAction type="shieldPiercing" damageToHull="75%"/>
+            <statLevel1 numberOfWeapon="1" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
+            <statLevel2 numberOfWeapon="2" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
+            <statLevel3 numberOfWeapon="3" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="armourPiercing"/>
+            <specialAction type="vulnerability" probability="50"/>
+            <statLevel1 reloadTime="4"/>
+            <statLevel2 reloadTime="3"/>
+            <statLevel3 reloadTime="2"/>
+        </actionCard>
+
+        <actionCard nameActionCard="Bombshell loading" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="armourPiercing"/>
+            <specialAction type="ignite"/>
+            <statLevel2 igniteProbability="50" reloadTime="3" fireDepart="2"/>
+            <statLevel3 igniteProbability="70" reloadTime="2" fireDepart="2"/>
+        </actionCard>
+
+        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing">
+            <descriptionActionCard>???</descriptionActionCard>
+            <specialAction type="armourPiercing"/>
+            <specialAction type="disable" probability="70" disablePower="5"/>
+            <statLevel3 reloadTime="3" duration="15"/>
+        </actionCard>
+    </weapon>
+</WeaponList>

@@ -2,10 +2,10 @@ package General;
 
 public class LocalResourcesManager {
 
-    Resources elecricityResource = new Resources(true);
-    Resources foodResource = new Resources(true);
-    Resources crewResource = new Resources(false);
-    Resources availableCrewResource = new Resources(false);
+    Resources elecricityResource = new Resources(true, "Electricity");
+    Resources foodResource = new Resources(true, "Food");
+    Resources crewResource = new Resources(false, "Crew");
+    Resources availableCrewResource = new Resources(false, "Available Crew");
 
     public Resources getElectricityResource() {
         return elecricityResource;
@@ -22,4 +22,9 @@ public class LocalResourcesManager {
 
     //Constructor
     public LocalResourcesManager() {    }
+
+    private final Resources[] resourcesList = {elecricityResource, foodResource, availableCrewResource};
+    public Resources[] getResourcesList() {
+        return resourcesList;
+    }
 }

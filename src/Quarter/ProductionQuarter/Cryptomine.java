@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Cryptomine extends ProductionQuarter {
 
@@ -8,13 +10,16 @@ public class Cryptomine extends ProductionQuarter {
 
         super();
         name = "Cryptomine";
+        quarterIcon = new ImageView(new Image("cryptomineIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedCryptomineIcon.png"));
+        indexConstructionPane = new int[]{0, 1, 1};
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
             case "Cryptomine" -> productionPerCrewBonusRate -= 0.01 * adjQuarter.getCrew();
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "Cryptoinvestor" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[3]) {

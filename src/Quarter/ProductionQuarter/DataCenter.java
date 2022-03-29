@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class DataCenter extends ProductionQuarter {
 
@@ -10,13 +12,16 @@ public class DataCenter extends ProductionQuarter {
 
         super();
         name = "DataCenter";
+        quarterIcon = new ImageView(new Image("dataCenterIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedDataCenterIcon.png"));
+        indexConstructionPane = new int[]{0, 0, 2};
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
             case "Datacenter" -> productionBonusConstant += 2 * level * crew;
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[13]) {

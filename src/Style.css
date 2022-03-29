@@ -1,106 +1,151 @@
-.emptyQuarter {
-    -fx-background-color: rgba(178, 132, 98, 0.5);
-    -fx-border-color: rgba(222, 206, 198, 0.9);
-    -fx-border-width: 1.5;
-}
-
-.selectedQuarter {
-    -fx-background-color: rgba(210, 194, 186, 0.9);
-    -fx-border-color: rgba(222, 206, 198, 1);
-    -fx-border-width: 1.5;
-}
-
-.impossibleConstruction {
-    -fx-background-color: rgba(161, 32, 43, 0.9);
-    -fx-border-color: rgb(0, 0, 0);
-    -fx-border-width: 1.5;
-}
-
-.cryptomine {
-    -fx-background-color: rgba(161, 121, 32, 0.8);
-    -fx-border-color: rgba(222, 206, 198, 1);
-    -fx-border-width: 1.5;
-}
-
-.selectedCryptomine {
-    -fx-background-color: rgba(210, 175, 99, 0.9);
-    -fx-border-color: rgb(245, 234, 229);
-    -fx-border-width: 1.5;
-}
-
-.paradoxalGenerator {
-    -fx-background-color: rgba(30, 91, 136, 0.8);
-    -fx-border-color: rgba(222, 206, 198, 1);
-    -fx-border-width: 1.5;
-}
-
-.selectedParadoxalGenerator {
-    -fx-background-color: rgba(25, 118, 187, 0.9);
-    -fx-border-color: rgb(245, 234, 229);
-    -fx-border-width: 1.5;
-}
-
-
-.settingsButton {
+.arrowNextShip {
     -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(SettingsButtonLayer.png);
+    -fx-background-image: url(arrowChangeShip.png) rotate(90deg);
     -fx-background-size: 45px 45px;
     -fx-background-position: center;
+    -fx-rotate: 90;
+    -fx-pref-width: 45px;
+    -fx-pref-height: 45px;
 }
 
-.viewFleetButton {
+.arrowPreviousShip {
     -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(ViewFleetButtonLayer.png);
+    -fx-background-image: url(arrowChangeShip.png);
     -fx-background-size: 45px 45px;
     -fx-background-position: center;
+    -fx-rotate: -90;
+    -fx-pref-width: 45px;
+    -fx-pref-height: 45px;
 }
 
-.switchUnitShipViewButton {
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(ViewUnitButtonLayer.png);
-    -fx-background-size: 45px 45px;
-    -fx-background-position: center;
+.resourcesInfo {
+    -fx-background-image: url(resourceInfoBackground.jpg);
+    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-border-width:6;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #dbd7b4;
 }
 
-.technologyTreeButton {
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(TechnlogyTreeButtonLayer.png);
-    -fx-background-size: 45px 45px;
-    -fx-background-position: center;
-}
-
-.constructionButton {
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(ConsstructionButtonLayer.png);
-    -fx-background-size: 50px 50px;
-    -fx-background-position: center;
-}
-
-.menuConstructionPane {
-    -fx-background-color: rgba(0, 0, 0, 0.5);
-    -fx-padding: 20;
-    -fx-hgap: 20;
-}
-
-.commonRessourceQuarterPane {
-    -fx-background-color: rgba(0, 0, 0, 0.5);
-    -fx-padding: 30;
-    -fx-hgap: 30;
+.resourcesNumber {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #5b533c;
+    -fx-min-width: 94px;
+    -fx-translate-y: 13.5;
 }
 
 .endTurnButton {
-    -fx-background-image: url(EndTurnButtonLayout.png);
-    -fx-background-color: rgba(0,0,0,0);
-    -fx-background-radius: 100em;
-    -fx-min-width: 75px;
-    -fx-min-height: 75px;
-    -fx-max-width: 75px;
-    -fx-max-height: 75px;
-    -fx-background-size: 75px 75px;
-    -fx-background-position: center;
+    -fx-background-image: url(endTurnButton.png);
+    -fx-background-size: 160px, 109px;
+    -fx-pref-width: 160px;
+    -fx-pref-height: 109px;
 }
 
-.infoPane {
-    -fx-background-image: url(infoLayer.png);
-    -fx-background-size: 300px 500px;
+.selectedEndTurnButton {
+    -fx-background-image: url(selectedEndTurnButton.png);
+    -fx-background-size: 160px, 109px;
+    -fx-pref-width: 160px;
+    -fx-pref-height: 109px;
+}
+
+.menuConstructionPane {
+    -fx-background-image: url(menuConstructionPane.png);
+    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-border-width:15px;
+    -fx-background-size: 510px 80px;
+    -fx-pref-width: 510px;
+    -fx-pref-height:80px;
+    -fx-hgap: 20;
+}
+
+.productionQuartersButton {
+    -fx-background-image: url(productionQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.advancedQuartersButton {
+    -fx-background-image: url(advancedQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.facilityQuartersButton {
+    -fx-background-image: url(facilityQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.masterQuartersButton {
+    -fx-background-image: url(masterQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.recruitmentQuartersButton {
+    -fx-background-image: url(recruitmentQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedProductionQuartersButton {
+    -fx-background-image: url(selectedProductionQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedAdvancedQuartersButton {
+    -fx-background-image: url(selectedAdvancedQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedFacilityQuartersButton {
+    -fx-background-image: url(selectedFacilityQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedMasterQuartersButton {
+    -fx-background-image: url(selectedMasterQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedRecruitmentQuartersButton {
+    -fx-background-image: url(selectedRecruitmentQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.constructionPane {
+    -fx-background-image: url(constructionPane.png);
+    -fx-background-size: 109px 203px;
+    -fx-border-width: 11px;
+    -fx-border-color: rgba(0,0,0,0);
+}
+
+.emptyQuarter {
+    -fx-background-color: rgba(255, 226, 203, 0.4);
+    -fx-border-color: rgba(255, 255, 255, 0.7);
+    -fx-border-width: 1.5;
+}
+
+.selectedEmptyQuarter {
+    -fx-background-color: rgba(255, 226, 203, 0.6);
+    -fx-border-color: rgb(255, 255, 255);
+    -fx-border-width: 1.5;
 }

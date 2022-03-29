@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class DimensionlessSpace extends ProductionQuarter {
 
@@ -9,12 +11,15 @@ public class DimensionlessSpace extends ProductionQuarter {
     public DimensionlessSpace() {
         super();
         name="DimensionlessSpace";
+        quarterIcon = new ImageView(new Image("dimensionlessSpaceIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedDimensionlessSpaceIcon.png"));
+        indexConstructionPane = new int[]{1, 0, 0};
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[13]) {

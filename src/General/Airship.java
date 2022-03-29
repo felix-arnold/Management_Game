@@ -3,9 +3,15 @@ package General;
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
 import Combat.Unit.Unit;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import static General.CsvFileUser.*;
 import static Quarter.QuarterFactory.getQuarter;
@@ -30,7 +36,7 @@ public class Airship {
     private final String[] prebuildQuarter1;
     private final String[] prebuildQuarter2;
 
-    protected LocalResourcesManager localResources = new LocalResourcesManager();
+    protected LocalResourcesManager localResourcesManager = new LocalResourcesManager();
 
     int foodDiversityProductionBonus = 0;
     int foodQuantityProductionBonus = 0;
@@ -110,12 +116,65 @@ public class Airship {
             assert false;
             positionQuarter.add(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])});
         }
+
+        int xPane = Integer.parseInt(loadValue(name, airshipData, "xPane"));
+        int yPane = Integer.parseInt(loadValue(name, airshipData, "yPane"));
+        int widthQuarter = Integer.parseInt(loadValue(name, airshipData, "widthQuarter"));
+        int heightQuarter = Integer.parseInt(loadValue(name, airshipData, "heightQuarter"));
+
+        quarterDisplayPane.setHgap(3);
+        quarterDisplayPane.setVgap(3);
+        quarterDisplayPane.setLayoutX(xPane);
+        quarterDisplayPane.setLayoutY(yPane);
+        for (int[] position : positionQuarter) {
+            RadioButton radioButton = new RadioButton();
+            radioButton.setPrefSize(widthQuarter, heightQuarter);
+            radioButton.setToggleGroup(toggleQuarter);
+            radioButton.getStyleClass().remove("radio-button");
+            radioButton.getStyleClass().add("emptyQuarter");
+            quarterDisplayPane.add(radioButton, position[1], position[0]);
+            radioButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+                if (isNowSelected) {
+                    radioButton.getStyleClass().clear();
+                    radioButton.getStyleClass().add("selectedEmptyQuarter");
+                    selectedQuarter[0]=position[1];
+                    selectedQuarter[1]=position[0];
+                }
+                else {
+                    radioButton.getStyleClass().clear();
+                    radioButton.getStyleClass().add("emptyQuarter");
+                    selectedQuarter=null;
+                }
+            });
+        }
+        RowConstraints constraintHeight = new RowConstraints();
+        ColumnConstraints constraintWidth = new ColumnConstraints();
+        constraintHeight.setPrefHeight(heightQuarter);
+        constraintWidth.setPrefWidth(widthQuarter);
+        for (int i = 0; i <= numberOfRaws; i++) {
+            quarterDisplayPane.getRowConstraints().add(constraintHeight);
+        }
+        for (int j = 0; j <= numberOfColumns; j++) {
+            quarterDisplayPane.getColumnConstraints().add(constraintWidth);
+        }
     }
 
-    private AnimatedThing image;
+    private int[] selectedQuarter = new int[2];
+    public int[] getSelectedQuarter() {
+        return selectedQuarter;
+    }
+
+    private final AnimatedThing image;
     public AnimatedThing getImage() {
         return image;
     }
+
+    private final GridPane quarterDisplayPane = new GridPane();
+    private static final ToggleGroup toggleQuarter = new ToggleGroup();
+    public GridPane getQuarterDisplayPane() {
+        return quarterDisplayPane;
+    }
+
 
 
 /////////////// ADD FOR UPGRADING
@@ -183,33 +242,33 @@ public class Airship {
             foodDiversityProductionBonus = 0;
         }
         //Quantity
-        if (localResources.getFoodResource().getAmount() <= -50) {
+        if (localResourcesManager.getFoodResource().getAmount() <= -50) {
             foodQuantityProductionBonus = -60;
             foodQuantityRecruitmentCost = -50;
             foodQuantityConstructionCost = -40;
             foodQuantityHealthBonus = -2;
-        } else if (localResources.getFoodResource().getAmount() > -50 && localResources.getFoodResource().getAmount() <= -30) {
+        } else if (localResourcesManager.getFoodResource().getAmount() > -50 && localResourcesManager.getFoodResource().getAmount() <= -30) {
             foodQuantityProductionBonus = -40;
             foodQuantityRecruitmentCost = -30;
             foodQuantityConstructionCost = -25;
             foodQuantityHealthBonus = -1;
-        } else if (localResources.getFoodResource().getAmount() > -30 && localResources.getFoodResource().getAmount() <= -15) {
+        } else if (localResourcesManager.getFoodResource().getAmount() > -30 && localResourcesManager.getFoodResource().getAmount() <= -15) {
             foodQuantityProductionBonus = -20;
             foodQuantityRecruitmentCost = -10;
             foodQuantityConstructionCost = -10;
-        } else if (localResources.getFoodResource().getAmount() > -15 && localResources.getFoodResource().getAmount() < 0) {
+        } else if (localResourcesManager.getFoodResource().getAmount() > -15 && localResourcesManager.getFoodResource().getAmount() < 0) {
             foodQuantityProductionBonus = -10;
             foodQuantityConstructionCost = -5;
-        } else if (localResources.getFoodResource().getAmount() >= 0 && localResources.getFoodResource().getAmount() <= 15) {
+        } else if (localResourcesManager.getFoodResource().getAmount() >= 0 && localResourcesManager.getFoodResource().getAmount() <= 15) {
             foodQuantityProductionBonus = 5;
-        } else if (localResources.getFoodResource().getAmount() > 15 && localResources.getFoodResource().getAmount() <= 30) {
+        } else if (localResourcesManager.getFoodResource().getAmount() > 15 && localResourcesManager.getFoodResource().getAmount() <= 30) {
             foodQuantityProductionBonus = 10;
             foodQuantityConstructionCost = 5;
-        } else if (localResources.getFoodResource().getAmount() > 30 && localResources.getFoodResource().getAmount() <= 50) {
+        } else if (localResourcesManager.getFoodResource().getAmount() > 30 && localResourcesManager.getFoodResource().getAmount() <= 50) {
             foodQuantityProductionBonus = 15;
             foodQuantityConstructionCost = 10;
             foodQuantityRecruitmentCost = 10;
-        } else if (localResources.getFoodResource().getAmount() > 50) {
+        } else if (localResourcesManager.getFoodResource().getAmount() > 50) {
             foodQuantityProductionBonus = 20;
             foodQuantityConstructionCost = 15;
             foodQuantityRecruitmentCost = 20;
@@ -220,23 +279,23 @@ public class Airship {
 
     //Manage overconsumption of electricity by disabling or enabling quarter
     public void manageElectricityOverconsumption() {
-        if (localResources.getElectricityResource().getAmount() < 0) {
-            while (localResources.getElectricityResource().getAmount() < 0) {
+        if (localResourcesManager.getElectricityResource().getAmount() < 0) {
+            while (localResourcesManager.getElectricityResource().getAmount() < 0) {
                 int r1 = (int) abs(Math.random()*numberOfRaws);
                 int r2 = (int) abs(Math.random()*numberOfColumns);
                 if (quarterList[r1][r2] != null && quarterList[r1][r2].getElectricityConsumption() == 0 && quarterList[r1][r2].isEnable()) {
                     quarterList[r1][r2].disable();
                     int[] index = {r1, r2};
                     disabledQuarterList.add(index);
-                    localResources.getElectricityResource().addAmount(quarterList[r1][r2].getElectricityConsumption());
+                    localResourcesManager.getElectricityResource().addAmount(quarterList[r1][r2].getElectricityConsumption());
                 }
             }
         }
-        else if (localResources.getElectricityResource().getAmount() > 0 && !disabledQuarterList.isEmpty()) {
+        else if (localResourcesManager.getElectricityResource().getAmount() > 0 && !disabledQuarterList.isEmpty()) {
             while (!disabledQuarterList.isEmpty()) {
                 ArrayList<Integer> canEnableQuarterIndexList = new ArrayList<>();
                 for (int i = 0; i < disabledQuarterList.size(); i++) {
-                    if (quarterList[disabledQuarterList.get(i)[0]][disabledQuarterList.get(i)[1]].getElectricityConsumption() < localResources.getElectricityResource().getAmount()) {
+                    if (quarterList[disabledQuarterList.get(i)[0]][disabledQuarterList.get(i)[1]].getElectricityConsumption() < localResourcesManager.getElectricityResource().getAmount()) {
                         canEnableQuarterIndexList.add(i);
                     }
                 }
@@ -250,10 +309,10 @@ public class Airship {
 
     //Add or remove crew from a building
     public void addCrew(Quarter quarter) {
-        if (localResources.availableCrewResource.getAmount()>=100) {
+        if (localResourcesManager.availableCrewResource.getAmount()>=100) {
             if (quarter.getCrew() < quarter.getMaxCrew()) {
                 quarter.addCrew();
-                localResources.availableCrewResource.subtractAmount(100);
+                localResourcesManager.availableCrewResource.subtractAmount(100);
             }
         }
     }
@@ -261,7 +320,7 @@ public class Airship {
     public void removeCrew(Quarter quarter) {
         if (quarter.getCrew()>0) {
             quarter.removeCrew();
-            localResources.availableCrewResource.addAmount(100);
+            localResourcesManager.availableCrewResource.addAmount(100);
         }
     }
 
@@ -299,8 +358,8 @@ public class Airship {
         return positionQuarter;
     }
 
-    public LocalResourcesManager getLocalResources() {
-        return localResources;
+    public LocalResourcesManager getLocalResourcesManager() {
+        return localResourcesManager;
     }
 
     public int getBitCost() {
@@ -338,6 +397,10 @@ public class Airship {
         this.isDisplay=isDisplay;
     }
 
+
+
+
+
     //Fight getter
     public int getMaxHullIntegrity() {
         return maxHullIntegrity;
@@ -361,4 +424,8 @@ public class Airship {
         return unitList;
     }
 
+
+    public int getX() {
+        return x;
+    }
 }

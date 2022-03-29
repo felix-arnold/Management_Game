@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Galley extends ProductionQuarter {
 
@@ -10,6 +12,9 @@ public class Galley extends ProductionQuarter {
     public Galley() {
         super();
         name = "Galley";
+        quarterIcon = new ImageView(new Image("galleyIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedGalleyIcon.png"));
+        indexConstructionPane = new int[]{1, 0, 2};
     }
 
     @Override
@@ -23,10 +28,9 @@ public class Galley extends ProductionQuarter {
                     productionBonusConstant -= adjQuarter.getProduction()[3];
                 }
             }
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "Galley" -> productionPerCrewBonusRate += 0.025 * adjQuarter.getCrew();
-            //case "TemporalCaboose", "Birdcatcher" -> productionBonusRate += 0.01 * adjQuarter.getLevel() * adjQuarter.getCrew();
-            //case Berth
+            case "TemporalCaboose", "Birdcatcher" -> productionBonusRate += 0.01 * adjQuarter.getLevel() * adjQuarter.getCrew();
         }
     }
 }

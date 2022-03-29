@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import static java.lang.Math.min;
 
@@ -9,6 +11,9 @@ public class IASynthetisTank extends ProductionQuarter {
     public IASynthetisTank() {
         super();
         name = "IA Synthesis Tank";
+        quarterIcon = new ImageView(new Image("iaSynthesisTankIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedIASynthesisTankIcon.png"));
+        indexConstructionPane = new int[]{0, 0, 0};
     }
 
     @Override
@@ -22,7 +27,7 @@ public class IASynthetisTank extends ProductionQuarter {
                     productionBonusConstant -= adjQuarter.getProduction()[7];
                 }
             }
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "TemporalCaboose" -> productionBonusRate += 0.05 * adjQuarter.getLevel() * adjQuarter.getCrew() /(adjQuarter.getLevel()+1);
         }
     }

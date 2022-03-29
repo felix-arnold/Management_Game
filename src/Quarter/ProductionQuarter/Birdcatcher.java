@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Birdcatcher extends ProductionQuarter {
 
@@ -9,7 +11,11 @@ public class Birdcatcher extends ProductionQuarter {
     public Birdcatcher() {
         super();
         name = "Birdcatcher";
+        quarterIcon = new ImageView(new Image( "birdcatcherIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedBirdcatcherIcon.png"));
+        indexConstructionPane = new int[]{0, 0, 3};
     }
+
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
@@ -23,7 +29,7 @@ public class Birdcatcher extends ProductionQuarter {
                     productionBonusRate -= adjQuarter.getProduction()[3];
                 }
             }
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
         }
     }
 

@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class TemporalCaboose extends ProductionQuarter{
 
@@ -14,6 +16,9 @@ public class TemporalCaboose extends ProductionQuarter{
 
         super();
         name = "TemporalCaboose";
+        quarterIcon = new ImageView(new Image("temporalCabooseIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedTemporalCabooseIcon.png"));
+        indexConstructionPane = new int[]{0, 1, 0};
     }
 
     @Override
@@ -27,7 +32,7 @@ public class TemporalCaboose extends ProductionQuarter{
                 }
                 productionPerCrewBonusRate += 0.02*bonusStack;
             }
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[13] * adjQuarter.getLevel()) {

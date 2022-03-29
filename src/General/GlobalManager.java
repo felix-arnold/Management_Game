@@ -2,7 +2,13 @@ package General;
 
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GlobalManager {
@@ -31,10 +37,10 @@ public class GlobalManager {
 
 
     //Definition of general resources and their getter
-    private final Resources scienceResource = new Resources(false);
-    private final Resources bitResource = new Resources(false);
-    private final Resources codeDataResource = new Resources(false);
-    private final Resources cryptoMoneyResource = new Resources(true);
+    private final Resources scienceResource = new Resources(false, "Science");
+    private final Resources bitResource = new Resources(false, "Bit");
+    private final Resources codeDataResource = new Resources(false, "Data Code");
+    private final Resources cryptoMoneyResource = new Resources(true, "Cryptomoney");
 
     public Resources getBitResource() {
         return bitResource;
@@ -66,13 +72,13 @@ public class GlobalManager {
     //build an Airship (the button is not supposed to be available if there is not enough resources or too much ship)
     public void constructAirship(String name, Airship airship) {
         Airship provisionalShip = new Airship(name);
-        if ((bitResource.getAmount() >= provisionalShip.getBitCost()) && (codeDataResource.getAmount() >= provisionalShip.getCodeDataCost()) && (cryptoMoneyResource.getAmount() >= provisionalShip.getCryptomoneyCost()) && (airship.getLocalResources().getCrewResource().getAmount() > provisionalShip.getCrewCost()) && (airship.getLocalResources().getFoodResource().getAmount() >= provisionalShip.getFoodCost()) && (airship.getLocalResources().getElectricityResource().getAmount() >= provisionalShip.getElectricityCost())  && (numberOfShip < 13)) {
+        if ((bitResource.getAmount() >= provisionalShip.getBitCost()) && (codeDataResource.getAmount() >= provisionalShip.getCodeDataCost()) && (cryptoMoneyResource.getAmount() >= provisionalShip.getCryptomoneyCost()) && (airship.getLocalResourcesManager().getCrewResource().getAmount() > provisionalShip.getCrewCost()) && (airship.getLocalResourcesManager().getFoodResource().getAmount() >= provisionalShip.getFoodCost()) && (airship.getLocalResourcesManager().getElectricityResource().getAmount() >= provisionalShip.getElectricityCost())  && (numberOfShip < 13)) {
             bitResource.subtractAmount(provisionalShip.getBitCost());
             codeDataResource.subtractAmount(provisionalShip.getCodeDataCost());
             cryptoMoneyResource.subtractAmount(provisionalShip.getCryptomoneyCost());
-            airship.getLocalResources().getCrewResource().subtractAmount(provisionalShip.getCrewCost());
-            airship.getLocalResources().getFoodResource().subtractAmount(provisionalShip.getFoodCost());
-            airship.getLocalResources().getElectricityResource().subtractAmount(provisionalShip.getElectricityCost());
+            airship.getLocalResourcesManager().getCrewResource().subtractAmount(provisionalShip.getCrewCost());
+            airship.getLocalResourcesManager().getFoodResource().subtractAmount(provisionalShip.getFoodCost());
+            airship.getLocalResourcesManager().getElectricityResource().subtractAmount(provisionalShip.getElectricityCost());
             airshipList[numberOfShip] = provisionalShip;
 
             //Ajout de la condition
@@ -88,13 +94,13 @@ public class GlobalManager {
     //ok
     public void upgradeAirship(String name, Airship airship, int indexAirship) {
         Airship provisionalShip = new Airship(name);
-        if ((bitResource.getAmount() >= provisionalShip.getBitCost()) && (codeDataResource.getAmount() >= provisionalShip.getCodeDataCost()) && (cryptoMoneyResource.getAmount() >= provisionalShip.getCryptomoneyCost()) && (airship.getLocalResources().getCrewResource().getAmount() > provisionalShip.getCrewCost()) && (airship.getLocalResources().getFoodResource().getAmount() >= provisionalShip.getFoodCost()) && (airship.getLocalResources().getElectricityResource().getAmount() >= provisionalShip.getElectricityCost())) {
+        if ((bitResource.getAmount() >= provisionalShip.getBitCost()) && (codeDataResource.getAmount() >= provisionalShip.getCodeDataCost()) && (cryptoMoneyResource.getAmount() >= provisionalShip.getCryptomoneyCost()) && (airship.getLocalResourcesManager().getCrewResource().getAmount() > provisionalShip.getCrewCost()) && (airship.getLocalResourcesManager().getFoodResource().getAmount() >= provisionalShip.getFoodCost()) && (airship.getLocalResourcesManager().getElectricityResource().getAmount() >= provisionalShip.getElectricityCost())) {
             bitResource.subtractAmount(provisionalShip.getBitCost());
             codeDataResource.subtractAmount(provisionalShip.getCodeDataCost());
             cryptoMoneyResource.subtractAmount(provisionalShip.getCryptomoneyCost());
-            airship.getLocalResources().getCrewResource().subtractAmount(provisionalShip.getCrewCost());
-            airship.getLocalResources().getFoodResource().subtractAmount(provisionalShip.getFoodCost());
-            airship.getLocalResources().getElectricityResource().subtractAmount(provisionalShip.getElectricityCost());
+            airship.getLocalResourcesManager().getCrewResource().subtractAmount(provisionalShip.getCrewCost());
+            airship.getLocalResourcesManager().getFoodResource().subtractAmount(provisionalShip.getFoodCost());
+            airship.getLocalResourcesManager().getElectricityResource().subtractAmount(provisionalShip.getElectricityCost());
             airshipList[indexAirship] = provisionalShip;
 
             //construction of prebuild quarters
@@ -146,16 +152,16 @@ public class GlobalManager {
                                         }
                                         //add electricity production
                                         if (jQuarter.getProduction()[2*i] == 5) {
-                                            iShip.getLocalResources().getElectricityResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                            iShip.getLocalResourcesManager().getElectricityResource().addAmount(jQuarter.getProduction()[2*i+1]);
                                         }
                                         //add food production
                                         if (jQuarter.getProduction()[2*i] == 6) {
-                                            iShip.getLocalResources().getFoodResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                            iShip.getLocalResourcesManager().getFoodResource().addAmount(jQuarter.getProduction()[2*i+1]);
                                         }
                                         //add crew production
                                         if (jQuarter.getProduction()[2*i] == 7) {
-                                            iShip.getLocalResources().getCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
-                                            iShip.getLocalResources().getAvailableCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                            iShip.getLocalResourcesManager().getCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
+                                            iShip.getLocalResourcesManager().getAvailableCrewResource().addAmount(jQuarter.getProduction()[2*i+1]);
                                         }
                                     }
                                 }
@@ -163,9 +169,9 @@ public class GlobalManager {
                                 //subtract cryptomoney consumption
                                 cryptoMoneyResource.subtractAmount(jQuarter.getCryptomoneyConsumption());
                                 //subtract electricity consumption
-                                iShip.getLocalResources().getElectricityResource().subtractAmount(jQuarter.getElectricityConsumption());
+                                iShip.getLocalResourcesManager().getElectricityResource().subtractAmount(jQuarter.getElectricityConsumption());
                                 //subtract food consumption
-                                iShip.getLocalResources().getFoodResource().subtractAmount(jQuarter.getFoodConsumption());
+                                iShip.getLocalResourcesManager().getFoodResource().subtractAmount(jQuarter.getFoodConsumption());
                             }
                         }
                     }
@@ -176,5 +182,28 @@ public class GlobalManager {
         }
         TechManager.getInstance().updateTech();
         turn ++;
+    }
+
+
+    private final Resources[] globalResources = {scienceResource, bitResource, codeDataResource, cryptoMoneyResource};
+    public Resources[] getGlobalResources() {
+        return globalResources;
+    }
+
+    private final Quarter[] allQuartersList = {new Berth(), new Birdcatcher(), new Cryptomine(), new ParadoxalGenerator(), new TemporalCaboose(), new DataCenter(), new ProgrammersOffice(), new IASynthetisTank(), new Cryptoinvestor(), new Galley(), new DimensionlessSpace(), new HellishBoss(), new VirtualQuantumComputer(), new MadScientist()};
+    public Quarter[] getAllQuartersList() {
+        return allQuartersList;
+    }
+
+
+    private MediaPlayer music;
+    public void music(){
+        music = new MediaPlayer(new Media(new File("Music.mp3").toURI().toString()));
+        music.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                music.seek(Duration.ZERO);
+            }
+        });
+        music.play();
     }
 }

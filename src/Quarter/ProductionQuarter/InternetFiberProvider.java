@@ -2,7 +2,7 @@ package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
 
-public class InternetFiberProvider extends ProductionQuarter{
+public class InternetFiberProvider extends Quarter{
 
     //PAS UN BATIMENT DE PROD
 
@@ -14,8 +14,8 @@ public class InternetFiberProvider extends ProductionQuarter{
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        if ("Restroom".equals(adjQuarter.getName())) {
-            productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+        if ("Berth".equals(adjQuarter.getName())) {
+            //0.05 * adjQuarter.getLevel();
         }
     }
 }

@@ -1,6 +1,8 @@
 package Quarter.ProductionQuarter;
 
 import Quarter.Quarter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ProgrammersOffice extends ProductionQuarter {
 
@@ -9,14 +11,17 @@ public class ProgrammersOffice extends ProductionQuarter {
     public ProgrammersOffice() {
 
         super();
-        name = "ProgrammerOffice";
+        name = "ProgrammersOffice";
+        quarterIcon = new ImageView(new Image("programmersOfficeIcon.png"));
+        selectedQuarterIcon = new ImageView(new Image("selectedProgrammersOfficeIcon.png"));
+        indexConstructionPane = new int[]{0, 1, 3};
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
             case "InternetFiberProvider" -> productionPerCrewBonusRate += 0.01 * adjQuarter.getCrew();
-            case "Restroom" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
+            case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "HellishBoss" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[7]) {
