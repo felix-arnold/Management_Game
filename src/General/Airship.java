@@ -2,14 +2,16 @@ package General;
 
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
-import Combat.Unit.Unit;
+
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import Combat.Unit.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
@@ -115,6 +117,8 @@ public class Airship {
             String[] positionQuarterBis=loadValue(name, airshipData, "positionQuarter").split("/")[i].split(",");
             assert false;
             positionQuarter.add(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])});
+            System.out.println(Arrays.toString(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])}));
+            //System.out.println(positionQuarter.get(i));
         }
 
         int xPane = Integer.parseInt(loadValue(name, airshipData, "xPane"));
@@ -178,6 +182,8 @@ public class Airship {
 
 
 /////////////// ADD FOR UPGRADING
+
+    //ok
     //Construct the building at the selected place
     public void constructQuarter(String quarterName, int xPos, int yPos, boolean resourcesException) {
         Quarter quarter = getQuarter(quarterName);
@@ -195,16 +201,25 @@ public class Airship {
         }
     }
 
-
+    //ok
     //Get a list of the four adjacent quarters of this quarter
     public Quarter[] getAdjacent(Quarter quarter) {
         Quarter[] adjacentQuarter = new Quarter[4];
         int xPos = quarter.getX();
         int yPos = quarter.getY();
-        adjacentQuarter[0] = quarterList[xPos+1][yPos];
-        adjacentQuarter[1] = quarterList[xPos][yPos-1];
-        adjacentQuarter[2] = quarterList[xPos-1][yPos];
-        adjacentQuarter[3] = quarterList[xPos][yPos+1];
+
+        if(quarterList[xPos+1][yPos] != null) {
+            adjacentQuarter[0] = quarterList[xPos+1][yPos];
+        }
+        if(quarterList[xPos][yPos-1] != null) {
+            adjacentQuarter[1] = quarterList[xPos][yPos-1];
+        }
+        if(quarterList[xPos-1][yPos] != null) {
+            adjacentQuarter[2] = quarterList[xPos-1][yPos];
+        }
+        if (quarterList[xPos][yPos+1] != null) {
+            adjacentQuarter[3] = quarterList[xPos][yPos+1];
+        }
         return adjacentQuarter;
     }
 
@@ -259,7 +274,7 @@ public class Airship {
         } else if (localResourcesManager.getFoodResource().getAmount() > -15 && localResourcesManager.getFoodResource().getAmount() < 0) {
             foodQuantityProductionBonus = -10;
             foodQuantityConstructionCost = -5;
-        } else if (localResourcesManager.getFoodResource().getAmount() >= 0 && localResourcesManager.getFoodResource().getAmount() <= 15) {
+        } else if (localResources.getFoodResource().getAmount() >= 0 && localResources.getFoodResource().getAmount() <= 15) {
             foodQuantityProductionBonus = 5;
         } else if (localResourcesManager.getFoodResource().getAmount() > 15 && localResourcesManager.getFoodResource().getAmount() <= 30) {
             foodQuantityProductionBonus = 10;
