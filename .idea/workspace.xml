@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Management.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/AnimatedThing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/AnimatedThing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/StaticThing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/StaticThing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Airship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/AnimatedThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/AnimatedThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/GlobalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/GlobalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/ManagementGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/ManagementGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Resources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/StaticThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/StaticThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Restroom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/QuarterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/QuarterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style.css" afterDir="false" />
-    </list>
+    <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -298,7 +265,7 @@
       <workItem from="1648484456720" duration="903000" />
       <workItem from="1648489572510" duration="337000" />
       <workItem from="1648542220742" duration="132000" />
-      <workItem from="1648549256523" duration="4128000" />
+      <workItem from="1648549256523" duration="4508000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -489,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647953566987</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Initial commit">
+      <created>1648555580720</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1648555580720</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
