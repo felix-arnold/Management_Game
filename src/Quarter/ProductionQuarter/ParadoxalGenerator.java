@@ -13,6 +13,7 @@ public class ParadoxalGenerator extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("paradoxalGeneratorIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedParadoxalGeneratorIcon.png"));
         indexConstructionPane = new int[]{0, 0, 1};
+        loadAllValues();
     }
 
     @Override

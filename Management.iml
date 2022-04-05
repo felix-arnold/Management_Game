@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/image/ui" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/image/Nouveau dossier" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/image/buildingsIcon" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/image/battleImages" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/image/battleImages/background" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -15,6 +15,7 @@ public class VirtualQuantumComputer extends ProductionQuarter{
         quarterIcon = new ImageView(new Image("virtualQuantumComputerIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedVirtualQuantumComputerIcon.png"));
         indexConstructionPane = new int[]{1, 1, 2};
+        loadAllValues();
     }
 
     @Override

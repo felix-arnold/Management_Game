@@ -3,8 +3,6 @@ package Quarter.ProductionQuarter;
 import General.CsvFileUser;
 import Quarter.Quarter;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +17,9 @@ public abstract class ProductionQuarter extends Quarter {
     protected double productionPerCrew;
     protected long productionType;
 
-    static final List<String[]> productionBuildingsData = new ArrayList<>();
+
+    protected final List<String[]> productionBuildingsData = new ArrayList<>();
+
 
     public ProductionQuarter() {
         super();
@@ -27,8 +27,6 @@ public abstract class ProductionQuarter extends Quarter {
         productionBonusConstant = 0;
         productionBonusRate = 1;
         productionPerCrewBonusRate = 1;
-
-        readCSV("productionBuildingsData.csv", productionBuildingsData);
     }
 
 
@@ -54,6 +52,15 @@ public abstract class ProductionQuarter extends Quarter {
 
     public long[] getProduction() {
         return production;
+    }
+
+    protected void loadAllValues() {
+        CsvFileUser.readCSV("ProductionBuildingsData.csv", productionBuildingsData);
+        bitCost=Integer.parseInt(loadValue(name+String.valueOf(1),productionBuildingsData, "bitCost"));
+        codeDataCost=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "codeDataCost"));
+        cryptomoneyCost=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "cryptomoneyCost"));
+        electricityConsumption=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "baseElectricityConsumption"));
+        cyptomoneyConsumptionPerCrew=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "baseCyptomoneyConsumptionPerCrew"));
     }
 
 }

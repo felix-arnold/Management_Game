@@ -17,6 +17,7 @@ public class Cryptoinvestor extends ProductionQuarter{
         quarterIcon = new ImageView(new Image("cryptoinvestorsIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedcryptoinvestorsIcon.png"));
         indexConstructionPane = new int[]{1, 1, 0};
+        loadAllValues();
     }
 
     @Override

@@ -19,6 +19,7 @@ public class TemporalCaboose extends ProductionQuarter{
         quarterIcon = new ImageView(new Image("temporalCabooseIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedTemporalCabooseIcon.png"));
         indexConstructionPane = new int[]{0, 1, 0};
+        loadAllValues();
     }
 
     @Override

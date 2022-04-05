@@ -15,6 +15,7 @@ public class Galley extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("galleyIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedGalleyIcon.png"));
         indexConstructionPane = new int[]{1, 0, 2};
+        loadAllValues();
     }
 
     @Override

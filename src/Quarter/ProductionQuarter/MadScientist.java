@@ -16,6 +16,7 @@ public class MadScientist extends ProductionQuarter{
         quarterIcon = new ImageView(new Image("madScientistIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedMadScientistIcon.png"));
         indexConstructionPane = new int[]{1, 0, 1};
+        loadAllValues();
     }
 
     @Override

@@ -15,6 +15,7 @@ public class DataCenter extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("dataCenterIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedDataCenterIcon.png"));
         indexConstructionPane = new int[]{0, 0, 2};
+        loadAllValues();
     }
 
     @Override

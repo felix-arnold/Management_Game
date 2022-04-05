@@ -7,13 +7,13 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import Combat.Unit.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 
 import static General.CsvFileUser.*;
 import static Quarter.QuarterFactory.getQuarter;
@@ -117,8 +117,6 @@ public class Airship {
             String[] positionQuarterBis=loadValue(name, airshipData, "positionQuarter").split("/")[i].split(",");
             assert false;
             positionQuarter.add(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])});
-            System.out.println(Arrays.toString(new int[]{Integer.parseInt(positionQuarterBis[0]), Integer.parseInt(positionQuarterBis[1])}));
-            //System.out.println(positionQuarter.get(i));
         }
 
         int xPane = Integer.parseInt(loadValue(name, airshipData, "xPane"));
@@ -126,30 +124,42 @@ public class Airship {
         int widthQuarter = Integer.parseInt(loadValue(name, airshipData, "widthQuarter"));
         int heightQuarter = Integer.parseInt(loadValue(name, airshipData, "heightQuarter"));
 
+        quarterPane.getChildren().add(quarterDisplayPane);
+        quarterPane.setLayoutX(100);
+        quarterPane.setLayoutY(100);
         quarterDisplayPane.setHgap(3);
         quarterDisplayPane.setVgap(3);
-        quarterDisplayPane.setLayoutX(xPane);
-        quarterDisplayPane.setLayoutY(yPane);
+        quarterDisplayPane.setLayoutX(xPane-100);
+        quarterDisplayPane.setLayoutY(yPane-100);
+        final int[]  k= {0};
         for (int[] position : positionQuarter) {
             RadioButton radioButton = new RadioButton();
             radioButton.setPrefSize(widthQuarter, heightQuarter);
             radioButton.setToggleGroup(toggleQuarter);
             radioButton.getStyleClass().remove("radio-button");
             radioButton.getStyleClass().add("emptyQuarter");
-            quarterDisplayPane.add(radioButton, position[1], position[0]);
             radioButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
                 if (isNowSelected) {
+                    GlobalManager.getInstance().setSelectedQuarterButton(k[0]);
                     radioButton.getStyleClass().clear();
                     radioButton.getStyleClass().add("selectedEmptyQuarter");
-                    selectedQuarter[0]=position[1];
-                    selectedQuarter[1]=position[0];
+                    selectedQuarter[1]=position[1];
+                    selectedQuarter[0]=position[0];
+                    if (quarterList[position[0]][position[1]]!=null) {
+                        quarterPane.getChildren().add(quarterList[position[0]][position[1]].getQuarterInfoPane());
+                    }
                 }
                 else {
+                    GlobalManager.getInstance().setSelectedQuarterButton(-1);
                     radioButton.getStyleClass().clear();
                     radioButton.getStyleClass().add("emptyQuarter");
-                    selectedQuarter=null;
+                    if (quarterList[position[0]][position[1]]!=null) {
+                        quarterPane.getChildren().remove(quarterList[position[0]][position[1]].getQuarterInfoPane());
+                    }
                 }
             });
+            quarterDisplayPane.add(radioButton, position[1], position[0]);
+            k[0]++;
         }
         RowConstraints constraintHeight = new RowConstraints();
         ColumnConstraints constraintWidth = new ColumnConstraints();
@@ -163,7 +173,7 @@ public class Airship {
         }
     }
 
-    private int[] selectedQuarter = new int[2];
+    private int[] selectedQuarter = {-1,-1};
     public int[] getSelectedQuarter() {
         return selectedQuarter;
     }
@@ -173,15 +183,23 @@ public class Airship {
         return image;
     }
 
+    private final Pane quarterPane = new Pane();
     private final GridPane quarterDisplayPane = new GridPane();
-    private static final ToggleGroup toggleQuarter = new ToggleGroup();
+
     public GridPane getQuarterDisplayPane() {
         return quarterDisplayPane;
     }
 
+    private static final ToggleGroup toggleQuarter = new ToggleGroup();
+    public Pane getQuarterPane() {
+        return quarterPane;
+    }
+    public static ToggleGroup getToggleQuarter() {
+        return toggleQuarter;
+    }
 
 
-/////////////// ADD FOR UPGRADING
+    /////////////// ADD FOR UPGRADING
 
     //ok
     //Construct the building at the selected place
@@ -274,7 +292,7 @@ public class Airship {
         } else if (localResourcesManager.getFoodResource().getAmount() > -15 && localResourcesManager.getFoodResource().getAmount() < 0) {
             foodQuantityProductionBonus = -10;
             foodQuantityConstructionCost = -5;
-        } else if (localResources.getFoodResource().getAmount() >= 0 && localResources.getFoodResource().getAmount() <= 15) {
+        } else if (localResourcesManager.getFoodResource().getAmount() >= 0 && localResourcesManager.getFoodResource().getAmount() <= 15) {
             foodQuantityProductionBonus = 5;
         } else if (localResourcesManager.getFoodResource().getAmount() > 15 && localResourcesManager.getFoodResource().getAmount() <= 30) {
             foodQuantityProductionBonus = 10;

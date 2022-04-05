@@ -1,6 +1,6 @@
 .arrowNextShip {
     -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(arrowChangeShip.png) rotate(90deg);
+    -fx-background-image: url(ArrowChangeShip.png) rotate(90deg);
     -fx-background-size: 45px 45px;
     -fx-background-position: center;
     -fx-rotate: 90;
@@ -10,7 +10,7 @@
 
 .arrowPreviousShip {
     -fx-background-color: rgba(0,0,0,0);
-    -fx-background-image: url(arrowChangeShip.png);
+    -fx-background-image: url(ArrowChangeShip.png);
     -fx-background-size: 45px 45px;
     -fx-background-position: center;
     -fx-rotate: -90;
@@ -138,6 +138,14 @@
     -fx-border-color: rgba(0,0,0,0);
 }
 
+.quarterInfoPane {
+    -fx-background-image: url(quarterInfoPane.png);
+    -fx-background-size: 268px 400px;
+    -fx-border-width: 11px;
+    -fx-border-color: rgba(0,0,0,0);
+}
+
+
 .emptyQuarter {
     -fx-background-color: rgba(255, 226, 203, 0.4);
     -fx-border-color: rgba(255, 255, 255, 0.7);
@@ -145,7 +153,7 @@
 }
 
 .selectedEmptyQuarter {
-    -fx-background-color: rgba(255, 226, 203, 0.6);
+    -fx-background-color: rgba(255, 226, 203, 0.8);
     -fx-border-color: rgb(255, 255, 255);
     -fx-border-width: 1.5;
 }

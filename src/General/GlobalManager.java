@@ -37,10 +37,10 @@ public class GlobalManager {
 
 
     //Definition of general resources and their getter
-    private final Resources scienceResource = new Resources(false, "Science");
-    private final Resources bitResource = new Resources(false, "Bit");
-    private final Resources codeDataResource = new Resources(false, "Data Code");
-    private final Resources cryptoMoneyResource = new Resources(true, "Cryptomoney");
+    private final Resources scienceResource = new Resources( "Science");
+    private final Resources bitResource = new Resources( "Bit");
+    private final Resources codeDataResource = new Resources( "Data Code");
+    private final Resources cryptoMoneyResource = new Resources("Cryptomoney");
 
     public Resources getBitResource() {
         return bitResource;
@@ -170,6 +170,7 @@ public class GlobalManager {
                                 cryptoMoneyResource.subtractAmount(jQuarter.getCryptomoneyConsumption());
                                 //subtract electricity consumption
                                 iShip.getLocalResourcesManager().getElectricityResource().subtractAmount(jQuarter.getElectricityConsumption());
+
                                 //subtract food consumption
                                 iShip.getLocalResourcesManager().getFoodResource().subtractAmount(jQuarter.getFoodConsumption());
                             }
@@ -205,5 +206,15 @@ public class GlobalManager {
             }
         });
         music.play();
+    }
+
+
+
+    private int selectedQuarterButton=-1;
+    public int getSelectedQuarterButton() {
+        return selectedQuarterButton;
+    }
+    public void setSelectedQuarterButton(int selectedQuarterButton) {
+        this.selectedQuarterButton = selectedQuarterButton;
     }
 }

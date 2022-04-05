@@ -15,6 +15,7 @@ public class HellishBoss extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("hellishBossIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedHellishBossIcon.png"));
         indexConstructionPane = new int[]{1, 1, 1};
+        loadAllValues();
     }
 
     @Override

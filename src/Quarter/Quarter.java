@@ -1,10 +1,10 @@
 package Quarter;
 
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+
+import static General.CsvFileUser.readCSV;
 
 public abstract class Quarter {
 
@@ -14,12 +14,13 @@ public abstract class Quarter {
     protected int crew;
 
     //Taille des tableaux à changer
-    protected int[] maxCrew = new int[2];
-    protected int[] bitCost = new int[2];
-    protected int[] codeDataCost = new int[2];
-    protected int[] cryptomoneyCost = new int[2];
-    protected int[] electricityConsumption = new int[2];
+    protected int maxCrew;
+    protected int bitCost;
+    protected int codeDataCost;
+    protected int cryptomoneyCost;
+    protected int electricityConsumption;
     protected int foodConsumption;
+    protected int cyptomoneyConsumptionPerCrew;
 
     protected long[] production = new long[2];
 
@@ -39,10 +40,19 @@ public abstract class Quarter {
 
     //Constructor
     public Quarter() {
+        quarterInfoPane.getStyleClass().add("quarterInfoPane");
+        quarterInfoPane.setLayoutY(200);
+        quarterInfoPane.setLayoutX(800);
     }
 
 
     //For display
+
+    private GridPane quarterInfoPane = new GridPane();
+    public GridPane getQuarterInfoPane() {
+        return quarterInfoPane;
+    }
+
     protected ImageView quarterIcon;
     protected ImageView selectedQuarterIcon;
     public ImageView getQuarterIcon() {
@@ -104,7 +114,7 @@ public abstract class Quarter {
 
     //Test functions
     public int getMaxCrew() {
-        return maxCrew[level-1];
+        return maxCrew;
     }
 
     public int getMaxLevel() {
@@ -112,19 +122,19 @@ public abstract class Quarter {
     }
 
     public int getCodeDataCost() {
-        return codeDataCost[level-1];
+        return codeDataCost;
     }
 
     public int getBitCost() {
-        return bitCost[level-1];
+        return bitCost;
     }
 
     public int getCryptomoneyCost() {
-        return cryptomoneyCost[level-1];
+        return cryptomoneyCost;
     }
 
     public int getElectricityConsumption() {
-        return electricityConsumption[level-1];
+        return electricityConsumption;
     }
 
     public Pane getInfoPane() {

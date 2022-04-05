@@ -13,6 +13,7 @@ public class Cryptomine extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("cryptomineIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedCryptomineIcon.png"));
         indexConstructionPane = new int[]{0, 1, 1};
+        loadAllValues();
     }
 
     @Override

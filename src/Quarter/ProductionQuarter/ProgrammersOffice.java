@@ -15,6 +15,7 @@ public class ProgrammersOffice extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("programmersOfficeIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedProgrammersOfficeIcon.png"));
         indexConstructionPane = new int[]{0, 1, 3};
+        loadAllValues();
     }
 
     @Override

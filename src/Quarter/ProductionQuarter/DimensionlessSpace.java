@@ -14,6 +14,7 @@ public class DimensionlessSpace extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("dimensionlessSpaceIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedDimensionlessSpaceIcon.png"));
         indexConstructionPane = new int[]{1, 0, 0};
+        loadAllValues();
     }
 
     @Override

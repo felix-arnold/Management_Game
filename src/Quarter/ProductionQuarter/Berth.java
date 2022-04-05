@@ -12,6 +12,7 @@ public class Berth extends ProductionQuarter {
         quarterIcon = new ImageView(new Image("berthIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedBerthIcon.png"));
         indexConstructionPane = new int[]{0, 1, 2};
+        loadAllValues();
     }
 
     @Override

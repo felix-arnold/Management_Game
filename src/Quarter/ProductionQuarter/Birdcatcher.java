@@ -14,6 +14,7 @@ public class Birdcatcher extends ProductionQuarter {
         quarterIcon = new ImageView(new Image( "birdcatcherIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedBirdcatcherIcon.png"));
         indexConstructionPane = new int[]{0, 0, 3};
+        loadAllValues();
     }
 
 

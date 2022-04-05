@@ -10,10 +10,11 @@ public class IASynthetisTank extends ProductionQuarter {
 
     public IASynthetisTank() {
         super();
-        name = "IA Synthesis Tank";
+        name = "IASynthesisTank";
         quarterIcon = new ImageView(new Image("iaSynthesisTankIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedIASynthesisTankIcon.png"));
         indexConstructionPane = new int[]{0, 0, 0};
+        loadAllValues();
     }
 
     @Override

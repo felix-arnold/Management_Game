@@ -8,13 +8,11 @@ public class Resources {
 
     //Classe pour simplifier le code
 
-    private long amount=1000;
-    private final boolean canBeNegativ;
+    private int amount=1000;
     private final String name;
 
     //Constructor
-    public Resources(boolean canBeNegativ, String name) {
-        this.canBeNegativ = canBeNegativ;
+    public Resources(String name) {
         this.name=name;
 
         resourceInfo.setText(name);
@@ -27,12 +25,9 @@ public class Resources {
 
     public void subtractAmount(long consumption) {
         amount -= consumption;
-        if(!canBeNegativ && amount < 0) {
-            amount = 0;
-        }
     }
 
-    public void setAmount(long newAmount) {
+    public void setAmount(int newAmount) {
         amount = newAmount;
     }
 
