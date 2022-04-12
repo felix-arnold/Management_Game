@@ -8,13 +8,16 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.util.Arrays;
@@ -41,6 +44,15 @@ public class ManagementGamescene extends Scene {
 
     Pane changeShipPane = new Pane();
     Pane resourcesPane = new Pane();
+
+    ToggleGroup menuConstructionPaneToggleGroup;
+
+    GridPane menuConstructionPane = new GridPane();
+
+    StaticThing endTurnBackground = new StaticThing("endTurnBackground.png", 1400, 660, 947, 946,140,140);
+    Button endTurnButton = new Button();
+
+    ToggleGroup constructionToggleGroup = new ToggleGroup();
 
 
     public ManagementGamescene(Group g) {
@@ -204,9 +216,12 @@ public class ManagementGamescene extends Scene {
         nextShip.setOnAction((event) -> {
 
             if (!onAnimation.get()) {
+
                 //System.out.println(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterDisplayPane().getChildren().get(GlobalManager.getInstance().getSelectedQuarterButton()-1));
 
                 Airship.getToggleQuarter().selectToggle(null);
+                menuConstructionPaneToggleGroup.selectToggle(null);
+                constructionToggleGroup.selectToggle(null);
 
                 g.getChildren().remove(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
                 rightTransition.setNode(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
@@ -223,7 +238,6 @@ public class ManagementGamescene extends Scene {
                     GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite().setTranslateX(1500);
                     g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
 
-
                     rightTransition2.setDuration(Duration.seconds(0.5));
                     rightTransition2.setAutoReverse(true);
                     rightTransition2.setNode(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
@@ -232,13 +246,17 @@ public class ManagementGamescene extends Scene {
                         GlobalManager.getInstance().getAirshipList()[indexShipDisplay].setDisplay(true);
                         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
                         onAnimation.setValue(false);
+                        cloudBottom2Left.getSprite().toFront();
+                        cloudBottom2Right.getSprite().toFront();
+                        cloudTop2Left.getSprite().toFront();
+                        cloudTop2Right.getSprite().toFront();
+                        changeShipPane.toFront();
+                        resourcesPane.toFront();
+                        menuConstructionPane.toFront();
+                        endTurnBackground.getSprite().toFront();
+                        endTurnButton.toFront();
+
                     });
-                    cloudBottom2Left.getSprite().toFront();
-                    cloudBottom2Right.getSprite().toFront();
-                    cloudTop2Left.getSprite().toFront();
-                    cloudTop2Right.getSprite().toFront();
-                    changeShipPane.toFront();
-                    resourcesPane.toFront();
                     rightTransition2.play();
                 });
                 onAnimation.setValue(true);
@@ -253,6 +271,8 @@ public class ManagementGamescene extends Scene {
         previousShip.setOnAction((event) -> {
 
             Airship.getToggleQuarter().selectToggle(null);
+            menuConstructionPaneToggleGroup.selectToggle(null);
+            constructionToggleGroup.selectToggle(null);
 
             if (!onAnimation.get()) {
 
@@ -275,7 +295,6 @@ public class ManagementGamescene extends Scene {
                     GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite().setTranslateX(-1500);
                     g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
 
-
                     leftTransition2.setDuration(Duration.seconds(0.5));
                     leftTransition2.setAutoReverse(true);
                     leftTransition2.setNode(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
@@ -284,13 +303,16 @@ public class ManagementGamescene extends Scene {
                         GlobalManager.getInstance().getAirshipList()[indexShipDisplay].setDisplay(true);
                         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
                         onAnimation.setValue(false);
+                        cloudBottom2Left.getSprite().toFront();
+                        cloudBottom2Right.getSprite().toFront();
+                        cloudTop2Left.getSprite().toFront();
+                        cloudTop2Right.getSprite().toFront();
+                        changeShipPane.toFront();
+                        resourcesPane.toFront();
+                        menuConstructionPane.toFront();
+                        endTurnBackground.getSprite().toFront();
+                        endTurnButton.toFront();
                     });
-                    cloudBottom2Left.getSprite().toFront();
-                    cloudBottom2Right.getSprite().toFront();
-                    cloudTop2Left.getSprite().toFront();
-                    cloudTop2Right.getSprite().toFront();
-                    changeShipPane.toFront();
-                    resourcesPane.toFront();
                     leftTransition2.play();
                 });
                 onAnimation.setValue(true);
@@ -303,10 +325,10 @@ public class ManagementGamescene extends Scene {
 
 
 
-        StaticThing endTurnBackground = new StaticThing("endTurnBackground.png", 1400, 660, 947, 946,140,140);
+
         g.getChildren().add(endTurnBackground.getSprite());
 
-        Button endTurnButton = new Button();
+
         endTurnButton.setLayoutX(1385);
         endTurnButton.setLayoutY(675);
         endTurnButton.getStyleClass().clear();
@@ -329,8 +351,6 @@ public class ManagementGamescene extends Scene {
 
 
 
-
-        GridPane menuConstructionPane = new GridPane();
         g.getChildren().add(menuConstructionPane);
         endTurnBackground.getSprite().toFront();
         endTurnButton.toFront();
@@ -339,7 +359,7 @@ public class ManagementGamescene extends Scene {
         menuConstructionPane.getStyleClass().add("menuConstructionPane");
 
         RadioButton[] constructionButtons = new RadioButton[5];
-        ToggleGroup menuConstructionPaneToggleGroup = new ToggleGroup();
+        menuConstructionPaneToggleGroup = new ToggleGroup();
         for (int i=0; i<5; i++) {
             constructionButtons[i] = new RadioButton();
             menuConstructionPane.add(constructionButtons[i],i,0);
@@ -355,18 +375,12 @@ public class ManagementGamescene extends Scene {
 
 
 
-        final String[] selectedQuarterType = new String[1];
-
+        String[] selectedQuarterType = new String[1];
 
         GridPane quarterInfoPane = new GridPane();
-        Button buildButton = new Button("Build");
-        buildButton.setLayoutX(1400);
-        buildButton.setLayoutY(550);
-        quarterInfoPane.add(buildButton,0,1);
-
 
         GridPane[] constructionsPane = new GridPane[5];
-        ToggleGroup constructionToggleGroup = new ToggleGroup();
+
         for (int i=0; i<5; i++) {
             constructionsPane[i] = new GridPane();
             constructionsPane[i].getStyleClass().add("constructionPane");
@@ -395,18 +409,21 @@ public class ManagementGamescene extends Scene {
                 constructionQuarterButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
                     if (isNowSelected) {
                         constructionQuarterButton.setGraphic(quarter.getSelectedQuarterIcon());
-                        g.getChildren().add(buildButton);
                         g.getChildren().add(quarter.getQuarterInfoPane());
-                        buildButton.setOnAction((event) -> {
-                            selectedQuarterType[0]=quarter.getName();
-                        });
+                        selectedQuarterType[0]=quarter.getName();
                     }
                     else {
                         constructionQuarterButton.setGraphic(quarter.getQuarterIcon());
-                        g.getChildren().remove(buildButton);
                         g.getChildren().remove(quarter.getQuarterInfoPane());
                         selectedQuarterType[0] = null;
                     }
+                });
+
+                constructionQuarterButton.setOnDragDetected(event -> {
+                    Dragboard db = constructionQuarterButton.startDragAndDrop(TransferMode.COPY);
+                    db.setDragView(constructionQuarterButton.snapshot(null, null), event.getX(), event.getY());
+                    ClipboardContent cc = new ClipboardContent();
+                    db.setContent(cc);
                 });
             }
         }

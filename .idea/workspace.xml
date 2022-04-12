@@ -5,61 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2022_14_06_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2022_14_06__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Image/buttons/arrowChangeShip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Management.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProductionBuildingsData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ProductionBuildingsData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/Airship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/Airship.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/Gamescene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/GlobalManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/GlobalManager$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/GlobalManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/GlobalManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/LocalResourcesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/LocalResourcesManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brouillon/ui.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Brouillon/ui.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Antimalware.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Caronnade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/ForkBombThrower.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Hacker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/HoneyPot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Pirate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/ScriptKiddie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/TrojanHorses.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Virus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Worm.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/Resources.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/Resources.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Berth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Berth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Birdcatcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Birdcatcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Cryptoinvestor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Cryptoinvestor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Cryptomine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Cryptomine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/DataCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/DataCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/DimensionlessSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/DimensionlessSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Galley.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/Galley.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/HellishBoss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/HellishBoss.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/IASynthetisTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/IASynthetisTank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/MadScientist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/MadScientist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ParadoxalGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ParadoxalGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ProductionQuarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ProductionQuarter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ProgrammersOffice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/ProgrammersOffice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/TemporalCaboose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/TemporalCaboose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/VirtualQuantumComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/ProductionQuarter/VirtualQuantumComputer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Quarter/Quarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Quarter/Quarter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/Worm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Airship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Gamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/BattleGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/GlobalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/GlobalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/General/ManagementGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/ManagementGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/Resources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +284,8 @@
       <workItem from="1648489572510" duration="337000" />
       <workItem from="1648542220742" duration="132000" />
       <workItem from="1648549256523" duration="15327000" />
-      <workItem from="1649159396975" duration="9464000" />
+      <workItem from="1649159396975" duration="13117000" />
+      <workItem from="1649763699584" duration="1391000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -527,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648555802264</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Initial commit">
+      <created>1649169567802</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1649169567802</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
