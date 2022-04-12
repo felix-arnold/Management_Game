@@ -1,5 +1,6 @@
 package Quarter;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -30,6 +31,7 @@ public abstract class Quarter {
     protected String selectedStyle;
 
     protected String name;
+    protected final Label nameLabel = new Label(name);
 
     protected int x;
     protected int y;
@@ -43,12 +45,13 @@ public abstract class Quarter {
         quarterInfoPane.getStyleClass().add("quarterInfoPane");
         quarterInfoPane.setLayoutY(200);
         quarterInfoPane.setLayoutX(800);
+        quarterInfoPane.getChildren().add(nameLabel);
     }
 
 
     //For display
 
-    private GridPane quarterInfoPane = new GridPane();
+    private final GridPane quarterInfoPane = new GridPane();
     public GridPane getQuarterInfoPane() {
         return quarterInfoPane;
     }
@@ -135,10 +138,6 @@ public abstract class Quarter {
 
     public int getElectricityConsumption() {
         return electricityConsumption;
-    }
-
-    public Pane getInfoPane() {
-        return infoPane;
     }
 
     public String getStyle() {

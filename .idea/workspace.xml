@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2022_14_06_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2022_14_06__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brouillon/ui.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Brouillon/ui.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Antimalware.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Caronnade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/ForkBombThrower.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Hacker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/HoneyPot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Pirate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/ScriptKiddie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/TrojanHorses.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Virus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/Combat/Unit/Worm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Management/General/ManagementGamescene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/ManagementGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/ManagementGamescene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/Quarter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +269,7 @@
       <workItem from="1648542220742" duration="132000" />
       <workItem from="1648549256523" duration="15327000" />
       <workItem from="1649159396975" duration="13117000" />
-      <workItem from="1649763699584" duration="1391000" />
+      <workItem from="1649763699584" duration="1966000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -497,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649169567802</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Initial commit">
+      <created>1649765117858</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1649765117858</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
