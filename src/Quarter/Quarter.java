@@ -43,9 +43,10 @@ public abstract class Quarter {
     //Constructor
     public Quarter() {
         quarterInfoPane.getStyleClass().add("quarterInfoPane");
-        quarterInfoPane.setLayoutY(200);
-        quarterInfoPane.setLayoutX(800);
-        quarterInfoPane.getChildren().add(nameLabel);
+        quarterInfoPane.setLayoutY(100);
+        quarterInfoPane.setLayoutX(1000);
+        quarterInfoPane.add(nameLabel,0,0);
+        //quarterInfoPane.setGridLinesVisible(true);
     }
 
 

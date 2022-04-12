@@ -143,6 +143,8 @@
     -fx-background-size: 268px 400px;
     -fx-border-width: 11px;
     -fx-border-color: rgba(0,0,0,0);
+    -fx-pref-width: 268px;
+    -fx-pref-height:400px;
 }
 
 
