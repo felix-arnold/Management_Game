@@ -157,4 +157,8 @@ public class FightAirship {
     public void slow(double slowAmount) {
         speed-=slowAmount;
     }
+    
+    public ArrayList<Weapon> getWeaponList() {
+        return weaponsList;
+    }
 }
