@@ -16,7 +16,9 @@ public class BombingCombatManager {
 
     private BombingCombatManager() {
         for (Airship iShip : GlobalManager.getInstance().getAirshipList()) {
-            availableShipList.add(new FightAirship(iShip));
+            if(iShip != null) {
+                availableShipList.add(new FightAirship(iShip));
+            }
         }
     }
 
@@ -31,8 +33,16 @@ public class BombingCombatManager {
     FlyingUnit[][] flyingUnitBattlefield = new FlyingUnit[6][10];
     ArrayList<FightAirship> availableShipList = new ArrayList<>();
 
+    public ArrayList<FightAirship> getAvailableShipList() {
+        return availableShipList;
+    }
+    
     public FightAirship[][] getAirshipBattlefield() {
         return airshipBattlefield;
+    }
+    
+    public void addAirshipBattlefield(FightAirship fa, int x, int y) {
+        airshipBattlefield[x][y]=fa;
     }
 
 
