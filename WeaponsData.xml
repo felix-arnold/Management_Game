@@ -170,9 +170,9 @@
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="buff" buffType="damage" attackDuration="1"/>
             <specialAction type="damageBonus" target="crew" amount="100"/>
-            <statLevel1 reloadTime="4" buffDamage="10%"/>
-            <statLevel2 reloadTime="3" buffDamage="15%"/>
-            <statLevel3 reloadTime="2" buffDamage="20%"/>
+            <statLevel1 reloadTime="4" buffDamage="10"/>
+            <statLevel2 reloadTime="3" buffDamage="15"/>
+            <statLevel3 reloadTime="2" buffDamage="20"/>
         </actionCard>
 
         <actionCard nameActionCard="???" target="self" type="buff" situation="bombing" unlockLevel="2">
@@ -211,7 +211,7 @@
             <statLevel1 numberOfWeapon="1" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
             <statLevel2 numberOfWeapon="2" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
             <statLevel3 numberOfWeapon="3" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
-            <specialAction type="shieldPiercing" damageToHull="75%"/>
+            <specialAction type="shieldPiercing" damageToHull="75"/>
         </actionCard>
 
         <actionCard nameActionCard="???" target="self" type="buff" situation="bombing" unlockLevel="1">
