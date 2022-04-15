@@ -26,7 +26,8 @@ public class FightAirship {
 
     }
 
-
+    private ArrayList<Weapon> weaponsList= new ArrayList<>();
+    
     private final int maxHullIntegrity;
     private final int maxShield;
     private final int hullArmorRating;
