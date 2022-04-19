@@ -92,6 +92,7 @@ public class Weapon extends Unit {
         int shieldArmor=airship.getShieldArmorRating();
         int hullArmor=airship.getHullArmorRating();
         int shield=airship.getShield();
+
         double bonusShieldDamage=1;
         double bonusCrewDamage=1;
         double bonusHullDamage=1;
@@ -102,45 +103,10 @@ public class Weapon extends Unit {
         int i = 0;
 
         switch(card.getSpecialActionType()) {
-
-            case "armourPiercing":
-                shieldArmor = 0;
-                hullArmor = 0;
-
-            case "shieldDamageBonus":
-                assert dataXML != null;
-                bonusShieldDamage+=(double)Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("bonusShieldDamage").getTextContent())/100;
-
-            case "slow":
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
-                    assert dataXML != null;
-                    double slowAmount=Double.parseDouble(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("turnDuration").getTextContent())/10;
-                    while (i < numberOfAttacks) {
-                        int damagePerAttackBis = damagePerAttack+buffDamage;
-                        if (random() * 100 < card.getAccuracy()+buffAccuracy) {
-                            if (random() * 100 < card.getCritic()+buffCritic) {
-                                damagePerAttackBis *= 1.5*(1+buffCriticDamage/100);
-                            }
-                            baseAirshipAttack(airship, damagePerAttackBis, shieldArmor, hullArmor, shield, bonusHullDamage, bonusShieldDamage, bonusCrewDamage);
-                            airship.slow(slowAmount);
-                        }
-                        i++;
-                    }
-                    turnPreviousAction=BombingCombatManager.getInstance().getTurn();
-                    reloadTime=card.getReloadTime()-buffReload;
-                    buffReload = 0;
-                    buffCritic = 0;
-                    buffAccuracy = 0;
-                    buffDamage = 0;
-                    buffCriticDamage = 0;
-                    buffRange = 0;
-                }
-                break;
-
             case "vulnerability":
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
                     assert dataXML != null;
-                    int vulnerabilityProbability=Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("probability").getTextContent());
+                    int vulnerabilityProbability = Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("probability").getTextContent());
                     while (i < numberOfAttacks) {
                         int damagePerAttackBis = damagePerAttack+buffDamage;
                         if (random() * 100 < card.getAccuracy()+buffAccuracy) {
@@ -165,8 +131,42 @@ public class Weapon extends Unit {
                 }
                 break;
 
+            case "slow":
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
+                    assert dataXML != null;
+                    double slowAmount=Double.parseDouble(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("turnDuration").getTextContent())/10;
+                    while (i < numberOfAttacks) {
+                        int damagePerAttackBis = damagePerAttack+buffDamage;
+                        if (random() * 100 < card.getAccuracy()+buffAccuracy) {
+                            if (random() * 100 < card.getCritic()+buffCritic) {
+                                damagePerAttackBis *= 1.5*(1+buffCriticDamage/100);
+                            }
+                            baseAirshipAttack(airship, damagePerAttackBis, shieldArmor, hullArmor, shield, bonusHullDamage, bonusShieldDamage, bonusCrewDamage);
+                            airship.slow(slowAmount);
+                        }
+                        i++;
+                    }
+                    turnPreviousAction=BombingCombatManager.getInstance().getTurn();
+                    reloadTime=card.getReloadTime()-buffReload;
+                    buffReload = 0;
+                    buffCritic = 0;
+                    buffAccuracy = 0;
+                    buffDamage = 0;
+                    buffCriticDamage = 0;
+                    buffRange = 0;
+                }
+                break;
+
+            case "shieldDamageBonus":
+                assert dataXML != null;
+                bonusShieldDamage+=(double)Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("bonusShieldDamage").getTextContent())/100;
+
+            case "armourPiercing":
+                shieldArmor = 0;
+                hullArmor = 0;
+
             case "ignite":
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
                     assert dataXML != null;
                     int igniteProbability=Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("critic").getTextContent());
                     while (i < numberOfAttacks) {
@@ -194,7 +194,7 @@ public class Weapon extends Unit {
                 break;
 
             case "shieldPiercing":
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
                     while (i < numberOfAttacks) {
                         int damagePerAttackBis = damagePerAttack + buffDamage;
                         if (random() * 100 < card.getAccuracy()+buffAccuracy) {
@@ -228,10 +228,10 @@ public class Weapon extends Unit {
                 break;
 
             case "randomTarget":
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
                     while (i < numberOfAttacks) {
                         int damagePerAttackBis = damagePerAttack+buffDamage;
-                        FightAirship randomAirship = BombingCombatManager.getInstance().getAirshipBattlefield()[airship.getField()][(int) floor(random()*5)];
+                        FightAirship randomAirship = BombingCombatManager.getInstance().getAirshipBattlefield()[airship.getField()][(int) floor(Math.random()*5)];
                         if (randomAirship!=null) {
                             if (random() * 100 < card.getAccuracy()+buffAccuracy) {
                                 if (random() * 100 < card.getCritic()+buffCritic) {
@@ -254,7 +254,7 @@ public class Weapon extends Unit {
                 break;
 
             case "selfDamage":
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
                     assert dataXML != null;
                     int probability = Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("probability").getTextContent());
                     while (i < numberOfAttacks) {
@@ -282,15 +282,8 @@ public class Weapon extends Unit {
                 }
                 break;
 
-            case "buff":
-                weaponBuff(card);
-                turnPreviousAction=BombingCombatManager.getInstance().getTurn();
-                reloadTime = card.getReloadTime()-buffReload;
-                buffReload = 0;
-                break;
-
             default:
-                if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
+                if(airship.getField() - (ourAirship.getField()+buffRange) >= 0) {
                     while (i < numberOfAttacks) {
                         int damagePerAttackBis = damagePerAttack + buffDamage;
                         if (random() * 100 < card.getAccuracy()+buffAccuracy) {
@@ -314,37 +307,37 @@ public class Weapon extends Unit {
     }
     
     public void weaponBuff(WeaponActionCard card) {
-        for(int i = 3; i<6; i++) {
+        /*for(int i = 3; i<6; i++) {
             if(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(i).getAttributes().getNamedItem("buffType").getTextContent() != null) {
-                switch (dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(i).getAttributes().getNamedItem("buffType").getTextContent()) {
-                    case "range":
-                        buffRange = buffRange + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffRange").getTextContent());
-                        break;
-
-                    case "damage":
-                        buffDamage = buffDamage + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffDamage").getTextContent());
-                        break;
-
-                    case "critic":
-                        buffCritic = buffCritic + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffCritic").getTextContent());
-                        break;
-
-                    case "accuracy":
-                        buffAccuracy = buffAccuracy + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffAccuracy").getTextContent());
-                        break;
-
-                    case "criticDamage":
-                        buffCriticDamage = buffCriticDamage + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffDamageCritic").getTextContent());
-                        break;
-
-                    case "reload":
-                        buffReload = buffReload + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("reloadTime").getTextContent());
-                        break;
-
-                    default:
-                        break;
-                }
             }
+        }*/
+        switch (dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(3).getAttributes().getNamedItem("buffType").getTextContent()) {
+            case "range":
+                buffRange = buffRange + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffRange").getTextContent());
+                break;
+
+            case "damage":
+                buffDamage = buffDamage + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffDamage").getTextContent());
+                break;
+
+            case "critic":
+                buffCritic = buffCritic + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffCritic").getTextContent());
+                break;
+
+            case "accuracy":
+                buffAccuracy = buffAccuracy + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffAccuracy").getTextContent());
+                break;
+
+            case "criticDamage":
+                buffCriticDamage = buffCriticDamage + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("buffDamageCritic").getTextContent());
+                break;
+
+            case "reload":
+                buffReload = buffReload + Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("reloadTime").getTextContent());
+                break;
+
+            default:
+                break;
         }
     }
 
