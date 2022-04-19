@@ -22,7 +22,7 @@ public class DataCenter extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "Datacenter" -> productionBonusConstant += 2 * level * crew;
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {

@@ -22,7 +22,7 @@ public class Birdcatcher extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "Birdcatcher" -> productionBonusConstant += adjQuarter.getProduction()[1]*0.3;
             case "Hellishboss" -> {
                 double rnd = Math.random();

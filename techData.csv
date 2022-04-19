@@ -4,7 +4,7 @@ Cryptomine;0;17;0;quarter
 TemporalCaboose;2;6,12,10;1;quarter
 DataCenter;1;6,7,9,14,12;1;quarter
 DataFundry;5,4;0;1;quarter
-MadScientist;5;8,15;3;quarter
+MadScientist;0;8,15;3;quarter
 VirtualQuantumComputer;7,9;0;7;quarter
 DimensionlessSpace;5;8;3;quarter
 Birderman;4;13;3;quarter
@@ -15,7 +15,7 @@ Cryptoinvestors;5;15;5;quarter
 InternetFiberProvider;7,14;0;6;quarter
 HellishBoss;12;0;7;quarter
 Sloop;0;18,19;1;airship
-Schooner;17;20,21,22;3;airship
+Schooner;0;20,21,22;3;airship
 Longskip;17;20,21,22;3;airship
 Corvette;18,19;23,24;5;airship
 Brig;18,19;23,24;5;airship

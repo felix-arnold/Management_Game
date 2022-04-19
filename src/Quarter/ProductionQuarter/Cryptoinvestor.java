@@ -24,7 +24,7 @@ public class Cryptoinvestor extends ProductionQuarter{
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "Cryptoinvestor" -> {
                 probaBonus += 10*getLevel();
                 double rnd = Math.random();

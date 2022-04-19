@@ -21,7 +21,7 @@ public class DimensionlessSpace extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();

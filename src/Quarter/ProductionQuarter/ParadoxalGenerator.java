@@ -20,7 +20,7 @@ public class ParadoxalGenerator extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "ParadoxalGenerator" -> productionBonusConstant += 8 * 3 * adjQuarter.getCrew() * adjQuarter.getLevel();
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {

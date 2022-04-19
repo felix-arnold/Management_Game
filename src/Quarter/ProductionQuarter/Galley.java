@@ -22,7 +22,7 @@ public class Galley extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "HellishBoss" -> {
                 double rnd = Math.random();
                 if (rnd < 0.3) {

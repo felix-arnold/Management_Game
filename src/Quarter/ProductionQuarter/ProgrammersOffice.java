@@ -22,7 +22,7 @@ public class ProgrammersOffice extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "InternetFiberProvider" -> productionPerCrewBonusRate += 0.01 * adjQuarter.getCrew();
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "HellishBoss" -> {

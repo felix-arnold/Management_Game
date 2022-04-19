@@ -53,9 +53,9 @@ public class BattleGamescene extends Scene {
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setField(0);
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setPosition(3);
 
-        BombingCombatManager.getInstance().getAirshipBattlefield()[3][2]=new FightAirship(new Airship("Junk"),false);
-        BombingCombatManager.getInstance().getAirshipBattlefield()[3][2].setField(3);
-        BombingCombatManager.getInstance().getAirshipBattlefield()[3][2].setPosition(2);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[3][0]=new FightAirship(new Airship("Junk"),false);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[3][0].setField(3);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[3][0].setPosition(0);
 
 
 

@@ -15,7 +15,7 @@ public class InternetFiberProvider extends Quarter{
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        if ("Berth".equals(adjQuarter.getName())) {
+        if ("Berth".equals(adjQuarter.getTrueName())) {
             //0.05 * adjQuarter.getLevel();
         }
     }

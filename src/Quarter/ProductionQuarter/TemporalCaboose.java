@@ -26,7 +26,7 @@ public class TemporalCaboose extends ProductionQuarter{
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "TemporalCaboose" -> productionBonusConstant += adjQuarter.getProduction()[1]*0.3;
             case "Birdcatcher" -> {
                 if (bonusStack<=10*level & food>0) {

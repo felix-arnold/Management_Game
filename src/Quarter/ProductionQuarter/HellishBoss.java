@@ -22,7 +22,7 @@ public class HellishBoss extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "Hellish Boss" -> {
                 double rnd = Math.random();
                 if (rnd < 0.2) {

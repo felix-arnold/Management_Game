@@ -6,14 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Combat/BattleGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/BattleGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/BombingCombatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/BombingCombatManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/FightAirship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/FightAirship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/GlobalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/GlobalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/ManagementGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/General/ManagementGamescene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StyleBattle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/StyleBattle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/techData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/techData.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -291,7 +300,8 @@
       <workItem from="1650270313374" duration="39931000" />
       <workItem from="1650319553021" duration="14068000" />
       <workItem from="1650354439903" duration="11628000" />
-      <workItem from="1650368515862" duration="1853000" />
+      <workItem from="1650368515862" duration="2787000" />
+      <workItem from="1650377873707" duration="2786000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -552,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650365420059</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Initial commit">
+      <created>1650375725079</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1650375725079</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

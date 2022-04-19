@@ -22,7 +22,7 @@ public class VirtualQuantumComputer extends ProductionQuarter{
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "VirtualQuantumComputer" -> productionBonusRate += 0.1 + 0.1 * adjQuarter.getLevel() * adjQuarter.getCrew() / (adjQuarter.getLevel() + 1);
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {

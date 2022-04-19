@@ -20,7 +20,7 @@ public class Cryptomine extends ProductionQuarter {
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
-        switch (adjQuarter.getName()) {
+        switch (adjQuarter.getTrueName()) {
             case "Cryptomine" -> productionPerCrewBonusRate -= 0.01 * adjQuarter.getCrew();
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "Cryptoinvestor" -> {

@@ -66,10 +66,5 @@ public abstract class ProductionQuarter extends Quarter {
     public void baseCalculationProduction() {
         production[0] = productionPerCrew[0];
         production[1] = (long) ((productionPerCrew[1] * crew * productionPerCrewBonusRate + productionBonusConstant)*productionBonusRate);
-        System.out.println(productionPerCrew[1]);
-        System.out.println(productionPerCrewBonusRate);
-        System.out.println(productionBonusRate);
-        System.out.println(productionBonusConstant);
-        System.out.println(production[1]);
     }
 }
