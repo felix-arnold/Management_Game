@@ -55,6 +55,14 @@ public class BattleGamescene extends Scene {
         BombingCombatManager.getInstance().getAirshipBattlefield()[5][2].setField(5);
         BombingCombatManager.getInstance().getAirshipBattlefield()[5][2].setPosition(2);
 
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].setField(0);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].setPosition(1);
+
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setField(0);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setPosition(3);
+
+        BombingCombatManager.getInstance().getAirshipBattlefield()[3][2].setField(3);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[3][2].setPosition(2);
 
 
         ToggleGroup airshipAllyButtonToggleGroup = new ToggleGroup();
