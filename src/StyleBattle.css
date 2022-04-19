@@ -38,3 +38,9 @@
     -fx-pref-height: 82px;
 }
 
+.hullShield {
+    -fx-font-size: 5px;
+    -fx-text-fill: rgba(255, 255, 255, 0);
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+}

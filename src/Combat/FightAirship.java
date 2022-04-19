@@ -6,8 +6,12 @@ import Combat.Unit.Weapon;
 import General.Airship;
 import Combat.Unit.Unit;
 import com.sun.javafx.print.Units;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
@@ -47,16 +51,18 @@ public class FightAirship {
         weaponPane.setLayoutX(100);
 
         hullBar.setPrefWidth(122);
-        hullBar.setPrefHeight(5);
+        hullBar.setPrefHeight(10);
         shieldBar.setPrefWidth(122);
-        shieldBar.setPrefHeight(5);
-        hullBar.setLayoutY(7);
+        shieldBar.setPrefHeight(10);
+        hullBar.setLayoutY(12);
 
         hullBar.progressProperty().unbind();
         shieldBar.progressProperty().unbind();
 
         moveButton.getStyleClass().clear();
         moveButton.getStyleClass().add("button");
+
+        hullIntegrityLabel.textProperty().bind(Bindings.concat(hullIntegrityProperty.asString()));
     }
 
     private final String name;
@@ -234,5 +240,16 @@ public class FightAirship {
 
     public RadioButton getMoveButton() {
         return moveButton;
+    }
+
+    IntegerProperty hullIntegrityProperty = new SimpleIntegerProperty();
+    Label hullIntegrityLabel = new Label();
+
+    public IntegerProperty getHullIntegrityProperty() {
+        return hullIntegrityProperty;
+    }
+
+    public Label getHullIntegrityLabel() {
+        return hullIntegrityLabel;
     }
 }

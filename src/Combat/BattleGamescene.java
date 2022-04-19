@@ -4,6 +4,7 @@ import Combat.Unit.Weapon;
 import General.Airship;
 import General.GlobalManager;
 import General.StaticThing;
+import Quarter.Quarter;
 import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
 import javafx.geometry.Pos;
@@ -26,6 +27,7 @@ public class BattleGamescene extends Scene {
     private RadioButton[][] emptyAirshipButtonList=new RadioButton[6][5];
 
     private Boolean moving=false;
+    private final int[] movingShip= new int[2];
 
     public BattleGamescene(Group g) {
         super(g);
@@ -59,7 +61,6 @@ public class BattleGamescene extends Scene {
 
         ToggleGroup airshipAllyButtonToggleGroup = new ToggleGroup();
         ToggleGroup airshipEnnemyButtonToggleGroup = new ToggleGroup();
-        RadioButton[][] airshipBattleButton = new RadioButton[6][5];
         for (int i = 0; i<BombingCombatManager.getInstance().getAirshipBattlefield().length; i++) {
             for (int j = 0; j<BombingCombatManager.getInstance().getAirshipBattlefield()[i].length;j++) {
                 if (BombingCombatManager.getInstance().getAirshipBattlefield()[i][j] != null) {
@@ -79,6 +80,8 @@ public class BattleGamescene extends Scene {
                         BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getMoveButton().selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
                             if (isNowSelected) {
                                 moving=true;
+                                movingShip[0] = k;
+                                movingShip[1] = l;
                             }
                             else {
                                 moving=false;
@@ -114,7 +117,7 @@ public class BattleGamescene extends Scene {
                             }
                         }
                     });
-                    airshipBattleButton[i][j]=radioButton;
+                    BombingCombatManager.getInstance().getAirshipBattleButton()[i][j]=radioButton;
                 }
             }
         }
@@ -149,7 +152,9 @@ public class BattleGamescene extends Scene {
                 int l=j;
                 radioButton.setOnAction((event) -> {
                     if (moving) {
-                        //BombingCombatManager.getInstance()moveShip
+                        System.out.println("ship" + movingShip[0] + "/" + movingShip[1]);
+                        System.out.println("position" + k + "/" + l);
+                        BombingCombatManager.getInstance().moveShip(BombingCombatManager.getInstance().getAirshipBattlefield()[movingShip[0]][movingShip[1]], k,l);
                     }
                 });
             }
@@ -157,15 +162,18 @@ public class BattleGamescene extends Scene {
 
         for (int i = 0; i<6; i++) {
             for (int j = 0; j<5; j++) {
-                if (airshipBattleButton[i][j] != null) {
+                if (BombingCombatManager.getInstance().getAirshipBattleButton()[i][j] != null) {
                     Pane pane = new Pane();
-                    pane.getChildren().add(airshipBattleButton[i][j]);
+                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattleButton()[i][j]);
                     pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullBar());
                     pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShieldBar());
                     airshipButtonPane.add(pane, i, j);
                 }
             }
         }
+
+        ProgressBar hullBar = new ProgressBar(1);
+        g.getChildren().add(hullBar);
 
         g.getChildren().add(airshipButtonPane);
 
@@ -194,6 +202,18 @@ public class BattleGamescene extends Scene {
             BombingCombatManager.getInstance().nextTurn();
         });
 
+        AnimationTimer timer = new AnimationTimer() {
+            public void handle(long time) {
+                for (int i = 0; i<6; i++) {
+                    for (int j = 0; j<5; j++) {
+                        if (BombingCombatManager.getInstance().getAirshipBattlefield()[i][j] != null) {
+                            BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullIntegrityProperty().setValue(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullIntegrity());
+                        }
+                    }
+                }
+            }
+        };
+        timer.start();
 
     }
 }

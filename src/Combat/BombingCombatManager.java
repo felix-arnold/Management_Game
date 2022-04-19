@@ -5,6 +5,7 @@ import Combat.Unit.Unit;
 import Combat.Unit.Weapon;
 import General.Airship;
 import General.GlobalManager;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import jdk.management.jfr.RecordingInfo;
 
@@ -141,5 +142,11 @@ public class BombingCombatManager {
     }
     public FightAirship getSelectedAllyShip() {
         return selectedAllyShip;
+    }
+
+
+    RadioButton[][] airshipBattleButton = new RadioButton[6][5];
+    RadioButton[][] getAirshipBattleButton() {
+        return airshipBattleButton;
     }
 }

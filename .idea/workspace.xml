@@ -7,8 +7,9 @@
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Combat/BattleGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/BattleGamescene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Combat/BombingCombatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/BombingCombatManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Combat/FightAirship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/FightAirship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Combat/Unit/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StyleBattle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/StyleBattle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +285,7 @@
       <workItem from="1650236049108" duration="7563000" />
       <workItem from="1650270313374" duration="39931000" />
       <workItem from="1650319553021" duration="14068000" />
-      <workItem from="1650354439903" duration="7243000" />
+      <workItem from="1650354439903" duration="9378000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -531,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650357647211</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Initial commit">
+      <created>1650363200968</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1650363200968</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
