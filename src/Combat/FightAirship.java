@@ -54,6 +54,9 @@ public class FightAirship {
 
         hullBar.progressProperty().unbind();
         shieldBar.progressProperty().unbind();
+
+        moveButton.getStyleClass().clear();
+        moveButton.getStyleClass().add("button");
     }
 
     private final String name;
@@ -194,8 +197,9 @@ public class FightAirship {
     }
 
     public void loadWeaponDisplay() {
+        weaponPane.add(moveButton,0,0);
         for (int i = 0; i<weaponsList.size();i++)  {
-            weaponPane.add(weaponsList.get(i).getWeaponButton(),i,0);
+            weaponPane.add(weaponsList.get(i).getWeaponButton(),i+1,0);
             weaponButtonList.add(weaponsList.get(i).getWeaponButton());
         }
     }
@@ -214,9 +218,6 @@ public class FightAirship {
     public boolean isAlly() {
         return ally;
     }
-    public void setAlly(boolean ally) {
-        this.ally = ally;
-    }
 
 
     ProgressBar hullBar = new ProgressBar(1);
@@ -227,5 +228,11 @@ public class FightAirship {
     ProgressBar shieldBar = new ProgressBar(1);
     public ProgressBar getShieldBar() {
         return shieldBar;
+    }
+
+    RadioButton moveButton = new RadioButton("Move");
+
+    public RadioButton getMoveButton() {
+        return moveButton;
     }
 }

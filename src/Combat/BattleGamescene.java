@@ -6,13 +6,14 @@ import General.GlobalManager;
 import General.StaticThing;
 import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -21,6 +22,10 @@ import java.util.ArrayList;
 public class BattleGamescene extends Scene {
 
     private AnimationTimer timer;
+
+    private RadioButton[][] emptyAirshipButtonList=new RadioButton[6][5];
+
+    private Boolean moving=false;
 
     public BattleGamescene(Group g) {
         super(g);
@@ -36,13 +41,19 @@ public class BattleGamescene extends Scene {
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].getWeaponsList().add(new Weapon("Carronade broadside", 3, BombingCombatManager.getInstance().getAirshipBattlefield()[0][1]));
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].getWeaponsList().add(new Weapon("Swivel guns", 3, BombingCombatManager.getInstance().getAirshipBattlefield()[0][1]));
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].loadWeaponDisplay();
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].setField(0);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].setPosition(1);
 
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3]=new FightAirship(new Airship("Junk"),true);
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].getWeaponsList().add(new Weapon("Mortar", 3, BombingCombatManager.getInstance().getAirshipBattlefield()[0][3]));
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].getWeaponsList().add(new Weapon("Gun turret", 3, BombingCombatManager.getInstance().getAirshipBattlefield()[0][3]));
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].loadWeaponDisplay();
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setField(0);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setPosition(3);
 
         BombingCombatManager.getInstance().getAirshipBattlefield()[5][2]=new FightAirship(new Airship("Junk"),false);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[5][2].setField(5);
+        BombingCombatManager.getInstance().getAirshipBattlefield()[5][2].setPosition(2);
 
 
 
@@ -65,6 +76,14 @@ public class BattleGamescene extends Scene {
                     int l = j;
                     for (int m = 0; m<BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getWeaponButtonList().size();m++) {
                         int n=m;
+                        BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getMoveButton().selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+                            if (isNowSelected) {
+                                moving=true;
+                            }
+                            else {
+                                moving=false;
+                            }
+                        });
                         BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getWeaponButtonList().get(m).selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
                             if (isNowSelected) {
                                 g.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getWeaponsList().get(n).getDeck().getDeckPane());
@@ -74,6 +93,7 @@ public class BattleGamescene extends Scene {
                         });
                         BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getWeaponsList().get(n).getDeck().getCloseButton().setOnAction((event) -> {
                             g.getChildren().remove(BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getWeaponsList().get(n).getDeck().getDeckPane());
+                            BombingCombatManager.getInstance().getWeaponToggleGroup().selectToggle(null);
                         });
                     }
                     radioButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
@@ -103,24 +123,9 @@ public class BattleGamescene extends Scene {
         ColumnConstraints col = new ColumnConstraints();
         RowConstraints row2 = new RowConstraints();
         RowConstraints row = new RowConstraints();
-        col.setPrefWidth(122);
+        col.setPrefWidth(150);
         row.setPrefHeight(140);
         row2.setPrefHeight(5);
-
-        GridPane emptyAirshipButtonPane = new GridPane();
-        emptyAirshipButtonPane.setLayoutY(120);
-        emptyAirshipButtonPane.setLayoutX(54);
-        emptyAirshipButtonPane.setHgap(100);
-        emptyAirshipButtonPane.setVgap(66);
-        for (int i = 0; i<6; i++) {
-            for (int j = 0; j<5; j++) {
-                RadioButton radioButton = new RadioButton();
-                emptyAirshipButtonPane.add(radioButton, i, j);
-                radioButton.getStyleClass().clear();
-                radioButton.getStyleClass().add("emptyAirshipButton");
-            }
-        }
-        g.getChildren().add(emptyAirshipButtonPane);
 
         GridPane airshipButtonPane = new GridPane();
         for (int i = 0; i<6; i++) {
@@ -131,8 +136,25 @@ public class BattleGamescene extends Scene {
         }
         airshipButtonPane.setLayoutY(25);
         airshipButtonPane.setLayoutX(62);
-        airshipButtonPane.setHgap(128);
+        airshipButtonPane.setHgap(100);
         airshipButtonPane.setVgap(10);
+        for (int i = 0; i<6; i++) {
+            for (int j = 0; j<5; j++) {
+                RadioButton radioButton = new RadioButton();
+                airshipButtonPane.add(radioButton, i, j);
+                radioButton.getStyleClass().clear();
+                radioButton.getStyleClass().add("emptyAirshipButton");
+                emptyAirshipButtonList[i][j]=radioButton;
+                int k=i;
+                int l=j;
+                radioButton.setOnAction((event) -> {
+                    if (moving) {
+                        //BombingCombatManager.getInstance()moveShip
+                    }
+                });
+            }
+        }
+
         for (int i = 0; i<6; i++) {
             for (int j = 0; j<5; j++) {
                 if (airshipBattleButton[i][j] != null) {
@@ -144,8 +166,8 @@ public class BattleGamescene extends Scene {
                 }
             }
         }
+
         g.getChildren().add(airshipButtonPane);
-        airshipButtonPane.setGridLinesVisible(true);
 
 
         StaticThing endTurnBackground = new StaticThing("endTurnBackground.png", 1430, 690, 947, 946,110,110);

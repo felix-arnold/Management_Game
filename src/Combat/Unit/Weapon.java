@@ -169,12 +169,11 @@ public class Weapon extends Unit {
                 if(airship.getField() - (ourAirship.getField()+buffRange) <= 0) {
                     assert dataXML != null;
                     int igniteProbability=Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("critic").getTextContent());
-                    int fireDepart=Integer.parseInt(dataXML.getElementsByTagName("actionCard").item(card.getIndex()).getChildNodes().item(5 + (level - card.getUnlockLevel()) * 2).getAttributes().getNamedItem("fireDepart").getTextContent());
                     while (i < numberOfAttacks) {
                         int damagePerAttackBis = damagePerAttack+buffDamage;
                         if (random() * 100 < card.getAccuracy()+buffAccuracy) {
                             if(random() * 100 <igniteProbability) {
-                                airship.ignite(fireDepart);
+                                airship.ignite(2);
                             }
                             if (random() * 100 < card.getCritic()+buffCritic) {
                                 damagePerAttackBis *= 1.5*(1+buffCriticDamage/100);
