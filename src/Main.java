@@ -1,5 +1,6 @@
 import Combat.*;
 import General.GlobalManager;
+import General.ManagementGamescene;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.stage.Stage;
@@ -13,21 +14,24 @@ public class Main extends Application{
 
         primaryStage.setTitle("Management");
         Group root = new Group();
-        BattleGamescene battleScene = new BattleGamescene(root);
-        //ManagementGamescene managementScene = new ManagementGamescene(root);
+
+        ManagementGamescene managementScene = new ManagementGamescene(root);
+        primaryStage.setScene(managementScene);
+        primaryStage.show();
+        managementScene.getStylesheets().add("StyleManagement.css");
+        managementScene.getStylesheets().add("StyleBattle.css");
+        GlobalManager.getInstance().music();
+
+        /*BattleGamescene battleScene = new BattleGamescene(root);
         primaryStage.setScene(battleScene);
         primaryStage.show();
         battleScene.getStylesheets().add("StyleManagement.css");
         battleScene.getStylesheets().add("StyleBattle.css");
+        BombingCombatManager.getInstance().music();*/
 
-        //GlobalManager.getInstance().music();
     }
 
     public static void main(String[] args) {
-
-
-
-
 
         launch(args);
 

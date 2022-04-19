@@ -7,7 +7,9 @@ import General.Airship;
 import Combat.Unit.Unit;
 import com.sun.javafx.print.Units;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
@@ -56,13 +58,21 @@ public class FightAirship {
         shieldBar.setPrefHeight(10);
         hullBar.setLayoutY(12);
 
+        hullBar.getStyleClass().add("hullBar");
+
         hullBar.progressProperty().unbind();
         shieldBar.progressProperty().unbind();
 
         moveButton.getStyleClass().clear();
         moveButton.getStyleClass().add("button");
 
-        hullIntegrityLabel.textProperty().bind(Bindings.concat(hullIntegrityProperty.asString()));
+        hullIntegrityLabel.getStyleClass().add("hullShield");
+        hullIntegrityLabel.textProperty().bind(Bindings.concat("Hull Integrity:", hullIntegrityProperty.asString()));
+
+        shieldIntegrityLabel.getStyleClass().add("hullShield");
+        shieldIntegrityLabel.textProperty().bind(Bindings.concat("Shield:", shieldIntegrityProperty.asString()));
+
+        shieldIntegrityLabel.setLayoutY(12);
     }
 
     private final String name;
@@ -187,8 +197,8 @@ public class FightAirship {
     public void ignite(int newFireStarts) {
         numberOfFireStart+=newFireStarts;
     }
-    
-    
+
+
     private int vulnerabilities=0;
     public int getVulnerabilities() {
         return vulnerabilities;
@@ -196,8 +206,8 @@ public class FightAirship {
     public void changeVulnerability(int amount) {
         vulnerabilities+=amount;
     }
-    
-    
+
+
     public void slow(double slowAmount) {
         speed-=slowAmount;
     }
@@ -244,6 +254,8 @@ public class FightAirship {
 
     IntegerProperty hullIntegrityProperty = new SimpleIntegerProperty();
     Label hullIntegrityLabel = new Label();
+    IntegerProperty shieldIntegrityProperty = new SimpleIntegerProperty();
+    Label shieldIntegrityLabel = new Label();
 
     public IntegerProperty getHullIntegrityProperty() {
         return hullIntegrityProperty;
@@ -252,4 +264,13 @@ public class FightAirship {
     public Label getHullIntegrityLabel() {
         return hullIntegrityLabel;
     }
+
+    public Label getShieldIntegrityLabel() {
+        return shieldIntegrityLabel;
+    }
+
+    public IntegerProperty getShieldIntegrityProperty() {
+        return shieldIntegrityProperty;
+    }
+
 }

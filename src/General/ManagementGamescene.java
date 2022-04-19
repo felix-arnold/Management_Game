@@ -91,8 +91,9 @@ public class ManagementGamescene extends Scene {
         g.getChildren().add(cloudTop2Right.getSprite());
 
 
-        GlobalManager.getInstance().getAirshipList()[0] = new Airship("Sloop");
-        GlobalManager.getInstance().setNumberOfShip(1);
+        GlobalManager.getInstance().getAirshipList()[1] = new Airship("Man'o'war");
+        GlobalManager.getInstance().getAirshipList()[0] = new Airship("Frigate");
+        GlobalManager.getInstance().setNumberOfShip(2);
 
         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[0].getImage().getSprite());
         GlobalManager.getInstance().getAirshipList()[0].setDisplay(true);

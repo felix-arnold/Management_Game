@@ -53,18 +53,10 @@ public class BattleGamescene extends Scene {
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setField(0);
         BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setPosition(3);
 
-        BombingCombatManager.getInstance().getAirshipBattlefield()[5][2]=new FightAirship(new Airship("Junk"),false);
-        BombingCombatManager.getInstance().getAirshipBattlefield()[5][2].setField(5);
-        BombingCombatManager.getInstance().getAirshipBattlefield()[5][2].setPosition(2);
-
-        BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].setField(0);
-        BombingCombatManager.getInstance().getAirshipBattlefield()[0][1].setPosition(1);
-
-        BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setField(0);
-        BombingCombatManager.getInstance().getAirshipBattlefield()[0][3].setPosition(3);
-
+        BombingCombatManager.getInstance().getAirshipBattlefield()[3][2]=new FightAirship(new Airship("Junk"),false);
         BombingCombatManager.getInstance().getAirshipBattlefield()[3][2].setField(3);
         BombingCombatManager.getInstance().getAirshipBattlefield()[3][2].setPosition(2);
+
 
 
         ToggleGroup airshipAllyButtonToggleGroup = new ToggleGroup();
@@ -173,15 +165,12 @@ public class BattleGamescene extends Scene {
                 if (BombingCombatManager.getInstance().getAirshipBattleButton()[i][j] != null) {
                     Pane pane = new Pane();
                     pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattleButton()[i][j]);
-                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullBar());
-                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShieldBar());
+                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullIntegrityLabel());
+                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShieldIntegrityLabel());
                     airshipButtonPane.add(pane, i, j);
                 }
             }
         }
-
-        ProgressBar hullBar = new ProgressBar(1);
-        g.getChildren().add(hullBar);
 
         g.getChildren().add(airshipButtonPane);
 
@@ -216,6 +205,7 @@ public class BattleGamescene extends Scene {
                     for (int j = 0; j<5; j++) {
                         if (BombingCombatManager.getInstance().getAirshipBattlefield()[i][j] != null) {
                             BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullIntegrityProperty().setValue(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullIntegrity());
+                            BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShieldIntegrityProperty().setValue(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShield());
                         }
                     }
                 }

@@ -239,7 +239,7 @@ public class GlobalManager {
 
     private MediaPlayer music;
     public void music(){
-        music = new MediaPlayer(new Media(new File("Music.mp3").toURI().toString()));
+        music = new MediaPlayer(new Media(new File("MusicMana.mp3").toURI().toString()));
         music.setOnEndOfMedia(new Runnable() {
             public void run() {
                 music.seek(Duration.ZERO);

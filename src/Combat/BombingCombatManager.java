@@ -7,9 +7,13 @@ import General.Airship;
 import General.GlobalManager;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import jdk.management.jfr.RecordingInfo;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -148,5 +152,16 @@ public class BombingCombatManager {
     RadioButton[][] airshipBattleButton = new RadioButton[6][5];
     RadioButton[][] getAirshipBattleButton() {
         return airshipBattleButton;
+    }
+
+    private MediaPlayer music;
+    public void music(){
+        music = new MediaPlayer(new Media(new File("MusicBattle.mp3").toURI().toString()));
+        music.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                music.seek(Duration.ZERO);
+            }
+        });
+        music.play();
     }
 }
