@@ -24,3 +24,17 @@
     -fx-pref-width: 300px;
 }
 
+.endTurnBattleButton {
+    -fx-background-image: url(endTurnButton.png);
+    -fx-background-size: 130px, 82px;
+    -fx-pref-width: 130px;
+    -fx-pref-height: 82px;
+}
+
+.selectedEndTurnBattleButton {
+    -fx-background-image: url(selectedEndTurnButton.png);
+    -fx-background-size: 130px, 82px;
+    -fx-pref-width: 130px;
+    -fx-pref-height: 82px;
+}
+

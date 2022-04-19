@@ -109,11 +109,13 @@ public class BombingCombatManager {
         }
         for (FightAirship[] field : airshipBattlefield) {
             for (FightAirship inBattleAirship : field) {
-                inBattleAirship.udpateCanMove(turn);
-                for (Weapon weapon : inBattleAirship.getWeaponsList()) {
-                    weapon.udpateCanAction(turn);
-                    if (weapon.canAction()) {
-                        weapon.drawCards(2);
+                if (inBattleAirship!=null) {
+                    inBattleAirship.udpateCanMove(turn);
+                    for (Weapon weapon : inBattleAirship.getWeaponsList()) {
+                        weapon.udpateCanAction(turn);
+                        if (weapon.canAction()) {
+                            weapon.drawCards(2);
+                        }
                     }
                 }
             }

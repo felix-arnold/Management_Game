@@ -2,14 +2,18 @@ package Combat;
 
 import Combat.Unit.Weapon;
 import General.Airship;
+import General.GlobalManager;
 import General.StaticThing;
 import javafx.animation.AnimationTimer;
+import javafx.animation.PauseTransition;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -123,25 +127,50 @@ public class BattleGamescene extends Scene {
             airshipButtonPane.getColumnConstraints().add(col);
         }
         for (int j = 0; j<5; j++) {
-            airshipButtonPane.getRowConstraints().add(row2);
-            airshipButtonPane.getRowConstraints().add(row2);
             airshipButtonPane.getRowConstraints().add(row);
         }
         airshipButtonPane.setLayoutY(25);
         airshipButtonPane.setLayoutX(62);
         airshipButtonPane.setHgap(128);
+        airshipButtonPane.setVgap(10);
         for (int i = 0; i<6; i++) {
             for (int j = 0; j<5; j++) {
                 if (airshipBattleButton[i][j] != null) {
-                    airshipButtonPane.add(airshipBattleButton[i][j], i, 3*j+2);
-                    airshipButtonPane.add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullBar(), i, 3*j+1);
-                    airshipButtonPane.add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShieldBar(), i, 3*j);
+                    Pane pane = new Pane();
+                    pane.getChildren().add(airshipBattleButton[i][j]);
+                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getHullBar());
+                    pane.getChildren().add(BombingCombatManager.getInstance().getAirshipBattlefield()[i][j].getShieldBar());
+                    airshipButtonPane.add(pane, i, j);
                 }
             }
         }
         g.getChildren().add(airshipButtonPane);
         airshipButtonPane.setGridLinesVisible(true);
 
+
+        StaticThing endTurnBackground = new StaticThing("endTurnBackground.png", 1430, 690, 947, 946,110,110);
+        Button endTurnButton = new Button();
+        g.getChildren().add(endTurnBackground.getSprite());
+
+        endTurnButton.setLayoutX(1415);
+        endTurnButton.setLayoutY(700);
+        endTurnButton.getStyleClass().clear();
+        endTurnButton.getStyleClass().add("endTurnBattleButton");
+        g.getChildren().add(endTurnButton);
+
+        endTurnButton.setOnAction((event) -> {
+            endTurnButton.setDisable(true);
+            endTurnButton.getStyleClass().clear();
+            endTurnButton.getStyleClass().add("selectedEndTurnBattleButton");
+            PauseTransition endTurnTransition = new PauseTransition(Duration.seconds(1.5));
+            endTurnTransition.setOnFinished(eventBis -> {
+                endTurnButton.getStyleClass().clear();
+                endTurnButton.getStyleClass().add("endTurnBattleButton");
+                endTurnButton.setDisable(false);
+            });
+            endTurnTransition.playFromStart();
+            BombingCombatManager.getInstance().nextTurn();
+        });
 
 
     }
