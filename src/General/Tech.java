@@ -3,7 +3,11 @@ package General;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import Quarter.ProductionQuarter.ParadoxalGenerator;
+import Quarter.Quarter;
 import Quarter.QuarterFactory;
+
+import static Quarter.QuarterFactory.getQuarter;
 
 public class Tech {
 
@@ -11,7 +15,6 @@ public class Tech {
     private final ArrayList<Integer> previousTechIndex;
     private final ArrayList<Integer> nextTechIndex;
     private long scienceCost;
-    private final boolean unlockTechType;
     private final String effect;
 
     private boolean unlocked;
@@ -20,16 +23,16 @@ public class Tech {
 
 
     //Constructor
-    public Tech(String name, ArrayList<Integer> previousTechIndex, ArrayList<Integer> nextTechIndex, int scienceCost, boolean techType, String effect) {
+    public Tech(String name, ArrayList<Integer> previousTechIndex, ArrayList<Integer> nextTechIndex, int scienceCost, String effect) {
         this.name = name;
         this.previousTechIndex = previousTechIndex;
         this.nextTechIndex = nextTechIndex;
         this.scienceCost = scienceCost;
-        this.unlockTechType = techType;
         this.effect = effect;
 
-        if (name.equals("I.1") || name.equals("ParadoxalGenerator") || name.equals("IASynthetisTank") || name.equals("TemporalCaboose")) {
+        if (previousTechIndex.get(0) == 0) {
             unlocked = discovered = true;
+            applyTech();
         }
         else {
             unlocked = discovered = false;
@@ -40,11 +43,11 @@ public class Tech {
 
     //To apply the tech effect
     public void applyTech() {
-        if (unlockTechType) {
-            Objects.requireNonNull(QuarterFactory.getQuarter(effect)).unlock();
+        if (effect.equals("airship")) {
+            GlobalManager.getInstance().getUnlockedAirships().add(name);
         }
-        else {
-            //ECRIRE UN IF PAR TECH DE CE TYPE !!!!!!
+        if (effect.equals("quarter")) {
+            GlobalManager.getInstance().getUnlockedQuarters().add(getQuarter(name,1));
         }
     }
 

@@ -6,10 +6,11 @@ public class InternetFiberProvider extends Quarter{
 
     //PAS UN BATIMENT DE PROD
 
-    public InternetFiberProvider() {
+    public InternetFiberProvider(int level) {
 
-        super();
-        name = "InternetFiberProvider";
+        super(level);
+        name = "Internet Fiber Provider";
+        loadConstructionInfoPaneValue();
     }
 
     @Override

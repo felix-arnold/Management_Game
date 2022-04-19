@@ -10,14 +10,16 @@ public class Cryptoinvestor extends ProductionQuarter{
 
     protected double probaBonus;
 
-    public Cryptoinvestor() {
+    public Cryptoinvestor(int level) {
 
-        super();
-        name = "Cryptoinvestor";
+        super(level);
+        name = "Cryptoinvestors";
+        trueName = "Cryptoinvestor";
         quarterIcon = new ImageView(new Image("cryptoinvestorsIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedcryptoinvestorsIcon.png"));
         indexConstructionPane = new int[]{1, 1, 0};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override

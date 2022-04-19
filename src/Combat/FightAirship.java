@@ -6,14 +6,25 @@ import Combat.Unit.Weapon;
 import General.Airship;
 import Combat.Unit.Unit;
 import com.sun.javafx.print.Units;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class FightAirship {
 
 
     //Constructor
-    public FightAirship(Airship airship) {
+    public FightAirship(Airship airship, boolean ally) {
+        this.ally=ally;
+        this.name=airship.getName();
         this.maxHullIntegrity = airship.getMaxHullIntegrity();
         this.maxShield = airship.getMaxShield();
         this.hullArmorRating = airship.getHullArmorRating();
@@ -24,10 +35,27 @@ public class FightAirship {
         this.hullIntegrity = airship.getHullIntegrity();
         this.shield = maxShield;
 
+        preSprite= new Image(name+".png");
+        sprite= new ImageView(preSprite);
+        sprite.setViewport(new Rectangle2D(0,0,474,505));
+        sprite.setFitWidth(122);
+        sprite.setFitHeight(130);
+
+        weaponPane.getStyleClass().clear();
+        weaponPane.getStyleClass().add("weaponPane");
+        weaponPane.setLayoutY(650);
+        weaponPane.setLayoutX(100);
+
+        /*hullBar.setPrefWidth(122);
+        hullBar.setPrefHeight(5);
+        shieldBar.setPrefWidth(122);
+        shieldBar.setPrefHeight(5);*/
+
+        hullBar.progressProperty().unbind();
+        shieldBar.progressProperty().unbind();
     }
 
-    private ArrayList<Weapon> weaponsList= new ArrayList<>();
-    
+    private final String name;
     private final int maxHullIntegrity;
     private final int maxShield;
     private final int hullArmorRating;
@@ -58,6 +86,11 @@ public class FightAirship {
         }
     }
 
+    Image preSprite;
+    ImageView sprite;
+    public ImageView getSprite() {
+        return sprite;
+    }
 
     public int getField() {
         return field;
@@ -158,8 +191,40 @@ public class FightAirship {
     public void slow(double slowAmount) {
         speed-=slowAmount;
     }
-    
-    public ArrayList<Weapon> getWeaponList() {
-        return weaponsList;
+
+    public void loadWeaponDisplay() {
+        for (int i = 0; i<weaponsList.size();i++)  {
+            weaponPane.add(weaponsList.get(i).getWeaponButton(),i,0);
+            weaponButtonList.add(weaponsList.get(i).getWeaponButton());
+        }
+    }
+
+    GridPane weaponPane = new GridPane();
+    public GridPane getWeaponPane() {
+        return weaponPane;
+    }
+
+    ArrayList<RadioButton> weaponButtonList = new ArrayList<>();
+    public ArrayList<RadioButton> getWeaponButtonList() {
+        return weaponButtonList;
+    }
+
+    boolean ally;
+    public boolean isAlly() {
+        return ally;
+    }
+    public void setAlly(boolean ally) {
+        this.ally = ally;
+    }
+
+
+    ProgressBar hullBar = new ProgressBar(1);
+    public ProgressBar getHullBar() {
+        return hullBar;
+    }
+
+    ProgressBar shieldBar = new ProgressBar(1);
+    public ProgressBar getShieldBar() {
+        return shieldBar;
     }
 }

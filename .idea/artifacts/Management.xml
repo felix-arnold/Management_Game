@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Management">
+    <output-path>$PROJECT_DIR$/out/artifacts/Management</output-path>
+    <root id="root">
+      <element id="archive" name="Management.jar">
+        <element id="module-output" name="Management" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -8,14 +8,16 @@ public class ProgrammersOffice extends ProductionQuarter {
 
     //production[5dataCode,dataCode]
 
-    public ProgrammersOffice() {
+    public ProgrammersOffice(int level) {
 
-        super();
-        name = "ProgrammersOffice";
+        super(level);
+        name = "Programmers' Office";
+        trueName = "ProgrammersOffice";
         quarterIcon = new ImageView(new Image("programmersOfficeIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedProgrammersOfficeIcon.png"));
         indexConstructionPane = new int[]{0, 1, 3};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
@@ -25,9 +27,9 @@ public class ProgrammersOffice extends ProductionQuarter {
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "HellishBoss" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[7]) {
+                if (rnd < 0.3) {
                     productionBonusConstant += adjQuarter.getProduction()[1];
-                } else if (rnd >= adjQuarter.getProduction()[9]) {
+                } else if (rnd >= 0.9) {
                     productionBonusConstant -= adjQuarter.getProduction()[1];
                 }
             }

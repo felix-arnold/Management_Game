@@ -18,7 +18,6 @@ public class WeaponActionCard extends ActionCard {
         specialActionType = dataXML.getElementsByTagName("actionCard").item(index).getChildNodes().item(3).getAttributes().getNamedItem("type").getTextContent();
     }
 
-
     private int damagePerAmmo;
     private int reloadTime;
     private int range;

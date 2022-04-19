@@ -109,7 +109,7 @@
             <statLevel3 numberOfWeapon="2" damagePerAmmo="15" reloadTime="3" range="3" accuracy="90" critic="30"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing and boarding" unlockLevel="1">
+        <actionCard nameActionCard="BuffCrit" target="self" type="buff" situation="bombing and boarding" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="buff" buffType="accuracy" attackDuration="3"/>
             <specialAction type="buff" buffType="critic" attackDuration="3"/>
@@ -126,13 +126,13 @@
             <statLevel3 numberOfWeapon="2" damagePerAmmo="10" reloadTime="4" range="1" accuracy="80" critic="10"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing and boarding" unlockLevel="3">
+        <actionCard nameActionCard="BuffReload" target="self" type="buff" situation="bombing and boarding" unlockLevel="3">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="buff" buffType="reload" attackDuration="3"/>
             <statLevel3 reloadTime="3"/>/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing" unlockLevel="1">
+        <actionCard nameActionCard="AttackVul" target="airship" type="attack" situation="bombing" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="vulnerability" probability="30"/>
             <statLevel1 numberOfWeapon="2" damagePerAmmo="15" reloadTime="3" range="3" accuracy="90" critic="40"/>
@@ -157,7 +157,7 @@
             <statLevel3 numberOfWeapon="1" damagePerAmmo="70" reloadTime="5" range="5" accuracy="70" critic="20"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing" unlockLevel="1">
+        <actionCard nameActionCard="Attackmultple" target="airship" type="attack" situation="bombing" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="mortar" target="self" minimumRange="2" delay="3"/>
             <statLevel1 numberOfWeapon="1" numberofAmmoPerShot="4" damagePerAmmo="10" reloadTime="5" range="5" accuracy="70" critic="20"/>
@@ -175,14 +175,14 @@
             <statLevel3 reloadTime="2" buffDamage="20"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing" unlockLevel="2">
+        <actionCard nameActionCard="Smokescreen" target="self" type="buff" situation="bombing" unlockLevel="2">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="smokeScreen" missProbability="30"/>
             <statLevel2 reloadTime="4" duration="10"/>
             <statLevel3 reloadTime="3" duration="15"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing" unlockLevel="3">
+        <actionCard nameActionCard="Poison Launch" target="self" type="buff" situation="bombing" unlockLevel="3">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="poison" poisonProbability="90"/>
             <statLevel3 reloadTime="2"/>
@@ -197,7 +197,7 @@
         <description>???</description>
         <blockadedForcePerWeapon>1</blockadedForcePerWeapon>
 
-        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing" unlockLevel="1">
+        <actionCard nameActionCard="Normal Shot" target="airship" type="attack" situation="bombing" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="armourPiercing"/>
             <statLevel1 numberOfWeapon="1" damagePerAmmo="30" reloadTime="7" range="4" accuracy="90" critic="30"/>
@@ -205,7 +205,7 @@
             <statLevel3 numberOfWeapon="3" damagePerAmmo="30" reloadTime="7" range="4" accuracy="90" critic="30"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="airship" type="attack" situation="bombing" unlockLevel="1">
+        <actionCard nameActionCard="ShieldPierc Shot" target="airship" type="attack" situation="bombing" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="armourPiercing"/>
             <statLevel1 numberOfWeapon="1" damagePerAmmo="24" reloadTime="7" range="4" accuracy="90" critic="30"/>
@@ -214,7 +214,7 @@
             <specialAction type="shieldPiercing" damageToHull="75"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing" unlockLevel="1">
+        <actionCard nameActionCard="VulnShot" target="self" type="buff" situation="bombing" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="armourPiercing"/>
             <specialAction type="vulnerability" probability="50"/>
@@ -231,7 +231,7 @@
             <statLevel3 igniteProbability="70" reloadTime="2" fireDepart="2"/>
         </actionCard>
 
-        <actionCard nameActionCard="???" target="self" type="buff" situation="bombing" unlockLevel="3">
+        <actionCard nameActionCard="BuffArmourPierc" target="self" type="buff" situation="bombing" unlockLevel="3">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="armourPiercing"/>
             <specialAction type="disable" probability="70" disablePower="5"/>

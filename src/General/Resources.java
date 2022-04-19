@@ -8,7 +8,7 @@ public class Resources {
 
     //Classe pour simplifier le code
 
-    private int amount=1000;
+    private int amount=10000;
     private final String name;
 
     //Constructor

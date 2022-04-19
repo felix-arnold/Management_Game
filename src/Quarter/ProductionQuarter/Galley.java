@@ -9,13 +9,15 @@ public class Galley extends ProductionQuarter {
     //prod dépend du nombre total déquipage
 
 
-    public Galley() {
-        super();
+    public Galley(int level) {
+        super(level);
         name = "Galley";
+        trueName = "Galley";
         quarterIcon = new ImageView(new Image("galleyIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedGalleyIcon.png"));
         indexConstructionPane = new int[]{1, 0, 2};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
@@ -23,10 +25,10 @@ public class Galley extends ProductionQuarter {
         switch (adjQuarter.getName()) {
             case "HellishBoss" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[7]) {
-                    productionBonusConstant += adjQuarter.getProduction()[3];
-                } else if (rnd >= adjQuarter.getProduction()[9]) {
-                    productionBonusConstant -= adjQuarter.getProduction()[3];
+                if (rnd < 0.3) {
+                    productionBonusRate += 0.1*adjQuarter.getLevel();
+                } else if (rnd >= 0.9) {
+                    productionBonusRate -= 0.1*adjQuarter.getLevel();
                 }
             }
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();

@@ -6,14 +6,16 @@ import javafx.scene.image.ImageView;
 
 public class ParadoxalGenerator extends ProductionQuarter {
 
-    public ParadoxalGenerator() {
+    public ParadoxalGenerator(int level) {
 
-        super();
-        name = "ParadoxalGenerator";
+        super(level);
+        name = "Paradoxal Generator";
+        trueName = "ParadoxalGenerator";
         quarterIcon = new ImageView(new Image("paradoxalGeneratorIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedParadoxalGeneratorIcon.png"));
         indexConstructionPane = new int[]{0, 0, 1};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
@@ -23,13 +25,13 @@ public class ParadoxalGenerator extends ProductionQuarter {
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[13]) {
-                    productionBonusConstant += adjQuarter.getProduction()[3];
-                } else if (rnd >= adjQuarter.getProduction()[15]) {
-                    productionBonusConstant -= adjQuarter.getProduction()[3];
+                if (rnd < 0.3) {
+                    productionBonusRate += 0.1*adjQuarter.getLevel();
+                } else if (rnd >= 0.9) {
+                    productionBonusRate -= 0.1*adjQuarter.getLevel();
                 }
             }
-            case "DimensionlessSpace" -> productionBonusRate += adjQuarter.getProduction()[1];
+            case "DimensionlessSpace" -> productionBonusConstant += adjQuarter.getProduction()[1];
         }
     }
 }

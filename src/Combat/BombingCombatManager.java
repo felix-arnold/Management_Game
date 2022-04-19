@@ -5,6 +5,8 @@ import Combat.Unit.Unit;
 import Combat.Unit.Weapon;
 import General.Airship;
 import General.GlobalManager;
+import javafx.scene.control.ToggleGroup;
+import jdk.management.jfr.RecordingInfo;
 
 import javax.swing.*;
 import java.io.FileReader;
@@ -17,7 +19,7 @@ public class BombingCombatManager {
     private BombingCombatManager() {
         for (Airship iShip : GlobalManager.getInstance().getAirshipList()) {
             if(iShip != null) {
-                availableShipList.add(new FightAirship(iShip));
+                availableShipList.add(new FightAirship(iShip,true));
             }
         }
     }
@@ -30,7 +32,6 @@ public class BombingCombatManager {
 
 
     FightAirship[][] airshipBattlefield = new FightAirship[6][5];
-    FlyingUnit[][] flyingUnitBattlefield = new FlyingUnit[6][10];
     ArrayList<FightAirship> availableShipList = new ArrayList<>();
 
     public ArrayList<FightAirship> getAvailableShipList() {
@@ -120,19 +121,23 @@ public class BombingCombatManager {
         turn++;
     }
 
+    private final ToggleGroup weaponToggleGroup = new ToggleGroup();
+    public ToggleGroup getWeaponToggleGroup() {
+        return weaponToggleGroup;
+    }
 
-    //Late attack //// A REVOIR
-    /*private ArrayList<Object[]> lateAttackList = new ArrayList<>();
-
-    public void lateAttack(int[] indexList, Weapon weapon) {
-        if (indexList[0]==0) {
-            if (airshipBattlefield[indexList[1]][indexList[2]] != null) {
-                weapon.weaponAttack(airshipBattlefield[indexList[1]][indexList[2]], weapon.getActionCardsList().get(indexList[3]), true);
-            }
-        }
-        else {
-            lateAttackList.get(indexList[4])[4]=indexList[4]-1;
-        }
-    }*/
-
+    private FightAirship selectedEnnemyShip;
+    private FightAirship selectedAllyShip;
+    public void setSelectedAllyShip(FightAirship selectedAllyShip) {
+        this.selectedAllyShip = selectedAllyShip;
+    }
+    public void setSelectedEnnemyShip(FightAirship selectedEnnemyShip) {
+        this.selectedEnnemyShip = selectedEnnemyShip;
+    }
+    public FightAirship getSelectedEnnemyShip() {
+        return selectedEnnemyShip;
+    }
+    public FightAirship getSelectedAllyShip() {
+        return selectedAllyShip;
+    }
 }

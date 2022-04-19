@@ -1,0 +1,26 @@
+.emptyAirshipButton {
+    -fx-background-image: url(airshipButton.png);
+    -fx-background-size: 150px 80px;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 80px;
+}
+
+.weaponPane {
+    -fx-background-color: rgba(1,1,1,0.8);
+    -fx-background-size: 5px 5px;
+    -fx-border-width: 20px;
+    -fx-border-color: rgba(0,0,0,0);
+    -fx-hgap: 30;
+}
+
+.deckPane {
+    -fx-background-color: rgba(1,1,1,0.8);
+    -fx-background-size: 5px 5px;
+    -fx-border-width: 15px;
+    -fx-border-color: rgba(0,0,0,0);
+    -fx-hgap: 30;
+    -fx-vgap: 20;
+    -fx-pref-height: 200px;
+    -fx-pref-width: 300px;
+}
+

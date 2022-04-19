@@ -9,14 +9,16 @@ public class MadScientist extends ProductionQuarter{
     //production[0VirtualQuantumComputer, 1VirtualQuantumComputer, 2ParadoxalGenerator, 3ParadoxalGenerator, 4TemporalCamboose, 5TemporalCamboose,
     //6IaSynthesisTank, 7IaSynthesisTank, 8DataCentre, 9DataCentre, 10DimensionlessSpace, 11dimensionlessSpace, 12Probawin, 13Probawin, 14Probalose, 15Probalose]
 
-    public MadScientist() {
+    public MadScientist(int level) {
 
-        super();
-        name = "MadScientist";
+        super(level);
+        name = "Mad Scientist's Lab";
+        trueName = "MadScientist";
         quarterIcon = new ImageView(new Image("madScientistIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedMadScientistIcon.png"));
         indexConstructionPane = new int[]{1, 0, 1};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
@@ -31,7 +33,7 @@ public class MadScientist extends ProductionQuarter{
                 }
             }
             case "Berth" -> productionPerCrewBonusRate -= 0.1*adjQuarter.getLevel();
-            case "VirtualQuantumComputer" -> productionPerCrewBonusRate += adjQuarter.getProduction()[1];
+            case "VirtualQuantumComputer" -> productionPerCrewBonusRate += 0.2;
             case "HellishBoss" -> productionPerCrewBonusRate -= 0.5*adjQuarter.getCrew();
             case "CryptoInvestor" -> productionPerCrewBonusRate -= 0.05*adjQuarter.getCrew();
         }

@@ -8,20 +8,22 @@ public class HellishBoss extends ProductionQuarter {
 
     //production[0ProgrammerOffice, 1ProgrammerOffice, 2Galley, 3Galley, 4 Birdcatcher, 5Birdcatcher, 6Probawin, 7Probawin, 8Probaloss, 9Probaloss]
 
-    public HellishBoss() {
+    public HellishBoss(int level) {
 
-        super();
-        name = "HellishBoss";
+        super(level);
+        name = "Hellish Boss";
+        trueName = "HellishBoss";
         quarterIcon = new ImageView(new Image("hellishBossIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedHellishBossIcon.png"));
         indexConstructionPane = new int[]{1, 1, 1};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "Hellishboss" -> {
+            case "Hellish Boss" -> {
                 double rnd = Math.random();
                 if (rnd < 0.2) {
                     productionPerCrewBonusRate += (0.6 - 0.2 * (level-adjQuarter.getLevel())) * adjQuarter.getCrew();

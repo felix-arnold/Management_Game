@@ -8,13 +8,15 @@ public class DimensionlessSpace extends ProductionQuarter {
 
     //prodution[1Paradoxalgenerator,2paradoxalGenerator]
 
-    public DimensionlessSpace() {
-        super();
-        name="DimensionlessSpace";
+    public DimensionlessSpace(int level) {
+        super(level);
+        name = "Dimensionless Space";
+        trueName = "DimensionlessSpace";
         quarterIcon = new ImageView(new Image("dimensionlessSpaceIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedDimensionlessSpaceIcon.png"));
         indexConstructionPane = new int[]{1, 0, 0};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override

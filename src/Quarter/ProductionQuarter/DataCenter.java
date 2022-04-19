@@ -8,14 +8,16 @@ public class DataCenter extends ProductionQuarter {
 
     //production[7science,science]
 
-    public DataCenter() {
+    public DataCenter(int level) {
 
-        super();
-        name = "DataCenter";
+        super(level);
+        name = "Data Center";
+        trueName = "DataCenter";
         quarterIcon = new ImageView(new Image("dataCenterIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedDataCenterIcon.png"));
         indexConstructionPane = new int[]{0, 0, 2};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
@@ -25,10 +27,10 @@ public class DataCenter extends ProductionQuarter {
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "MadScientist" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[13]) {
-                    productionBonusConstant += adjQuarter.getProduction()[9];
-                } else if (rnd >= adjQuarter.getProduction()[15]) {
-                    productionBonusConstant -= adjQuarter.getProduction()[9];
+                if (rnd < 0.3) {
+                    productionBonusConstant += adjQuarter.getProduction()[1];
+                } else if (rnd >= 0.9) {
+                    productionBonusConstant -= adjQuarter.getProduction()[1];
                 }
             }
             case "InternetFiberProvider" -> {
@@ -39,7 +41,7 @@ public class DataCenter extends ProductionQuarter {
                     productionBonusRate += 0.05 * adjQuarter.getCrew();
                 }
             }
-            case "VirtualQuantumComputer" -> productionBonusRate += adjQuarter.getProduction()[5];
+            case "VirtualQuantumComputer" -> productionBonusRate += 0.1*adjQuarter.getCrew();
         }
     }
 }

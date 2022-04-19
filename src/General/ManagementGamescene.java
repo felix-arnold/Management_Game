@@ -8,7 +8,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -17,10 +16,10 @@ import javafx.scene.control.Button;
 import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.util.Arrays;
+import java.util.zip.GZIPOutputStream;
 
 import static Quarter.QuarterFactory.getQuarter;
 
@@ -42,18 +41,21 @@ public class ManagementGamescene extends Scene {
 
     private Group g;
 
-    Pane changeShipPane = new Pane();
-    Pane resourcesPane = new Pane();
+    private Pane changeShipPane = new Pane();
+    private Pane resourcesPane = new Pane();
 
-    ToggleGroup menuConstructionPaneToggleGroup;
+    private ToggleGroup menuConstructionPaneToggleGroup;
 
-    GridPane menuConstructionPane = new GridPane();
+    private GridPane menuConstructionPane = new GridPane();
 
-    StaticThing endTurnBackground = new StaticThing("endTurnBackground.png", 1400, 660, 947, 946,140,140);
-    Button endTurnButton = new Button();
+    private StaticThing endTurnBackground = new StaticThing("endTurnBackground.png", 1400, 660, 947, 946,140,140);
+    private Button endTurnButton = new Button();
 
-    ToggleGroup constructionToggleGroup = new ToggleGroup();
+    private static ToggleGroup constructionToggleGroup = GlobalManager.getInstance().getConstructionSubmenuToggleGroup();
 
+    private static GridPane[] constructionsPane = new GridPane[5];
+
+    private RadioButton buildAirshipButton = new RadioButton("Build Airship");
 
     public ManagementGamescene(Group g) {
         super(g, 1540, 800);
@@ -89,15 +91,8 @@ public class ManagementGamescene extends Scene {
         g.getChildren().add(cloudTop2Right.getSprite());
 
 
-        GlobalManager.getInstance().getAirshipList()[1] = new Airship("Corvette");
-        GlobalManager.getInstance().getAirshipList()[2] = new Airship("Man'o'war");
-        GlobalManager.getInstance().getAirshipList()[3] = new Airship("Schooner");
-        GlobalManager.getInstance().getAirshipList()[4] = new Airship("Fluyt");
-        GlobalManager.getInstance().getAirshipList()[5] = new Airship("Brig");
-        GlobalManager.getInstance().getAirshipList()[6] = new Airship("Frigate");
-        GlobalManager.getInstance().getAirshipList()[7] = new Airship("Longskip");
-        GlobalManager.getInstance().getAirshipList()[8] = new Airship("Junk");
-
+        GlobalManager.getInstance().getAirshipList()[0] = new Airship("Sloop");
+        GlobalManager.getInstance().setNumberOfShip(1);
 
         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[0].getImage().getSprite());
         GlobalManager.getInstance().getAirshipList()[0].setDisplay(true);
@@ -112,6 +107,7 @@ public class ManagementGamescene extends Scene {
 
 
         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
+        g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterInfoPane());
 
         g.getChildren().add(resourcesPane);
 
@@ -217,13 +213,13 @@ public class ManagementGamescene extends Scene {
 
             if (!onAnimation.get()) {
 
-                //System.out.println(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterDisplayPane().getChildren().get(GlobalManager.getInstance().getSelectedQuarterButton()-1));
-
-                Airship.getToggleQuarter().selectToggle(null);
+                GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
                 menuConstructionPaneToggleGroup.selectToggle(null);
                 constructionToggleGroup.selectToggle(null);
+                GlobalManager.getInstance().getQuarterToggleGroup().selectToggle(null);
 
                 g.getChildren().remove(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
+                g.getChildren().remove(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterInfoPane());
                 rightTransition.setNode(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
                 rightTransition.setDuration(Duration.seconds(0.5));
                 rightTransition.setByX(-1500);
@@ -232,11 +228,24 @@ public class ManagementGamescene extends Scene {
                 rightTransition.setOnFinished(eventRightTransition -> {
                     g.getChildren().remove(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
                     GlobalManager.getInstance().getAirshipList()[indexShipDisplay].setDisplay(false);
-                    if (GlobalManager.getInstance().getAirshipList()[++indexShipDisplay] == null) {
+                    if (indexShipDisplay==11 || GlobalManager.getInstance().getAirshipList()[++indexShipDisplay] == null ) {
                         indexShipDisplay = 0;
                     }
                     GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite().setTranslateX(1500);
                     g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
+
+                    cloudBottom2Left.getSprite().toFront();
+                    cloudBottom2Right.getSprite().toFront();
+                    cloudTop2Left.getSprite().toFront();
+                    cloudTop2Right.getSprite().toFront();
+                    changeShipPane.toFront();
+                    resourcesPane.toFront();
+                    menuConstructionPane.toFront();
+                    endTurnBackground.getSprite().toFront();
+                    endTurnButton.toFront();
+                    buildAirshipButton.toFront();
+                    GlobalManager.getInstance().getInfoBisPane().toFront();
+                    GlobalManager.getTechManager().getTechPane().toFront();
 
                     rightTransition2.setDuration(Duration.seconds(0.5));
                     rightTransition2.setAutoReverse(true);
@@ -245,17 +254,8 @@ public class ManagementGamescene extends Scene {
                     rightTransition2.setOnFinished(eventRightTransition2 -> {
                         GlobalManager.getInstance().getAirshipList()[indexShipDisplay].setDisplay(true);
                         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
+                        g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterInfoPane());
                         onAnimation.setValue(false);
-                        cloudBottom2Left.getSprite().toFront();
-                        cloudBottom2Right.getSprite().toFront();
-                        cloudTop2Left.getSprite().toFront();
-                        cloudTop2Right.getSprite().toFront();
-                        changeShipPane.toFront();
-                        resourcesPane.toFront();
-                        menuConstructionPane.toFront();
-                        endTurnBackground.getSprite().toFront();
-                        endTurnButton.toFront();
-
                     });
                     rightTransition2.play();
                 });
@@ -270,13 +270,15 @@ public class ManagementGamescene extends Scene {
 
         previousShip.setOnAction((event) -> {
 
-            Airship.getToggleQuarter().selectToggle(null);
+            GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
             menuConstructionPaneToggleGroup.selectToggle(null);
             constructionToggleGroup.selectToggle(null);
+            GlobalManager.getInstance().getQuarterToggleGroup().selectToggle(null);
 
             if (!onAnimation.get()) {
 
                 g.getChildren().remove(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
+                g.getChildren().remove(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterInfoPane());
 
                 leftTransition.setNode(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
                 leftTransition.setDuration(Duration.seconds(0.5));
@@ -295,6 +297,19 @@ public class ManagementGamescene extends Scene {
                     GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite().setTranslateX(-1500);
                     g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
 
+                    cloudBottom2Left.getSprite().toFront();
+                    cloudBottom2Right.getSprite().toFront();
+                    cloudTop2Left.getSprite().toFront();
+                    cloudTop2Right.getSprite().toFront();
+                    changeShipPane.toFront();
+                    resourcesPane.toFront();
+                    menuConstructionPane.toFront();
+                    endTurnBackground.getSprite().toFront();
+                    endTurnButton.toFront();
+                    buildAirshipButton.toFront();
+                    GlobalManager.getInstance().getInfoBisPane().toFront();
+                    GlobalManager.getTechManager().getTechPane().toFront();
+
                     leftTransition2.setDuration(Duration.seconds(0.5));
                     leftTransition2.setAutoReverse(true);
                     leftTransition2.setNode(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getImage().getSprite());
@@ -302,16 +317,8 @@ public class ManagementGamescene extends Scene {
                     leftTransition2.setOnFinished(eventRightTransition2 -> {
                         GlobalManager.getInstance().getAirshipList()[indexShipDisplay].setDisplay(true);
                         g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterPane());
+                        g.getChildren().add(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getQuarterInfoPane());
                         onAnimation.setValue(false);
-                        cloudBottom2Left.getSprite().toFront();
-                        cloudBottom2Right.getSprite().toFront();
-                        cloudTop2Left.getSprite().toFront();
-                        cloudTop2Right.getSprite().toFront();
-                        changeShipPane.toFront();
-                        resourcesPane.toFront();
-                        menuConstructionPane.toFront();
-                        endTurnBackground.getSprite().toFront();
-                        endTurnButton.toFront();
                     });
                     leftTransition2.play();
                 });
@@ -343,10 +350,10 @@ public class ManagementGamescene extends Scene {
             endTurnTransition.setOnFinished(eventBis -> {
                 endTurnButton.getStyleClass().clear();
                 endTurnButton.getStyleClass().add("endTurnButton");
+                endTurnButton.setDisable(false);
             });
             endTurnTransition.playFromStart();
             GlobalManager.getInstance().nextTurn();
-            endTurnButton.setDisable(false);
         });
 
 
@@ -373,13 +380,9 @@ public class ManagementGamescene extends Scene {
         constructionButtons[3].getStyleClass().add("masterQuartersButton");
         constructionButtons[4].getStyleClass().add("recruitmentQuartersButton");
 
+        g.getChildren().add(GlobalManager.getInstance().getInfoBisPane());
 
 
-        String[] selectedQuarterType = new String[1];
-
-        GridPane quarterInfoPane = new GridPane();
-
-        GridPane[] constructionsPane = new GridPane[5];
 
         for (int i=0; i<5; i++) {
             constructionsPane[i] = new GridPane();
@@ -391,44 +394,11 @@ public class ManagementGamescene extends Scene {
             constructionsPane[i].setMinSize(109, 203);
         }
 
-
-        for (Quarter quarter : GlobalManager.getInstance().getAllQuartersList()) {
-            if (quarter.isUnlock()){
-                RadioButton constructionQuarterButton = new RadioButton();
-                constructionQuarterButton.getStyleClass().clear();
-                constructionQuarterButton.setPrefSize(40, 40);
-                constructionQuarterButton.setToggleGroup(constructionToggleGroup);
-
-                quarter.getQuarterIcon().setFitWidth(40);
-                quarter.getQuarterIcon().setFitHeight(40);
-                quarter.getSelectedQuarterIcon().setFitWidth(40);
-                quarter.getSelectedQuarterIcon().setFitHeight(40);
-                constructionQuarterButton.setGraphic(quarter.getQuarterIcon());
-                constructionsPane[quarter.getIndexConstructionPane()[0]].add(constructionQuarterButton, quarter.getIndexConstructionPane()[1], quarter.getIndexConstructionPane()[2]);
-
-                constructionQuarterButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
-                    if (isNowSelected) {
-                        constructionQuarterButton.setGraphic(quarter.getSelectedQuarterIcon());
-                        g.getChildren().add(quarter.getQuarterInfoPane());
-                        selectedQuarterType[0]=quarter.getName();
-                    }
-                    else {
-                        constructionQuarterButton.setGraphic(quarter.getQuarterIcon());
-                        g.getChildren().remove(quarter.getQuarterInfoPane());
-                        selectedQuarterType[0] = null;
-                    }
-                });
-
-                constructionQuarterButton.setOnDragDetected(event -> {
-                    Dragboard db = constructionQuarterButton.startDragAndDrop(TransferMode.COPY);
-                    db.setDragView(constructionQuarterButton.snapshot(null, null), event.getX(), event.getY());
-                    ClipboardContent cc = new ClipboardContent();
-                    db.setContent(cc);
-                });
-            }
-        }
+        constructionMenuDisplay();
 
 
+
+        //CREER METHODE POUR SIMPLIFIER TOUT CA
         TranslateTransition constructionPaneTransition = new TranslateTransition();
         constructionPaneTransition.setByY(-195);
         constructionPaneTransition.setDuration(Duration.seconds(0.15));
@@ -447,6 +417,7 @@ public class ManagementGamescene extends Scene {
                 constructionPaneTransition.playFromStart();
                 arrowSelection.getSprite().setTranslateX(0);
                 g.getChildren().add(arrowSelection.getSprite());
+                constructionToggleGroup.selectToggle(null);
             } else {
                 constructionButtons[0].getStyleClass().add("productionQuartersButton");
                 constructionPaneTransition.stop();
@@ -468,6 +439,7 @@ public class ManagementGamescene extends Scene {
                 constructionPaneTransition.playFromStart();
                 arrowSelection.getSprite().setTranslateX(70);
                 g.getChildren().add(arrowSelection.getSprite());
+                constructionToggleGroup.selectToggle(null);
             } else {
                 constructionButtons[1].getStyleClass().add("advancedQuartersButton");
                 constructionPaneTransition.stop();
@@ -489,6 +461,7 @@ public class ManagementGamescene extends Scene {
                 constructionPaneTransition.playFromStart();
                 arrowSelection.getSprite().setTranslateX(140);
                 g.getChildren().add(arrowSelection.getSprite());
+                constructionToggleGroup.selectToggle(null);
             } else {
                 constructionButtons[2].getStyleClass().add("facilityQuartersButton");
                 constructionPaneTransition.stop();
@@ -510,6 +483,7 @@ public class ManagementGamescene extends Scene {
                 constructionPaneTransition.playFromStart();
                 arrowSelection.getSprite().setTranslateX(210);
                 g.getChildren().add(arrowSelection.getSprite());
+                constructionToggleGroup.selectToggle(null);
             } else {
                 constructionButtons[3].getStyleClass().add("masterQuartersButton");
                 constructionPaneTransition.stop();
@@ -531,6 +505,7 @@ public class ManagementGamescene extends Scene {
                 constructionPaneTransition.playFromStart();
                 arrowSelection.getSprite().setTranslateX(280);
                 g.getChildren().add(arrowSelection.getSprite());
+                constructionToggleGroup.selectToggle(null);
             } else {
                 constructionButtons[4].getStyleClass().add("recruitmentQuartersButton");
                 constructionPaneTransition.stop();
@@ -541,7 +516,52 @@ public class ManagementGamescene extends Scene {
         });
 
 
+        g.getChildren().add(GlobalManager.getTechManager().getTechPane());
 
+
+        buildAirshipButton.setLayoutX(20);
+        buildAirshipButton.setLayoutY(740);
+        buildAirshipButton.getStyleClass().clear();
+        buildAirshipButton.getStyleClass().add("button");
+        buildAirshipButton.setToggleGroup(menuConstructionPaneToggleGroup);
+        buildAirshipButton.setPrefHeight(50);
+
+        GridPane buildAirshipPane = new GridPane();
+        buildAirshipPane.setLayoutY(660);
+
+        buildAirshipButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+            if (isNowSelected) {
+                g.getChildren().add(buildAirshipPane);
+            }
+            else {
+                g.getChildren().remove(buildAirshipPane);
+            }
+        });
+        ToggleGroup buildAirshipToggleGroup = new ToggleGroup();
+        String[] airshipAll = {"Sloop", "Corvette","Man'o'war","Schooner","Fluyt","Brig","Frigate","Longskip","Junk" };
+        int m = airshipAll.length;
+        for (int i =3; i>0;i--) {
+            for (int j=3; j>0; j--) {
+                m--;
+                if (GlobalManager.getInstance().getUnlockedAirships().contains(airshipAll[m])) {
+                    RadioButton radioButton = new RadioButton(airshipAll[m]);
+                    radioButton.setMinWidth(72);
+                    radioButton.setToggleGroup(buildAirshipToggleGroup);
+                    radioButton.getStyleClass().clear();
+                    radioButton.getStyleClass().add("button");
+                    buildAirshipPane.add(radioButton, j, i);
+                    int n = m;
+                    radioButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+                        if (isNowSelected) {
+                            GlobalManager.getInstance().constructAirship(airshipAll[n], GlobalManager.getInstance().getAirshipList()[indexShipDisplay]);
+                            buildAirshipToggleGroup.selectToggle(null);
+                        }
+                    });
+                }
+            }
+        }
+
+        g.getChildren().add(buildAirshipButton);
 
 
 
@@ -550,17 +570,35 @@ public class ManagementGamescene extends Scene {
         AnimationTimer timer = new AnimationTimer() {
             public void handle(long time) {
                 airshipAnimation(time, g);
-                render(time, g);
+                render();
                 for (int i = 0; i < 4; i++) {
                     globalResouresNumbers[i].setValue(GlobalManager.getInstance().getGlobalResources()[i].getAmount());
                 }
                 for (int i = 0; i < 3; i++) {
                     localResourcesNumbers[i].setValue(GlobalManager.getInstance().getAirshipList()[indexShipDisplay].getLocalResourcesManager().getResourcesList()[i].getAmount());
                 }
+
+                for (Airship iShip : GlobalManager.getInstance().getAirshipList()) {
+                    if (iShip != null) {
+                        for (Quarter[] iQuarter : iShip.getQuarterList()) {
+                            if (iQuarter != null) {
+                                for (Quarter jQuarter : iQuarter) {
+                                    if (jQuarter != null) {
+                                        jQuarter.getPropertyCrew().setValue(jQuarter.getCrew());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         };
         timer.start();
     }
+
+
+
+
 
 
 
@@ -573,7 +611,7 @@ public class ManagementGamescene extends Scene {
     }
 
 
-    public void render(long time, Group g) {
+    public void render() {
 
         backgroundLeft.updateBackground(1831, 2, 0);
         backgroundRight.updateBackground(1831, 2, 1);
@@ -591,7 +629,36 @@ public class ManagementGamescene extends Scene {
         cloudTop2Right.updateBackground(5780,25,1);
     }
 
-    public Group getG() {
-        return g;
+
+    public static void constructionMenuDisplay() {
+        for (Pane pane : constructionsPane) {
+            pane.getChildren().clear();
+        }
+        for (String quarterName : GlobalManager.getInstance().getAllQuartersList()) {
+            Quarter quarter = getQuarter(quarterName,1);
+            for (Quarter unlockedQuarter : GlobalManager.getInstance().getUnlockedQuarters()) {
+                if (quarter.getClass() == unlockedQuarter.getClass()) {
+                    RadioButton constructionQuarterButton = new RadioButton();
+                    constructionQuarterButton.getStyleClass().clear();
+                    constructionQuarterButton.setPrefSize(40, 40);
+                    constructionQuarterButton.setToggleGroup(constructionToggleGroup);
+                    constructionQuarterButton.setGraphic(quarter.getFitterQuarterIcon(40, 40));
+                    constructionsPane[quarter.getIndexConstructionPane()[0]].add(constructionQuarterButton, quarter.getIndexConstructionPane()[1], quarter.getIndexConstructionPane()[2]);
+
+                    constructionQuarterButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+                        if (isNowSelected) {
+                            GlobalManager.getInstance().getQuarterToggleGroup().selectToggle(null);
+                            GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+                            constructionQuarterButton.setGraphic(quarter.getFitterSelectedQuarterIcon(40, 40));
+                            GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+                            GlobalManager.getInstance().getInfoBisPane().getChildren().add(quarter.getConstructionQuarterInfoPane());
+                        } else {
+                            constructionQuarterButton.setGraphic(quarter.getFitterQuarterIcon(40, 40));
+                            GlobalManager.getInstance().getInfoBisPane().getChildren().remove(quarter.getConstructionQuarterInfoPane());
+                        }
+                    });
+                }
+            }
+        }
     }
 }

@@ -1,10 +1,14 @@
 package General;
 
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import static General.CsvFileUser.readCSV;
+import static General.ManagementGamescene.constructionMenuDisplay;
 
 public class TechManager {
 
@@ -17,14 +21,14 @@ public class TechManager {
     */
 
     private final ArrayList<Tech> techTree = new ArrayList<>();
-    static final List<String[]> techData = new ArrayList<>();
+    static List<String[]> techData = new ArrayList<>();
 
     private int indexTechInProgress = -1;
     private long additionalScience = 0;
 
 
     //Constructor | Use of a singleton
-    private TechManager () {
+    public TechManager () {
         readCSV("techData.csv", techData);
         for (String[] techInfo : techData) {
             ArrayList<Integer> previousTechIndex = new ArrayList<>();
@@ -33,14 +37,43 @@ public class TechManager {
                 previousTechIndex.add(Integer.parseInt(i));
             }
             for (String j : techInfo[2].split(",")) {
-                previousTechIndex.add(Integer.parseInt(j));
+                nextTechIndex.add(Integer.parseInt(j));
             }
-            techTree.add(new Tech(techInfo[0], previousTechIndex, nextTechIndex, Integer.parseInt(techInfo[3]), Boolean.parseBoolean(techInfo[4]), techInfo[5]));
+            techTree.add(new Tech(techInfo[0], previousTechIndex, nextTechIndex, Integer.parseInt(techInfo[3]),techInfo[4]));
         }
-    }
-    private static final TechManager INSTANCE = new TechManager();
-    public static TechManager getInstance() {
-        return INSTANCE;
+
+        techPane.setLayoutY(100);
+        techPane.setPrefWidth(350);
+        subTechPane.getStyleClass().add("researchPane");
+        techPane.setContent(subTechPane);
+        final int[] j = {0};
+        for (int i = 0; i<techTree.size(); i++) {
+            if (!techTree.get(i).isDiscovered()) {
+                j[0]++;
+                int k=i;
+                RadioButton radioButton = new RadioButton(techTree.get(k).getName());
+                radioButton.getStyleClass().clear();
+                radioButton.getStyleClass().add("researchButton");
+                radioButton.setToggleGroup(researchButtonToggleGroup);
+                subTechPane.add(radioButton, j[0], 0);
+                radioButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
+                    if (isNowSelected) {
+                        radioButton.getStyleClass().clear();
+                        radioButton.getStyleClass().add("selectedResearchButton");
+                        if (selectResearchedTech(k) == -1) {
+                            researchButtonToggleGroup.selectToggle(null);
+                        }
+                    } else {
+                        if (!techTree.get(k).isDiscovered()) {
+                            radioButton.getStyleClass().clear();
+                            radioButton.getStyleClass().add("researchButton");
+                        } else {
+                            subTechPane.getChildren().remove(radioButton);
+                        }
+                    }
+                });
+            }
+        }
     }
 
 
@@ -48,7 +81,7 @@ public class TechManager {
     public int selectResearchedTech(int index) {
         //check if the previous tech are already researched and if not return -1
         for (int indexPreviousTech : techTree.get(index).getPreviousTechIndex()) {
-            if (!techTree.get(indexPreviousTech).isDiscovered()) {
+            if (!techTree.get(indexPreviousTech-1).isDiscovered()) {
                 return -1;
             }
         }
@@ -74,6 +107,7 @@ public class TechManager {
                 techTree.get(indexTechInProgress).setResearched(false);
                 techTree.get(indexTechInProgress).setDiscovered();
                 techTree.get(indexTechInProgress).applyTech();
+                constructionMenuDisplay();
                 //set next tech as unlock if all of their previous tech are discovered
                 for (int indexNextTech : techTree.get(indexTechInProgress).getNextTechIndex()) {
                     boolean canUnlock = true;
@@ -88,6 +122,7 @@ public class TechManager {
                     }
                 }
                 indexTechInProgress = -1;
+                researchButtonToggleGroup.selectToggle(null);
             }
         }
         //Store science if none is selected
@@ -98,5 +133,13 @@ public class TechManager {
         if (additionalScience > 2*GlobalManager.getInstance().getScienceResource().getAmount()) {
             additionalScience = 2*GlobalManager.getInstance().getScienceResource().getAmount();
         }
+    }
+
+    ScrollPane techPane = new ScrollPane();
+    GridPane subTechPane = new GridPane();
+    ToggleGroup researchButtonToggleGroup = new ToggleGroup();
+
+    public ScrollPane getTechPane() {
+        return techPane;
     }
 }

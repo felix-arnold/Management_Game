@@ -8,20 +8,22 @@ public class Birdcatcher extends ProductionQuarter {
 
     //production[food,food, birdcatcher, birdcatcher]
 
-    public Birdcatcher() {
-        super();
+    public Birdcatcher(int level) {
+        super(level);
         name = "Birdcatcher";
+        trueName = "Birdcatcher";
         quarterIcon = new ImageView(new Image( "birdcatcherIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedBirdcatcherIcon.png"));
         indexConstructionPane = new int[]{0, 0, 3};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
 
     @Override
     public void adjacentBonuses(Quarter adjQuarter) {
         switch (adjQuarter.getName()) {
-            case "Birdcatcher" -> productionBonusConstant += adjQuarter.getProduction()[3];
+            case "Birdcatcher" -> productionBonusConstant += adjQuarter.getProduction()[1]*0.3;
             case "Hellishboss" -> {
                 double rnd = Math.random();
                 if (rnd < adjQuarter.getProduction()[7] * adjQuarter.getLevel()) {

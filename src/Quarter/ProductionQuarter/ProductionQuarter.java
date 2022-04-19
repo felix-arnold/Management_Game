@@ -14,15 +14,13 @@ public abstract class ProductionQuarter extends Quarter {
     protected double productionPerCrewBonusRate;
     protected double productionBonusRate;
     protected double productionBonusConstant;
-    protected double productionPerCrew;
-    protected long productionType;
 
 
     protected final List<String[]> productionBuildingsData = new ArrayList<>();
 
 
-    public ProductionQuarter() {
-        super();
+    public ProductionQuarter(int level) {
+        super(level);
 
         productionBonusConstant = 0;
         productionBonusRate = 1;
@@ -46,21 +44,32 @@ public abstract class ProductionQuarter extends Quarter {
         return productionBonusConstant;
     }
 
-    public double getProductionPerCrew() {
-        return productionPerCrew;
-    }
-
     public long[] getProduction() {
         return production;
     }
 
     protected void loadAllValues() {
         CsvFileUser.readCSV("ProductionBuildingsData.csv", productionBuildingsData);
-        bitCost=Integer.parseInt(loadValue(name+String.valueOf(1),productionBuildingsData, "bitCost"));
-        codeDataCost=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "codeDataCost"));
-        cryptomoneyCost=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "cryptomoneyCost"));
-        electricityConsumption=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "baseElectricityConsumption"));
-        cyptomoneyConsumptionPerCrew=Integer.parseInt(loadValue(name + String.valueOf(level),productionBuildingsData, "baseCyptomoneyConsumptionPerCrew"));
+        maxCrew=Integer.parseInt(loadValue(trueName+String.valueOf(level),productionBuildingsData, "baseMaxCrew"));
+        maxLevel=Integer.parseInt(loadValue(trueName+String.valueOf(level),productionBuildingsData, "maxLevel"));
+        bitCost=Integer.parseInt(loadValue(trueName+String.valueOf(level),productionBuildingsData, "bitCost"));
+        codeDataCost=Integer.parseInt(loadValue(trueName + String.valueOf(level),productionBuildingsData, "codeDataCost"));
+        cryptomoneyCost=Integer.parseInt(loadValue(trueName + String.valueOf(level),productionBuildingsData, "cryptomoneyCost"));
+        electricityConsumption=Integer.parseInt(loadValue(trueName + String.valueOf(level),productionBuildingsData, "baseElectricityConsumption"));
+        cyptomoneyConsumptionPerCrew=Integer.parseInt(loadValue(trueName + String.valueOf(level),productionBuildingsData, "baseCyptomoneyConsumptionPerCrew"));
+        productionPerCrew[0]=Long.parseLong(loadValue(trueName + String.valueOf(level), productionBuildingsData, "production").split("!")[0]);
+        productionPerCrew[1]=Long.parseLong(loadValue(trueName + String.valueOf(level), productionBuildingsData, "production").split("!")[1]);
+
     }
 
+    @Override
+    public void baseCalculationProduction() {
+        production[0] = productionPerCrew[0];
+        production[1] = (long) ((productionPerCrew[1] * crew * productionPerCrewBonusRate + productionBonusConstant)*productionBonusRate);
+        System.out.println(productionPerCrew[1]);
+        System.out.println(productionPerCrewBonusRate);
+        System.out.println(productionBonusRate);
+        System.out.println(productionBonusConstant);
+        System.out.println(production[1]);
+    }
 }

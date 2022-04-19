@@ -1,12 +1,12 @@
 package Combat.Unit;
 
-import Combat.ActionCard;
-import Combat.BombingCombatManager;
-import Combat.FightAirship;
-import Combat.WeaponActionCard;
+import Combat.*;
 import General.Airship;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import org.w3c.dom.Element;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -16,11 +16,18 @@ import static java.lang.Math.random;
 
 public class Weapon extends Unit {
 
+    private final Deck deck;
+
+    public Deck getDeck() {
+        return deck;
+    }
+
     //Constructor
     public Weapon(String name, int level, FightAirship airship) {
         super(name, level);
 
         this.ourAirship=airship;
+
 
         if (Objects.equals(Objects.requireNonNull(dataXML).getElementsByTagName("useSituation").item(0).getTextContent(), "bombing")) {
             canBombing = true;
@@ -42,6 +49,18 @@ public class Weapon extends Unit {
                 actionCardsList.add(new WeaponActionCard(dataXML, i, level, unlockLevel));
             }
         }
+
+        deck = new Deck(actionCardsList,this);
+
+
+        Button but = new Button("AAAAA");
+        but.setLayoutY(100);
+
+        weaponButton = new RadioButton(name);
+        weaponButton.setToggleGroup(BombingCombatManager.getInstance().getWeaponToggleGroup());
+        weaponButton.getStyleClass().clear();
+        weaponButton.getStyleClass().add("button");
+
     }
 
     private final FightAirship ourAirship;
@@ -384,5 +403,10 @@ public class Weapon extends Unit {
                 canAction=true;
             }
         }
+    }
+
+    private final RadioButton weaponButton;
+    public RadioButton getWeaponButton() {
+        return weaponButton;
     }
 }

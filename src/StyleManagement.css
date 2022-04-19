@@ -1,0 +1,234 @@
+.arrowNextShip {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(ArrowChangeShip.png) rotate(90deg);
+    -fx-background-size: 45px 45px;
+    -fx-background-position: center;
+    -fx-rotate: 90;
+    -fx-pref-width: 45px;
+    -fx-pref-height: 45px;
+}
+
+.arrowPreviousShip {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-background-image: url(ArrowChangeShip.png);
+    -fx-background-size: 45px 45px;
+    -fx-background-position: center;
+    -fx-rotate: -90;
+    -fx-pref-width: 45px;
+    -fx-pref-height: 45px;
+}
+
+.resourcesInfo {
+    -fx-background-image: url(resourceInfoBackground.jpg);
+    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-border-width:6;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #dbd7b4;
+}
+
+.resourcesNumber {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #5b533c;
+    -fx-min-width: 94px;
+    -fx-translate-y: 13.5;
+}
+
+.endTurnButton {
+    -fx-background-image: url(endTurnButton.png);
+    -fx-background-size: 160px, 109px;
+    -fx-pref-width: 160px;
+    -fx-pref-height: 109px;
+}
+
+.selectedEndTurnButton {
+    -fx-background-image: url(selectedEndTurnButton.png);
+    -fx-background-size: 160px, 109px;
+    -fx-pref-width: 160px;
+    -fx-pref-height: 109px;
+}
+
+.menuConstructionPane {
+    -fx-background-image: url(menuConstructionPane.png);
+    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-border-width:15px;
+    -fx-background-size: 510px 80px;
+    -fx-pref-width: 510px;
+    -fx-pref-height:80px;
+    -fx-hgap: 20;
+}
+
+.productionQuartersButton {
+    -fx-background-image: url(productionQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.advancedQuartersButton {
+    -fx-background-image: url(advancedQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.facilityQuartersButton {
+    -fx-background-image: url(facilityQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.masterQuartersButton {
+    -fx-background-image: url(masterQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.recruitmentQuartersButton {
+    -fx-background-image: url(recruitmentQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedProductionQuartersButton {
+    -fx-background-image: url(selectedProductionQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedAdvancedQuartersButton {
+    -fx-background-image: url(selectedAdvancedQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedFacilityQuartersButton {
+    -fx-background-image: url(selectedFacilityQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedMasterQuartersButton {
+    -fx-background-image: url(selectedMasterQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.selectedRecruitmentQuartersButton {
+    -fx-background-image: url(selectedRecruitmentQuarters.png);
+    -fx-background-size: 50px 50px;
+    -fx-pref-width: 50px;
+    -fx-pref-height:50px;
+}
+
+.constructionPane {
+    -fx-background-image: url(constructionPane.png);
+    -fx-background-size: 109px 203px;
+    -fx-border-width: 11px;
+    -fx-border-color: rgba(0,0,0,0);
+}
+
+.quarterInfoPane {
+    -fx-background-image: url(quarterInfoPane.png);
+    -fx-background-size: 309px 460px;
+    -fx-border-width: 11px;
+    -fx-border-color: rgba(0,0,0,0);
+    -fx-pref-width: 309px;
+    -fx-pref-height:460px;
+}
+
+
+.emptyQuarter {
+    -fx-background-color: rgba(255, 226, 203, 0.4);
+    -fx-border-color: rgba(255, 255, 255, 0.7);
+    -fx-border-width: 1.5;
+}
+
+.errorQuarter {
+    -fx-background-color: rgba(145, 17, 27, 0.7);
+    -fx-border-color: rgb(75, 2, 2);
+    -fx-border-width: 1.5;
+}
+
+.selectedEmptyQuarter {
+    -fx-background-color: rgba(255, 226, 203, 0.8);
+    -fx-border-color: rgb(255, 255, 255);
+    -fx-border-width: 1.5;
+}
+
+.titleFont {
+    -fx-background-image: url(titleInfoBackground.png);
+    -fx-font-size: 20px;
+    -fx-border-color: rgba(0, 0, 0, 0);
+    -fx-border-width:6;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #dbd7b4;
+}
+
+.normalFont {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #5b533c;
+}
+
+.buildButton {
+    -fx-background-color: rgba(16, 110, 34, 0.8);
+    -fx-border-color: rgba(13, 87, 11, 0.8);
+    -fx-border-width:2;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #d3cabc;
+}
+
+.wrongBuildButton {
+    -fx-background-color: rgba(133, 17, 27, 0.9);
+    -fx-border-color: rgba(100, 5, 16, 0.9);
+    -fx-border-width:2;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #d3cabc;
+}
+
+.selectedBuildButton {
+    -fx-background-color: rgba(45, 162, 68, 0.8);
+    -fx-border-color: rgba(36, 128, 33, 0.8);
+    -fx-border-width:2;
+    -fx-text-fill: #d3cabc;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Century Gothic";
+}
+
+.researchPane {
+    -fx-background-image: url(clair.jpg);
+    -fx-background-size: 5px 5px;
+    -fx-border-width: 11px;
+    -fx-border-color: rgba(0,0,0,0);
+    -fx-hgap: 15px;
+}
+
+.researchButton {
+    -fx-background-image: url(moyen.jpg);
+    -fx-min-height: 40;
+    -fx-min-width: 80;
+}
+
+.selectedResearchButton {
+    -fx-background-image: url(sombre.jpg);
+    -fx-min-height: 40;
+    -fx-min-width: 80;
+}

@@ -3,6 +3,7 @@ package General;
 import Quarter.ProductionQuarter.*;
 import Quarter.*;
 
+import javafx.animation.PauseTransition;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.ColumnConstraints;
@@ -10,14 +11,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import Combat.Unit.*;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static General.CsvFileUser.*;
 import static Quarter.QuarterFactory.getQuarter;
-import static java.lang.Math.abs;
 
 public class Airship {
 
@@ -54,7 +54,9 @@ public class Airship {
 
     static final List<String[]> airshipData = new ArrayList<>();
 
-    static final String[] prorityList = {"Berth","VirtualQuantum", "MadScientist", "HellishBoss", "Cryptoinvestor", "DataCentre", "ProgrammerOffice", "Birdcatcher", "TemporalCaboose", "IASynthesisTank", "Galley", "DimensionlessSpace", "ParadoxalGenerator", "Cryptomne"};
+    static final String[] prorityList = {"Berth","VirtualQuantumComputer", "MadScientist", "HellishBoss", "Cryptoinvestor", "DataCenter", "ProgrammersOffice", "Birdcatcher", "TemporalCaboose", "IASynthesisTank", "Galley", "DimensionlessSpace", "ParadoxalGenerator", "Cryptomine"};
+
+
 
 
     //Combat variables
@@ -124,6 +126,8 @@ public class Airship {
         int widthQuarter = Integer.parseInt(loadValue(name, airshipData, "widthQuarter"));
         int heightQuarter = Integer.parseInt(loadValue(name, airshipData, "heightQuarter"));
 
+        quarterInfoPane.setLayoutX(1230);
+
         quarterPane.getChildren().add(quarterDisplayPane);
         quarterPane.setLayoutX(100);
         quarterPane.setLayoutY(100);
@@ -142,19 +146,59 @@ public class Airship {
                 if (isNowSelected) {
                     GlobalManager.getInstance().setSelectedQuarterButton(k[0]);
                     radioButton.getStyleClass().clear();
-                    radioButton.getStyleClass().add("selectedEmptyQuarter");
-                    selectedQuarter[1]=position[1];
-                    selectedQuarter[0]=position[0];
-                    if (quarterList[position[0]][position[1]]!=null) {
-                        quarterPane.getChildren().add(quarterList[position[0]][position[1]].getQuarterInfoPane());
+                    GlobalManager.getInstance().getConstructionSubmenuToggleGroup().selectToggle(null);
+                    if (quarterList[position[0]][position[1]] == null) {
+                        radioButton.getStyleClass().add("selectedEmptyQuarter");
+                        selectedQuarter[1] = position[1];
+                        selectedQuarter[0] = position[0];
+
+                        if (GlobalManager.getInstance().getSelectedBuildQuarter() != null) {
+                            if (constructQuarter(GlobalManager.getInstance().getSelectedBuildQuarter(), position[0], position[1], false, false) == 0) {
+                                radioButton.setGraphic(quarterList[position[0]][position[1]].getFitterSelectedQuarterIcon(widthQuarter, heightQuarter));
+                                quarterInfoPane.getChildren().add(quarterList[position[0]][position[1]].getQuarterInfoPane());
+                                quarterList[position[0]][position[1]].loadQuarterInfoPane();
+                            }
+                            else {
+                                radioButton.getStyleClass().clear();
+                                radioButton.getStyleClass().add("errorQuarter");
+                                PauseTransition pause = new PauseTransition(
+                                        Duration.seconds(0.7));
+                                pause.setOnFinished(event -> {
+                                    radioButton.getStyleClass().clear();
+                                    radioButton.getStyleClass().add("selectedEmptyQuarter");
+                                });
+                                pause.play();
+                            }
+                        }
+                    }
+                    else {
+                        if (GlobalManager.getInstance().getSelectedBuildQuarter() != null) {
+
+                            radioButton.getStyleClass().clear();
+                            radioButton.getStyleClass().add("errorQuarter");
+                            radioButton.setGraphic(null);
+                            PauseTransition pause = new PauseTransition(
+                                    Duration.seconds(0.7));
+                            pause.setOnFinished(event -> {
+                                radioButton.getStyleClass().clear();
+                                radioButton.getStyleClass().add("selectedEmptyQuarter");
+                            });
+                            pause.play();
+                        }
+                        radioButton.setGraphic(quarterList[position[0]][position[1]].getFitterSelectedQuarterIcon(widthQuarter, heightQuarter));
+                        GlobalManager.getInstance().getConstructionSubmenuToggleGroup().selectToggle(null);
+                        quarterInfoPane.getChildren().add(quarterList[position[0]][position[1]].getQuarterInfoPane());
                     }
                 }
                 else {
                     GlobalManager.getInstance().setSelectedQuarterButton(-1);
                     radioButton.getStyleClass().clear();
-                    radioButton.getStyleClass().add("emptyQuarter");
-                    if (quarterList[position[0]][position[1]]!=null) {
-                        quarterPane.getChildren().remove(quarterList[position[0]][position[1]].getQuarterInfoPane());
+                    if (quarterList[position[0]][position[1]] == null) {
+                        radioButton.getStyleClass().add("emptyQuarter");
+                    }
+                    else {
+                        radioButton.setGraphic(quarterList[position[0]][position[1]].getFitterQuarterIcon(widthQuarter, heightQuarter));
+                        quarterInfoPane.getChildren().remove(quarterList[position[0]][position[1]].getQuarterInfoPane());
                     }
                 }
             });
@@ -184,40 +228,86 @@ public class Airship {
     }
 
     private final Pane quarterPane = new Pane();
+    private final Pane quarterInfoPane = new Pane();
     private final GridPane quarterDisplayPane = new GridPane();
 
     public GridPane getQuarterDisplayPane() {
         return quarterDisplayPane;
     }
 
-    private static final ToggleGroup toggleQuarter = new ToggleGroup();
+    ToggleGroup toggleQuarter = GlobalManager.getInstance().getQuarterToggleGroup();
+
     public Pane getQuarterPane() {
         return quarterPane;
     }
-    public static ToggleGroup getToggleQuarter() {
-        return toggleQuarter;
+
+    public Pane getQuarterInfoPane() {
+        return quarterInfoPane;
     }
-
-
     /////////////// ADD FOR UPGRADING
 
     //ok
     //Construct the building at the selected place
-    public void constructQuarter(String quarterName, int xPos, int yPos, boolean resourcesException) {
-        Quarter quarter = getQuarter(quarterName);
+    public int constructQuarter(String quarterName, int xPos, int yPos, boolean resourcesException, boolean upgrade) {
+        Quarter quarter = getQuarter(quarterName, 1);
         assert quarter != null;
-        if ((GlobalManager.getInstance().getBitResource().getAmount() >= quarter.getBitCost()) && (GlobalManager.getInstance().getCodeDataResource().getAmount() >= quarter.getCodeDataCost()) && (GlobalManager.getInstance().getCryptoMoneyResource().getAmount() >= quarter.getCryptomoneyCost()) && !resourcesException) {
+        if ((quarterList[xPos][yPos]==null && GlobalManager.getInstance().getBitResource().getAmount() >= quarter.getBitCost()) && (GlobalManager.getInstance().getCodeDataResource().getAmount() >= quarter.getCodeDataCost()) && (GlobalManager.getInstance().getCryptoMoneyResource().getAmount() >= quarter.getCryptomoneyCost()) && !resourcesException) {
             GlobalManager.getInstance().getBitResource().subtractAmount(quarter.getBitCost());
             GlobalManager.getInstance().getCodeDataResource().subtractAmount(quarter.getCodeDataCost());
             GlobalManager.getInstance().getCryptoMoneyResource().subtractAmount(quarter.getCryptomoneyCost());
+            quarter.setLevel(1);
             quarterList[xPos][yPos] = quarter;
+            quarter.setAirship(this);
+            quarter.setX(xPos);
+            quarter.setY(yPos);
             numberQuarter++;
+            GlobalManager.getInstance().setSelectedBuildQuarter(null);
+            GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+            return 0;
         }
-        else if (resourcesException) {
+        else if (quarterList[xPos][yPos]==null && resourcesException) {
             quarterList[xPos][yPos] = quarter;
             numberQuarter++;
+            GlobalManager.getInstance().setSelectedBuildQuarter(null);
+            GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+            quarter.setAirship(this);
+            return 0;
+        }
+        else {
+            GlobalManager.getInstance().setSelectedBuildQuarter(null);
+            GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+            return -1;
         }
     }
+
+    public void upgrade(Quarter quarter) {
+        if (quarter.getLevel()<quarter.getMaxLevel()) {
+            Quarter quarterBis = getQuarter(quarter.getTrueName(), quarter.getLevel()+1);
+            while(quarter.getCrew()>0) {
+                quarter.subCrew();
+            }
+            if ((GlobalManager.getInstance().getBitResource().getAmount() >= quarterBis.getBitCost()) && (GlobalManager.getInstance().getCodeDataResource().getAmount() >= quarterBis.getCodeDataCost()) && (GlobalManager.getInstance().getCryptoMoneyResource().getAmount() >= quarterBis.getCryptomoneyCost())) {
+                GlobalManager.getInstance().getBitResource().subtractAmount(quarterBis.getBitCost());
+                GlobalManager.getInstance().getCodeDataResource().subtractAmount(quarterBis.getCodeDataCost());
+                GlobalManager.getInstance().getCryptoMoneyResource().subtractAmount(quarterBis.getCryptomoneyCost());
+                toggleQuarter.selectToggle(null);
+                quarterBis.setAirship(this);
+                quarter.setAirship(this);
+                quarterBis.setX(quarter.getX());
+                quarterBis.setY(quarter.getY());
+                GlobalManager.getInstance().setSelectedBuildQuarter(null);
+                GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+                quarterList[quarter.getX()][quarter.getY()] = quarterBis;
+                quarterList[quarter.getX()][quarter.getY()].loadQuarterInfoPane();
+            }
+            else {
+                GlobalManager.getInstance().setSelectedBuildQuarter(null);
+                GlobalManager.getInstance().getConstructQuarterToggleGroup().selectToggle(null);
+            }
+        }
+    }
+
+
 
     //ok
     //Get a list of the four adjacent quarters of this quarter
@@ -311,7 +401,7 @@ public class Airship {
 
 
     //Manage overconsumption of electricity by disabling or enabling quarter
-    public void manageElectricityOverconsumption() {
+    /*public void manageElectricityOverconsumption() {
         if (localResourcesManager.getElectricityResource().getAmount() < 0) {
             while (localResourcesManager.getElectricityResource().getAmount() < 0) {
                 int r1 = (int) abs(Math.random()*numberOfRaws);
@@ -337,37 +427,24 @@ public class Airship {
                 disabledQuarterList.remove((int) canEnableQuarterIndexList.get(r));
             }
         }
-    }
+    }*/
 
-
-    //Add or remove crew from a building
-    public void addCrew(Quarter quarter) {
-        if (localResourcesManager.availableCrewResource.getAmount()>=100) {
-            if (quarter.getCrew() < quarter.getMaxCrew()) {
-                quarter.addCrew();
-                localResourcesManager.availableCrewResource.subtractAmount(100);
-            }
-        }
-    }
-
-    public void removeCrew(Quarter quarter) {
-        if (quarter.getCrew()>0) {
-            quarter.removeCrew();
-            localResourcesManager.availableCrewResource.addAmount(100);
-        }
-    }
 
 
     //Calculate production for each quarter depending on the priority list
     public void updateProduction() {
         for (String prorityQuarterName : prorityList) {
-            Quarter priorityQuarter = getQuarter(prorityQuarterName);
+            Quarter priorityQuarter = getQuarter(prorityQuarterName,1);
             for (Quarter[] iQuarter : quarterList) {
                 for (Quarter jQuarter : iQuarter) {
-                    assert priorityQuarter != null;
-                    if (jQuarter.getClass().equals(priorityQuarter.getClass())) {
-                        for (Quarter adjacentQuarter : getAdjacent(jQuarter)) {
-                            jQuarter.adjacentBonuses(adjacentQuarter);
+                    if (jQuarter != null && priorityQuarter != null) {
+                        if (jQuarter.getClass().equals(priorityQuarter.getClass())) {
+                            for (Quarter adjacentQuarter : getAdjacent(jQuarter)) {
+                                if (adjacentQuarter != null) {
+                                    jQuarter.adjacentBonuses(adjacentQuarter);
+                                }
+                            }
+                            jQuarter.baseCalculationProduction();
                         }
                     }
                 }

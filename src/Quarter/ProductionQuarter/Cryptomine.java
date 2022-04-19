@@ -6,14 +6,16 @@ import javafx.scene.image.ImageView;
 
 public class Cryptomine extends ProductionQuarter {
 
-    public Cryptomine() {
+    public Cryptomine(int level) {
 
-        super();
+        super(level);
         name = "Cryptomine";
+        trueName = "Cryptomine";
         quarterIcon = new ImageView(new Image("cryptomineIcon.png"));
         selectedQuarterIcon = new ImageView(new Image("selectedCryptomineIcon.png"));
         indexConstructionPane = new int[]{0, 1, 1};
         loadAllValues();
+        loadConstructionInfoPaneValue();
     }
 
     @Override
@@ -23,9 +25,9 @@ public class Cryptomine extends ProductionQuarter {
             case "Berth" -> productionPerCrewBonusRate += 0.05 * adjQuarter.getLevel();
             case "Cryptoinvestor" -> {
                 double rnd = Math.random();
-                if (rnd < adjQuarter.getProduction()[3]) {
+                if (rnd < 0.50) {
                     productionBonusConstant += adjQuarter.getProduction()[1];
-                } else if (rnd >= adjQuarter.getProduction()[5]) {
+                } else if (rnd >= 0.7) {
                     productionBonusConstant -= adjQuarter.getProduction()[1];
                 }
             }
