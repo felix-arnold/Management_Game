@@ -17,14 +17,6 @@
             <statLevel3 damagePerAmmo="10" reloadTime="5" range="3" accuracy="85" critic="10"/>
         </actionCard>
 
-        <actionCard nameActionCard="Barrage" target="airship" type="attack" situation="bombing" unlockLevel="4">
-            <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="preshot" turnDuration="4" />
-            <statLevel1 damagePerAmmo="8" reloadTime="5" range="3" accuracy="55" critic="10"/>
-            <statLevel2 damagePerAmmo="9" reloadTime="5" range="3" accuracy="55" critic="10"/>
-            <statLevel3 damagePerAmmo="10" reloadTime="5" range="3" accuracy="55" critic="10"/>
-        </actionCard>
-
         <actionCard nameActionCard="More powder" target="self" type="buff" situation="bombing" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="buff" buffType="range" attackDuration="1"/>
@@ -88,8 +80,8 @@
         <actionCard nameActionCard="Put in everything" target="self" type="buff" situation="bombing" unlockLevel="3">
             <descriptionActionCard>???</descriptionActionCard>
             <specialAction type="buff" buffType="damage" attackDuration="1"/>
-            <specialAction type="buff" buffType="critic" attackDuration="1"/>
             <statLevel3 reloadTime="3" buffDamage="50" buffCritic="10"/>
+            <specialAction type="buff" buffType="critic" attackDuration="1"/>
         </actionCard>
     </weapon>
 
@@ -111,9 +103,7 @@
 
         <actionCard nameActionCard="BuffCrit" target="self" type="buff" situation="bombing and boarding" unlockLevel="1">
             <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="buff" buffType="accuracy" attackDuration="3"/>
             <specialAction type="buff" buffType="critic" attackDuration="3"/>
-            <specialAction type="buff" buffType="criticDamage" attackDuration="3"/>
             <statLevel1 reloadTime="3" buffAccuracy="5" buffCritic="20" buffDamageCritic="20"/>
             <statLevel2 reloadTime="3" buffAccuracy="5" buffCritic="30" buffDamageCritic="30"/>
             <statLevel3 reloadTime="3" buffAccuracy="5" buffCritic="40" buffDamageCritic="40"/>
@@ -175,18 +165,6 @@
             <statLevel3 reloadTime="2" buffDamage="20"/>
         </actionCard>
 
-        <actionCard nameActionCard="Smokescreen" target="self" type="buff" situation="bombing" unlockLevel="2">
-            <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="smokeScreen" missProbability="30"/>
-            <statLevel2 reloadTime="4" duration="10"/>
-            <statLevel3 reloadTime="3" duration="15"/>
-        </actionCard>
-
-        <actionCard nameActionCard="Poison Launch" target="self" type="buff" situation="bombing" unlockLevel="3">
-            <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="poison" poisonProbability="90"/>
-            <statLevel3 reloadTime="2"/>
-        </actionCard>
     </weapon>
 
 
@@ -214,28 +192,5 @@
             <specialAction type="shieldPiercing" damageToHull="75"/>
         </actionCard>
 
-        <actionCard nameActionCard="VulnShot" target="self" type="buff" situation="bombing" unlockLevel="1">
-            <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="armourPiercing"/>
-            <specialAction type="vulnerability" probability="50"/>
-            <statLevel1 reloadTime="4"/>
-            <statLevel2 reloadTime="3"/>
-            <statLevel3 reloadTime="2"/>
-        </actionCard>
-
-        <actionCard nameActionCard="Bombshell loading" target="self" type="buff" situation="bombing" unlockLevel="2">
-            <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="armourPiercing"/>
-            <specialAction type="ignite"/>
-            <statLevel2 igniteProbability="50" reloadTime="3" fireDepart="2"/>
-            <statLevel3 igniteProbability="70" reloadTime="2" fireDepart="2"/>
-        </actionCard>
-
-        <actionCard nameActionCard="BuffArmourPierc" target="self" type="buff" situation="bombing" unlockLevel="3">
-            <descriptionActionCard>???</descriptionActionCard>
-            <specialAction type="armourPiercing"/>
-            <specialAction type="disable" probability="70" disablePower="5"/>
-            <statLevel3 reloadTime="3" duration="15"/>
-        </actionCard>
     </weapon>
 </WeaponList>
