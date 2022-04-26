@@ -266,11 +266,11 @@ instanceKlass javafx/scene/Scene$KeyHandler$$Lambda$127+0x0000000800cf55b0
 instanceKlass javafx/scene/Scene$KeyHandler
 instanceKlass javafx/animation/AnimationTimer$AnimationTimerReceiver
 instanceKlass jdk/internal/misc/ScopedMemoryAccess$Scope
-instanceKlass Quarter/Quarter
-instanceKlass General/CsvFileUser
-instanceKlass General/Resources
-instanceKlass General/LocalResourcesManager
-instanceKlass General/Airship
+instanceKlass Management.Quarter/Management.Quarter
+instanceKlass Management.GeneralManagement/CsvFileUser
+instanceKlass Management.GeneralManagement/Resources
+instanceKlass Management.GeneralManagement/LocalResourcesManager
+instanceKlass Management.GeneralManagement/Airship
 instanceKlass sun/util/resources/Bundles$CacheKeyReference
 instanceKlass java/util/ResourceBundle$ResourceBundleProviderHelper$$Lambda$54+0x80000005a
 instanceKlass java/util/ResourceBundle$ResourceBundleProviderHelper
@@ -379,7 +379,7 @@ instanceKlass com/sun/javafx/iio/ImageStorage
 instanceKlass com/sun/javafx/tk/quantum/PrismImageLoader2$PrismLoadListener
 instanceKlass com/sun/javafx/iio/ImageLoadListener
 instanceKlass com/sun/javafx/tk/quantum/PrismImageLoader2
-instanceKlass General/StaticThing
+instanceKlass Management.GeneralManagement/StaticThing
 instanceKlass com/sun/javafx/util/WeakReferenceQueue
 instanceKlass com/sun/javafx/scene/transform/TransformUtils
 instanceKlass javafx/scene/Node$NodeTransformation
