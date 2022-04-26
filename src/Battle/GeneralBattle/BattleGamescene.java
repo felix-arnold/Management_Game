@@ -18,9 +18,16 @@ import javafx.util.Duration;
 public class BattleGamescene extends Scene {
 
 
-    private Boolean moving=false;
-    private final int[] movingShip= new int[2];
 
+    /**
+     * Displays and implements the different elements of the interface.
+     * <br><br> This constructor manages the following elements:
+     * <br> - The background
+     * <br> - The end turn button
+     * <br> - The display of the airships, and the pane of their weapon and cards
+     * <br> - The assignment of several interface buttons
+     * @param g the node contains the list of every rendered children
+     */
     public BattleGamescene(Group g) {
         super(g);
 
@@ -50,6 +57,8 @@ public class BattleGamescene extends Scene {
         BombingCombatManager.getInstance().getAirshipBattlefield()[3][0].setPosition(0);
 
 
+        final boolean[] moving={false};
+        int[] movingShip= new int[2];
 
         ToggleGroup airshipAllyButtonToggleGroup = new ToggleGroup();
         ToggleGroup airshipEnnemyButtonToggleGroup = new ToggleGroup();
@@ -71,12 +80,12 @@ public class BattleGamescene extends Scene {
                         int n=m;
                         BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getMoveButton().selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
                             if (isNowSelected) {
-                                moving=true;
+                                moving[0]=true;
                                 movingShip[0] = k;
                                 movingShip[1] = l;
                             }
                             else {
-                                moving=false;
+                                moving[0]=false;
                             }
                         });
                         BombingCombatManager.getInstance().getAirshipBattlefield()[k][l].getWeaponButtonList().get(m).selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
@@ -103,9 +112,9 @@ public class BattleGamescene extends Scene {
                         }
                         else {
                             if (isNowSelected) {
-                                BombingCombatManager.getInstance().setSelectedEnnemyShip(BombingCombatManager.getInstance().getAirshipBattlefield()[k][l]);
+                                BombingCombatManager.getInstance().setSelectedEnemyShip(BombingCombatManager.getInstance().getAirshipBattlefield()[k][l]);
                             } else {
-                                BombingCombatManager.getInstance().setSelectedEnnemyShip(null);
+                                BombingCombatManager.getInstance().setSelectedEnemyShip(null);
                             }
                         }
                     });
@@ -144,7 +153,7 @@ public class BattleGamescene extends Scene {
                 int k=i;
                 int l=j;
                 radioButton.setOnAction((event) -> {
-                    if (moving) {
+                    if (moving[0]) {
                         System.out.println("ship" + movingShip[0] + "/" + movingShip[1]);
                         System.out.println("position" + k + "/" + l);
                         BombingCombatManager.getInstance().moveShip(BombingCombatManager.getInstance().getAirshipBattlefield()[movingShip[0]][movingShip[1]], k,l);

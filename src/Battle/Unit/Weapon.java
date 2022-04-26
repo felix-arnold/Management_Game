@@ -132,7 +132,7 @@ public class Weapon extends Unit {
         double bonusHullDamage=1;
         if (airship.getVulnerabilities()>0) {
             damagePerAttack*=1.2;
-            airship.changeVulnerability(-1);
+            airship.addVulnerability(-1);
         }
         int i = 0;
 
@@ -145,7 +145,7 @@ public class Weapon extends Unit {
                         int damagePerAttackBis = damagePerAttack+buffDamage;
                         if (random() * 100 < card.getAccuracy()+buffAccuracy) {
                             if(random() * 100 <vulnerabilityProbability) {
-                                airship.changeVulnerability(1);
+                                airship.addVulnerability(1);
                             }
                             if (random() * 100 < card.getCritic()+buffCritic) {
                                 damagePerAttackBis *= 1.5*(1+buffCriticDamage/100);

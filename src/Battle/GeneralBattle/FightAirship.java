@@ -8,7 +8,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -267,11 +266,15 @@ public class FightAirship {
     }
 
 
-    //If the airship is ignited
+    /**
+     * Number of fire starts this airship has.
+     */
     private int numberOfFireStart = 0;
-    public int getNumberOfFireStart() {
-        return numberOfFireStart;
-    }
+
+    /**
+     * Increase the number of fire starts by the argument value.
+     * @param newFireStarts the number of new fire starts
+     */
     public void ignite(int newFireStarts) {
         numberOfFireStart+=newFireStarts;
     }
@@ -283,19 +286,30 @@ public class FightAirship {
         return shield;
     }
 
+    /**
+     * Number of vulnerability this airship has.
+     */
     private int vulnerabilities=0;
-    public int getVulnerabilities() {
-        return vulnerabilities;
-    }
-    public void changeVulnerability(int amount) {
+
+    /**
+     * Adds the argument value to the number of vulnerability this airship has.
+     * @param amount
+     */
+    public void addVulnerability(int amount) {
         vulnerabilities+=amount;
     }
 
-
+    /**
+     * Reduce the speed of the airship by the argument value.
+     * @param slowAmount the value of the slow
+     */
     public void slow(double slowAmount) {
         speed-=slowAmount;
     }
 
+    /**
+     * Loads the information inside the weaponPane.
+     */
     public void loadWeaponDisplay() {
         weaponPane.add(moveButton,0,0);
         for (int i = 0; i<weaponsList.size();i++)  {
@@ -304,12 +318,26 @@ public class FightAirship {
         }
     }
 
+    /**
+     * GridPane including the buttons of each weapon on this airship.
+     */
     private final GridPane weaponPane = new GridPane();
+
+    /**
+     * Returns the gridPane including the buttons of each weapon on this airship.
+     */
     public GridPane getWeaponPane() {
         return weaponPane;
     }
 
+    /**
+     * List of the buttons of every buttons on this airship.
+     */
     private final ArrayList<RadioButton> weaponButtonList = new ArrayList<>();
+
+    /**
+     * Returns the list of the buttons of every buttons on this airship.
+     */
     public ArrayList<RadioButton> getWeaponButtonList() {
         return weaponButtonList;
     }

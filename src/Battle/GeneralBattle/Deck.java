@@ -138,8 +138,8 @@ public class Deck {
                         deckPane.getChildren().remove(buttonCardSelected);
                     }
                     else if (handsCard[indexSelected].getType().equals("attack")) {
-                        if (BombingCombatManager.getInstance().getSelectedEnnemyShip()!=null) {
-                            weapon.weaponAttack(BombingCombatManager.getInstance().getSelectedEnnemyShip(), handsCard[indexSelected]);
+                        if (BombingCombatManager.getInstance().getSelectedEnemyShip()!=null) {
+                            weapon.weaponAttack(BombingCombatManager.getInstance().getSelectedEnemyShip(), handsCard[indexSelected]);
                             deckPane.getChildren().remove(buttonCardSelected);
                         }
                     }
