@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Battle.GeneralBattle"},{"l":"Battle.Unit"},{"l":"FileReaders"},{"l":"Management.GeneralManagement"},{"l":"Management.Quarter"},{"l":"Management.Quarter.ProductionQuarter"}];updateSearchResults();
