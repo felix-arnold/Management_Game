@@ -54,17 +54,6 @@ public class FightAirship {
         weaponPane.setLayoutY(650);
         weaponPane.setLayoutX(100);
 
-        hullBar.setPrefWidth(122);
-        hullBar.setPrefHeight(10);
-        shieldBar.setPrefWidth(122);
-        shieldBar.setPrefHeight(10);
-        hullBar.setLayoutY(12);
-
-        hullBar.getStyleClass().add("hullBar");
-
-        hullBar.progressProperty().unbind();
-        shieldBar.progressProperty().unbind();
-
         moveButton.getStyleClass().clear();
         moveButton.getStyleClass().add("button");
 

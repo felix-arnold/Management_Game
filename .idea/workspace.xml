@@ -5,64 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Battle/Unit/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Battle/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FileReaders/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/NonAnimatedThing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/Quarter/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/package-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/Java.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Runner.iml.plantuml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/replay_pid11744.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid11744.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replay_pid6856.log" beforeDir="false" afterPath="$PROJECT_DIR$/replay_pid6856.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/ActionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/ActionCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/BattleGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/BattleGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/BombingCombatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/BombingCombatManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/FightAirship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/FightAirship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/FlyingUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/IAUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/LandUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/Unit/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/Unit/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/Unit/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Combat/WeaponActionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/WeaponActionCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Airship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/Airship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/AnimatedThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/AnimatedThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/CsvFileUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileReaders/CsvFileUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/GlobalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/GlobalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/LocalResourcesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/LocalResourcesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/ManagementGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/ManagementGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/Resources.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/StaticThing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/Tech.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/Tech.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/TechManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GeneralManagement/TechManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/General/XMLReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileReaders/XMLReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/DataFundry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/DataFundry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Berth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/Berth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Birdcatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/Birdcatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptoinvestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/Cryptoinvestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Cryptomine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/Cryptomine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DataCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/DataCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/DimensionlessSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/DimensionlessSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/Galley.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/Galley.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/HellishBoss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/HellishBoss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/IASynthetisTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/IASynthetisTank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/InternetFiberProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/InternetFiberProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/MadScientist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/MadScientist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ParadoxalGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/ParadoxalGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProductionQuarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/ProductionQuarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/ProgrammersOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/ProgrammersOffice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/TemporalCaboose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/TemporalCaboose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/ProductionQuarter/VirtualQuantumComputer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/ProductionQuarter/VirtualQuantumComputer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/Quarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/Quarter.plantuml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/Quarter.plantuml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quarter/QuarterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/Quarter/QuarterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Battle/GeneralBattle/FightAirship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/FightAirship.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +292,7 @@
       <workItem from="1650907242354" duration="7280000" />
       <workItem from="1650920695902" duration="3596000" />
       <workItem from="1650962441158" duration="1484000" />
-      <workItem from="1650971196470" duration="7917000" />
+      <workItem from="1650971196470" duration="8230000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -631,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650381043720</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Initial commit">
+      <created>1650983146303</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1650983146303</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
