@@ -48,8 +48,8 @@ public class BombingCombatManager {
     /**
      * Matrix of the airships in the battlefield.
      */
-    FightAirship[][] airshipBattlefield = new FightAirship[6][5];
-    ArrayList<FightAirship> availableShipList = new ArrayList<>();
+    private final FightAirship[][] airshipBattlefield = new FightAirship[6][5];
+    private final ArrayList<FightAirship> availableShipList = new ArrayList<>();
 
     /**
      * Returns the matrix of the airships in the battlefield.
@@ -139,7 +139,7 @@ public class BombingCombatManager {
     /**
      * Current turn of the battle.
      */
-    int turn = 0;
+    private int turn = 0;
 
     /**
      * Returns the current turn of the battle.

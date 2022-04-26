@@ -84,7 +84,7 @@ public class Weapon extends Unit {
     /**
      * Data from the XML file, containing the attributes and elements of the weapon.
      */
-    final Element dataXML = readXML("WeaponsData.xml", name);
+    private final Element dataXML = readXML("WeaponsData.xml", name);
     /**
      * Preparation time before the weapon can perform an action for the first time.
      */

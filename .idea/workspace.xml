@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d1e253bc-a427-4531-b107-a54da8887391" name="Changes" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Battle/GeneralBattle/BattleGamescene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/BattleGamescene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Battle/GeneralBattle/BombingCombatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/BombingCombatManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Battle/GeneralBattle/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Battle/GeneralBattle/FightAirship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/GeneralBattle/FightAirship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Battle/Unit/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battle/Unit/Weapon.java" afterDir="false" />
     </list>
@@ -299,7 +296,7 @@
       <workItem from="1650920695902" duration="3596000" />
       <workItem from="1650962441158" duration="1484000" />
       <workItem from="1650971196470" duration="12092000" />
-      <workItem from="1650993968904" duration="3793000" />
+      <workItem from="1650993968904" duration="4568000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1637372651297</created>
@@ -595,7 +592,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650983219999</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Initial commit">
+      <created>1651001778543</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1651001778544</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Initial commit">
+      <created>1651001825566</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1651001825566</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

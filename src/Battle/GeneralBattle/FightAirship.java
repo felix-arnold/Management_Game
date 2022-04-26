@@ -146,7 +146,7 @@ public class FightAirship {
     /**
      * Node of this airship to display it.
      */
-    ImageView sprite;
+    private final ImageView sprite;
 
     /**
      * Returns the displayed node of this airship.
@@ -352,7 +352,7 @@ public class FightAirship {
     /**
      * Property of an airship controlled by the player.
      */
-    boolean ally;
+    private boolean ally;
 
     /**
      * Returns the property ally of this airship.

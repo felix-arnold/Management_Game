@@ -152,7 +152,7 @@ public class Deck {
     /**
      * Index of the selected card.
      */
-    int indexSelected=-1;
+    private int indexSelected=-1;
     /**
      * RadioButton of the selected card.
      */
