@@ -300,6 +300,13 @@ public class FightAirship {
     }
 
     /**
+     * Returns the number of vulnerability this airship has.
+     */
+    public int getVulnerabilities() {
+        return vulnerabilities;
+    }
+
+    /**
      * Reduce the speed of the airship by the argument value.
      * @param slowAmount the value of the slow
      */
